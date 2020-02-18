@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/18 08:20:51 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/18 08:22:55 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int ft_chck_arg(int intgr, const char *strng)
 
 void		ft_del(void *content, size_t content_size)
 {
+
+	// DO NOT DELETE 3 STRINGS BELOW
 	// free(content);
 	// ft_memdel(&content);
 	// content_size = 0;
@@ -44,8 +46,6 @@ int			main(int ac, char **av)
 	t_list		*stck_a;
 	t_list		*stck_b;
 
-	// printf("size of int = %zu\n",sizeof(int)); // 4 bytes
-	
 	n_arg = ac;
 	res = ft_atoi(av[--ac]);
 	if (ft_chck_arg(res, av[ac]))
@@ -53,16 +53,10 @@ int			main(int ac, char **av)
 	stck_a = ft_lstnew(&res, sizeof(int));
 	while (--ac > 0)
 	{
-
-		// printf("%i\n",ac);
-		// printf("%s\n",av[ac]);
-
 		res = ft_atoi(av[ac]);
 		if (ft_chck_arg(res, av[ac]))
 			ft_error(stck_a, stck_b);
 		ft_lstadd(&stck_a, ft_lstnew(&res, sizeof(int)));
-		
-		// printf("%i\n",res);
 	}
 	while (stck_a)
 	{
