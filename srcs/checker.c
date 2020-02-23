@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/18 08:22:55 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/23 14:42:12 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,29 +39,33 @@ void		ft_error(t_list *stck_a,t_list *stck_b)
 	exit (-1);
 }
 
-int			main(int ac, char **av)
-{
-	int			res;
-	int			n_arg;
-	t_list		*stck_a;
-	t_list		*stck_b;
 
-	n_arg = ac;
-	res = ft_atoi(av[--ac]);
-	if (ft_chck_arg(res, av[ac]))
-		ft_error(stck_a, stck_b);
-	stck_a = ft_lstnew(&res, sizeof(int));
-	while (--ac > 0)
-	{
-		res = ft_atoi(av[ac]);
-		if (ft_chck_arg(res, av[ac]))
-			ft_error(stck_a, stck_b);
-		ft_lstadd(&stck_a, ft_lstnew(&res, sizeof(int)));
-	}
-	while (stck_a)
-	{
-		printf("content of chain element: %i\n",*((int*)(stck_a->content)));
-		stck_a = stck_a->next;
-	}
-	return (0);
-}
+
+
+/* THIS IS OLD MAIN WITH A READING INSTRUCTIONS NOT VIA GNL */
+// int			main(int ac, char **av)
+// {
+// 	int			res;
+// 	int			n_arg;
+// 	t_list		*stck_a;
+// 	t_list		*stck_b;
+
+// 	n_arg = ac;
+// 	res = ft_atoi(av[--ac]);
+// 	if (ft_chck_arg(res, av[ac]))
+// 		ft_error(stck_a, stck_b);
+// 	stck_a = ft_lstnew(&res, sizeof(int));
+// 	while (--ac > 0)
+// 	{
+// 		res = ft_atoi(av[ac]);
+// 		if (ft_chck_arg(res, av[ac]))
+// 			ft_error(stck_a, stck_b);
+// 		ft_lstadd(&stck_a, ft_lstnew(&res, sizeof(int)));
+// 	}
+// 	while (stck_a)
+// 	{
+// 		printf("content of chain element: %i\n",*((int*)(stck_a->content)));
+// 		stck_a = stck_a->next;
+// 	}
+// 	return (0);
+// }
