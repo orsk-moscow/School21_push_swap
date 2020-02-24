@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+         #
+#    By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/15 19:18:54 by klekisha          #+#    #+#              #
-#    Updated: 2019/04/24 19:35:32 by klekisha         ###   ########.fr        #
+#    Updated: 2020/02/24 12:17:26 by u18188899        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SOURCES =	ft_atoi.c \
   		ft_lstdel.c \
   		ft_lstdelone.c \
   		ft_lstiter.c \
+  		ft_lstlen.c \
   		ft_lstmap.c \
   		ft_lstnew.c \
   		ft_memalloc.c \

@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:22:45 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/24 11:18:30 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/24 12:05:34 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct			s_2_stcks
 	t_list					*b;
 }						t_2_stcks;
 /* ************************************************************************** */
+t_2_stcks				ft_do_instrs(t_2_stcks stcks, char *instr, size_t n_s);
 int						ft_chck_arg(int intgr, const char *strng);
 void					ft_del(void *content, size_t content_size);
 void					ft_error(t_list *stck_a,t_list *stck_b);

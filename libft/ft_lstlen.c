@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions2.c                                    :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 09:39:29 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/24 11:59:30 by u18188899        ###   ########.fr       */
+/*   Created: 2020/02/24 11:26:12 by u18188899         #+#    #+#             */
+/*   Updated: 2020/02/24 11:30:18 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-
-t_2_stcks				ft_do_rb(t_2_stcks stcks)
+#include "libft.h"
+						
+size_t					ft_lstlen(t_list *lst)
 {
-	return (stcks);
-}
+	size_t					sz;
 
-t_2_stcks				ft_do_rr(t_2_stcks stcks)
-{
-	return (stcks);
-}
-
-t_2_stcks				ft_do_rra(t_2_stcks stcks)
-{
-	return (stcks);
-}
-
-t_2_stcks				ft_do_rrb(t_2_stcks stcks)
-{
-	return (stcks);
-}
-
-t_2_stcks				ft_do_rrr(t_2_stcks stcks)
-{
-	return (stcks);
+	sz = 0;
+	while (lst)
+	{
+		sz++;
+		lst = lst->next;
+	}
+	return (sz);
 }

@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/24 10:09:24 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/24 13:35:04 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,13 @@ t_2_stcks				ft_gt_stcks(int ac, char **av)
 		ft_lstadd(&stcks.a, ft_lstnew(&res, sizeof(int)));
 	}
 /* content below should ne deleted before validation */
-	while (stcks.a)
-	{
-		printf("content of chain element: %i\n",*((int*)(stcks.a->content)));
-		stcks.a = stcks.a->next;
-	}
+	// t_list					*temp;
+	// temp = stcks.a;
+	// while (temp)
+	// {
+	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
+	// 	temp = temp->next;
+	// }
 /* content above should ne deleted before validation */
 	return (stcks);
 }

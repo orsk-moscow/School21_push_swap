@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 20:49:11 by klekisha          #+#    #+#             */
-/*   Updated: 2020/02/17 18:29:42 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/24 12:01:16 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1525,6 +1525,7 @@ t_list *(*f)(t_list *elem));
 // Param. #1 A pointer’s to the first link of a list.
 // Param. #2 The address of a function to apply to each link of a list.
 // Return value The new list.
+size_t								ft_lstlen(t_list *lst);
 
 int									ft_count_words(char const *s, char c);
 
