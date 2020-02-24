@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 09:24:49 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/24 12:42:13 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/24 19:19:38 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,19 @@ t_2_stcks				ft_do_instrs(t_2_stcks stcks, char *instr, size_t n_s)
 	return (stcks);
 }
 
+/* ************************************************************************** */
 t_2_stcks				ft_do_sa(t_2_stcks stcks)
 {
 	size_t					len_a;
+	void					*tmp1;
+	void					*tmp2;
 
 	len_a = ft_lstlen(stcks.a);
-	if (len_a > 1)
-	{
+	if (len_a <= 1)
 		return (stcks);
-	}
+	tmp1 = stcks.a->content;
+	tmp2 = stcks.a->next->content;
+	stcks.a->content = tmp2;
+	stcks.a->next->content = tmp1;
 	return (stcks);
 }

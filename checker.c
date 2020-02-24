@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/24 13:35:04 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/24 19:04:51 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,14 @@ int						main(int ac, char **av)
 	ft_exct_instrs(stcks, *buff) ?
 		ft_putstr_fd("OK\n", STDOUT_FILENO) :
 		ft_putstr_fd("KO\n", STDOUT_FILENO);
+/* content below should ne deleted before validation */
+	t_list					*temp;
+	temp = stcks.a;
+	while (temp)
+	{
+		printf("content of chain element: %i\n",*((int*)(temp->content)));
+		temp = temp->next;
+	}
+/* content above should ne deleted before validation */	
 	return (0);
 }
