@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 09:38:40 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/24 19:21:32 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/24 20:45:40 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_2_stcks				ft_do_sb(t_2_stcks stcks)
 {
-	size_t					len_a;
+	size_t					len;
 	void					*tmp1;
 	void					*tmp2;
 
-	len_a = ft_lstlen(stcks.b);
-	if (len_a <= 1)
+	len = ft_lstlen(stcks.b);
+	if (len <= 1)
 		return (stcks);
 	tmp1 = stcks.b->content;
 	tmp2 = stcks.b->next->content;
@@ -37,11 +37,41 @@ t_2_stcks				ft_do_ss(t_2_stcks stcks)
 
 t_2_stcks				ft_do_pa(t_2_stcks stcks)
 {
+	size_t					len;
+	t_list					*tmp1;
+
+	len = ft_lstlen(stcks.b);
+	if (len < 1)
+		return (stcks);
+	tmp1 = stcks.b;
+	stcks.b = stcks.b->next;
+	tmp1->next = stcks.a;
+	stcks.a = tmp1;
 	return (stcks);
 }
 
 t_2_stcks				ft_do_pb(t_2_stcks stcks)
 {
+	size_t					len;
+	t_list					*tmp1;
+	t_list					*tmp2;
+
+	len = ft_lstlen(stcks.a);
+	if (len < 1)
+		return (stcks);
+	tmp1 = stcks.a;
+	stcks.a = stcks.a->next;
+	tmp1->next = stcks.b;
+	stcks.b = tmp1;
+/* content below should ne deleted before validation */
+	// t_list					*temp;
+	// temp = stcks.a;
+	// while (temp)
+	// {
+	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
+	// 	temp = temp->next;
+	// }
+/* content above should ne deleted before validation */
 	return (stcks);
 }
 
