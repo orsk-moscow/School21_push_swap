@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 09:38:40 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/24 20:45:40 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/24 21:11:21 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ t_2_stcks				ft_do_pb(t_2_stcks stcks)
 {
 	size_t					len;
 	t_list					*tmp1;
-	t_list					*tmp2;
 
 	len = ft_lstlen(stcks.a);
 	if (len < 1)
@@ -63,15 +62,6 @@ t_2_stcks				ft_do_pb(t_2_stcks stcks)
 	stcks.a = stcks.a->next;
 	tmp1->next = stcks.b;
 	stcks.b = tmp1;
-/* content below should ne deleted before validation */
-	// t_list					*temp;
-	// temp = stcks.a;
-	// while (temp)
-	// {
-	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
-	// 	temp = temp->next;
-	// }
-/* content above should ne deleted before validation */
 	return (stcks);
 }
 
