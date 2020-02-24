@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 16:53:04 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/24 09:25:24 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/24 10:02:05 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void					ft_del(void *content, size_t content_size)
 
 void					ft_error(t_list *stck_a,t_list *stck_b)
 {
-	
 	if (stck_a)
 		ft_lstdel(&stck_a, ft_del); // here smth wrong - exception
 	if (stck_b)	
