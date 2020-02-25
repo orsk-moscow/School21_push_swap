@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 16:53:04 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/24 10:02:05 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/25 22:15:49 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,21 @@ void					ft_error(t_list *stck_a,t_list *stck_b)
 		ft_lstdel(&stck_b, ft_del);
 	ft_putstr_fd("Error\n",(int)STDERR_FILENO);
 	exit (-1);
+}
+
+int						ft_is_dplcts(int ac,char **av)
+{
+	int						itrtr1;
+	int						itrtr2;
+
+	itrtr1 = 1;
+	while (itrtr1 < ac)
+	{
+		itrtr2 = itrtr1 + 1;
+		while (itrtr2 < ac)
+			if (!ft_strcmp(av[itrtr2++],av[itrtr1]))
+				return (1);
+		itrtr1++;
+	}
+	return (0);
 }

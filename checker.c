@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/25 18:59:28 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/25 22:10:50 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,15 +90,16 @@ int						main(int ac, char **av)
 	char					*buff[1];
 	int						i;
 
+	if (ft_is_dplcts(ac, av))
+		ft_error(stcks.a, stcks.b);
 	stcks = ft_gt_stcks(ac, av);
 	i = getNL(STDIN_FILENO, buff);
 	if (!ft_chk_instrs(buff))
 		ft_error(stcks.a, stcks.b);
 	stcks = ft_exct_instrs(stcks, *buff);
-	// ?
-	// 	ft_putstr_fd("OK\n", STDOUT_FILENO) :
-	// 	ft_putstr_fd("KO\n", STDOUT_FILENO);
-
+	ft_is_lst_srtd(stcks.a) ?
+		ft_putstr_fd("OK\n", STDOUT_FILENO) :
+		ft_putstr_fd("KO\n", STDOUT_FILENO);
 
 
 
@@ -110,10 +111,8 @@ int						main(int ac, char **av)
 		printf("content of chain element: %i\n",*((int*)(temp->content)));
 		temp = temp->next;
 	}
-	printf("-------end of stack a-------\n\n\n------start of stack b------");
+	printf("-------end of stack a-------\n\n\n------start of stack b------\n");
 /* content above should ne deleted before validation */
-
-
 
 /* content below should ne deleted before validation */
 	temp = stcks.b;

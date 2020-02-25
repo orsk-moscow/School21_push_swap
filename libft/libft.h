@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 20:49:11 by klekisha          #+#    #+#             */
-/*   Updated: 2020/02/24 12:01:16 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/25 21:26:05 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1528,5 +1528,6 @@ t_list *(*f)(t_list *elem));
 size_t								ft_lstlen(t_list *lst);
 
 int									ft_count_words(char const *s, char c);
+int									ft_is_lst_srtd(t_list *lst);
 
 #endif
