@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 09:38:40 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/24 21:11:21 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/25 18:57:30 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,19 @@ t_2_stcks				ft_do_pb(t_2_stcks stcks)
 
 t_2_stcks				ft_do_ra(t_2_stcks stcks)
 {
+	size_t					len;
+	t_list					*tmp1;
+	t_list					*tmp2;
+
+	len = ft_lstlen(stcks.a);
+	if (len < 2)
+		return (stcks);
+	tmp1 = stcks.a;
+	stcks.a = stcks.a->next;
+	tmp2 = stcks.a;
+	tmp1->next = NULL;
+	while (tmp2->next)
+		tmp2 = tmp2->next;
+	tmp2->next = tmp1;
 	return (stcks);
 }

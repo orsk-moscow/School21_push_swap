@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/24 21:08:09 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/25 18:59:28 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,12 +105,12 @@ int						main(int ac, char **av)
 /* content below should ne deleted before validation */
 	t_list					*temp;
 	temp = stcks.a;
-	// while (temp)
-	// {
-	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
-	// 	temp = temp->next;
-	// }
-	// printf("\n\n\n");
+	while (temp)
+	{
+		printf("content of chain element: %i\n",*((int*)(temp->content)));
+		temp = temp->next;
+	}
+	printf("-------end of stack a-------\n\n\n------start of stack b------");
 /* content above should ne deleted before validation */
 
 
