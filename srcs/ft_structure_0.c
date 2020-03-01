@@ -6,33 +6,19 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 15:14:05 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/01 15:47:41 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/01 16:40:47 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_lst_psh_swp_0			*ft_lst0new(int nmbr, int indx)
+t_lst_psh_swp_1			*ft_lstnew_1(int nmbr, int indx)
 {
-	t_lst_psh_swp_0			*p1;
+	t_lst_psh_swp_1			*p1;
 	t_nmbr_indx_rslt		elm;
 
-	if (!(p1 = (t_lst_psh_swp_0*)malloc(sizeof(t_lst_psh_swp_0))))
+	if (!(p1 = (t_lst_psh_swp_1*)malloc(sizeof(t_lst_psh_swp_1))))
 		return (NULL);
-
-	// if (!content || !content_size)
-	// {
-	// 	p1->content = NULL;
-	// 	p1->content_size = 0;
-	// }
-
-	// else
-	// {
-	// if (!(p1->content = malloc(content_size)))
-	// 	return (NULL);
-	// p1->content = ft_memcpy(p1->content, content, content_size);
-	// p1->content_size = content_size;
-	// }
 	elm.indx = indx;
 	elm.rslt = -1;
 	elm.nmbr = nmbr;
@@ -41,11 +27,35 @@ t_lst_psh_swp_0			*ft_lst0new(int nmbr, int indx)
 	return (p1);
 }
 
-void	ft_lst0add(t_lst_psh_swp_0 **alst, t_lst_psh_swp_0 *new)
+void	ft_lstadd_1(t_lst_psh_swp_1 **alst, t_lst_psh_swp_1 *new)
 {
 	if (new && alst)
 	{
 		new->next = (*alst);
 		(*alst) = new;
 	}
+}
+
+void	ft_lstdel_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int))
+{
+	if (alst && del)
+	{
+		if ((*alst)->next)
+			ft_lstdel_1(&((*alst)->next), del);
+		ft_lstdelone_1(&(*alst), del);
+	}
+}
+
+void	ft_lstdelone_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int))
+{
+	if (!alst || !(*alst) || !del)
+		return ;
+	del((*alst)->elmnt.indx, (*alst)->elmnt.nmbr, (*alst)->elmnt.rslt);
+	free(*(alst));
+	(*alst) = NULL;
+}
+
+void					ft_del_1(int nmbr, int indx, int rslt)
+{
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 15:07:56 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/01 15:48:05 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/01 16:30:43 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ t_2_stcks_1				ft_gt_stcks_1(int ac, char **av)
 	stcks.b = NULL;
 	res = ft_atoi(av[--ac]);
 	if (ft_chck_arg(res, av[ac]))
-		ft_error_0();
-	stcks.a = ft_lst0new(res, -1);
+		ft_error_1();
+	stcks.a = ft_lstnew_1(res, -1);
 	while (--ac > 0)
 	{
 		res = ft_atoi(av[ac]);
 		if (ft_chck_arg(res, av[ac]))
-			ft_error_0();
-		ft_lst0add(&stcks.a, ft_lst0new(res, -1));
+			ft_error_1();
+		ft_lstadd_1(&stcks.a, ft_lstnew_1(res, -1));
 	}
 /* content below should ne deleted before validation */
 	// t_list					*temp;
