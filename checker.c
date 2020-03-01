@@ -6,44 +6,11 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/25 22:10:50 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/02/26 19:48:24 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_2_stcks				ft_gt_stcks(int ac, char **av)
-{
-	t_2_stcks				stcks;
-	int						res;
-	int						n_arg;
-
-	if (ac == 1)
-		exit(1);
-	n_arg = ac;
-	res = ft_atoi(av[--ac]);
-	if (ft_chck_arg(res, av[ac]))
-		ft_error(stcks.a, stcks.b);
-	stcks.a = ft_lstnew(&res, sizeof(int));
-	stcks.b = NULL;
-	while (--ac > 0)
-	{
-		res = ft_atoi(av[ac]);
-		if (ft_chck_arg(res, av[ac]))
-			ft_error(stcks.a, stcks.b);
-		ft_lstadd(&stcks.a, ft_lstnew(&res, sizeof(int)));
-	}
-/* content below should ne deleted before validation */
-	// t_list					*temp;
-	// temp = stcks.a;
-	// while (temp)
-	// {
-	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
-	// 	temp = temp->next;
-	// }
-/* content above should ne deleted before validation */
-	return (stcks);
-}
 
 /* ************************************************************************** */
 int						ft_chk_instrs(char **instr)
@@ -125,6 +92,6 @@ int						main(int ac, char **av)
 
 
 
-
+	ft_free(stcks.a,stcks.b);
 	return (0);
 }
