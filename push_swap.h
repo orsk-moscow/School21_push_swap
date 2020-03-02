@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:22:45 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/01 16:40:01 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/01 18:40:39 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,13 @@ typedef struct			s_lst_psh_swp_1
 	t_nmbr_indx_rslt		elmnt;
 	struct s_lst_psh_swp_1	*next;
 }						t_lst_psh_swp_1;
+/* ************************************************************************** */
+typedef struct			s_rlst_markup
+{
+	t_lst_psh_swp_1			*lst;
+	int						elmnts_in_a;
+	int						head;
+}						t_rlst_markup;
 /* ************************************************************************** */
 t_2_stcks				ft_do_instrs(t_2_stcks stcks, char *instr, size_t n_s);
 int						ft_chck_arg(int intgr, const char *strng);
