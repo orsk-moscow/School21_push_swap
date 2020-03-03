@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/02 22:49:44 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/03 19:14:20 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ t_lst_psh_swp_1			*ft_mark_in_indx_md(t_lst_psh_swp_1 *stck, int hd_indx)
 }
 
 /* ************************************************************************** */
-t_lst_psh_swp_1			*ft_mark_in_indx_md(t_lst_psh_swp_1 *stck, int hd_indx)
+t_lst_psh_swp_1			*ft_mark_in_grtr_md(t_lst_psh_swp_1 *stck, int hd_indx)
 {
 	t_lst_psh_swp_1			*tmp1;
 
@@ -159,10 +159,10 @@ int						main(int ac, char **av)
 	if (ft_is_dplcts(ac, av))
 		ft_error_1();
 	stcks = ft_gt_stcks_1(ac, av);
-	if (ac < 5)
-		return (ft_sort_3_elmnts());
-	else if (ac < 7)
-		return (ft_sort_5_elmnts());
+	// if (ac < 5)
+	// 	return (ft_sort_3_elmnts());
+	// else if (ac < 7)
+	// 	return (ft_sort_5_elmnts());
 	stcks.a = ft_clct_indxs(ac, av, stcks.a);
 	stcks.a = ft_do_markup(stcks.a);
 	ft_free_1(stcks.a,stcks.b);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:22:45 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/02 22:06:13 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/03 19:10:28 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,6 @@
 /* content above should ne deleted before validation */
 
 /* ************************************************************************** */
-typedef struct			s_2_stcks
-{
-	t_list					*a;
-	t_list					*b;
-}						t_2_stcks;
-/* ************************************************************************** */
-typedef struct			s_2_stcks_1
-{
-	t_lst_psh_swp_1			*a;
-	t_lst_psh_swp_1			*b;
-}						t_2_stcks_1;
-/* ************************************************************************** */
 typedef struct			s_nmbr_indx_rslt
 {
 	int						nmbr;
@@ -52,6 +40,18 @@ typedef struct			s_lst_psh_swp_1
 	t_nmbr_indx_rslt		elmnt;
 	struct s_lst_psh_swp_1	*next;
 }						t_lst_psh_swp_1;
+/* ************************************************************************** */
+typedef struct			s_2_stcks
+{
+	t_list					*a;
+	t_list					*b;
+}						t_2_stcks;
+/* ************************************************************************** */
+typedef struct			s_2_stcks_1
+{
+	t_lst_psh_swp_1			*a;
+	t_lst_psh_swp_1			*b;
+}						t_2_stcks_1;
 /* ************************************************************************** */
 typedef struct			s_rlst_markup
 {
@@ -76,6 +76,9 @@ t_lst_psh_swp_1			*ft_lstnew_1(int nmbr, int indx);
 t_2_stcks_1				ft_gt_stcks_1(int ac, char **av);
 t_2_stcks				ft_do_instrs(t_2_stcks stcks, char *instr, size_t n_s);
 t_2_stcks				ft_gt_stcks(int ac, char **av);
+void					ft_lstadd_1(t_lst_psh_swp_1 **alst, t_lst_psh_swp_1 *new);
+void					ft_lstdel_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int));
+void					ft_lstdelone_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int));
 void					ft_del_1(int nmbr, int indx, int rslt);
 void					ft_free_1(t_lst_psh_swp_1 *stck_a, t_lst_psh_swp_1 *stck_b);
 void					ft_del(void *content, size_t content_size);
