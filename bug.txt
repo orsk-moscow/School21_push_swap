@@ -1,0 +1,22 @@
+CHECKER BINARY
+CASE 1
+u18188899@CAB-WSM-0004019 School21_push_swap % ./a.out 1 2 3
+
+here is should be output - OK
+____________________________________________________________
+case 2
+u18188899@CAB-WSM-0004019 School21_push_swap % ./a.out 1 2 3
+pa
+pb
+OK
+content of chain element: 2
+content of chain element: 3
+-------end of stack a-------
+
+
+------start of stack b------
+content of chain element: 1
+
+here is should be output - KO (stack b is not empty)
+____________________________________________________________
+
