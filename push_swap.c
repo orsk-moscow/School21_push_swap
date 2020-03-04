@@ -3,154 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/03 19:14:20 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/04 21:44:25 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* ************************************************************************** */
-t_lst_psh_swp_1			*ft_clct_indxs(int ac, char **av, t_lst_psh_swp_1 *stck)
+t_lst_psh_swp_1			*ft_do_sa_1(t_lst_psh_swp_1 *stcks)
 {
-	int						itrtr1;
-	int						itrtr2;
-	int						indx;
-
-	itrtr1 = 1;
-	while (itrtr1 < ac)
-	{
-		indx = 0;
-		itrtr2 = 1;
-		while (itrtr2 < ac)
-			if (ft_strcmp(av[itrtr1],av[itrtr2++])>0)
-				indx++;
-		itrtr1++;
-		stck->elmnt.indx = indx;
-		stck = stck->next;
-	}
-	return (stck);
+	return (stcks);
 }
-
 /* ************************************************************************** */
-t_rlst_markup			ft_do_mode_grtr(t_rlst_markup mode_grtr)
+t_lst_psh_swp_1			*ft_do_pb_1(t_lst_psh_swp_1 *stcks)
 {
-	t_rlst_markup			prvs;
-	t_rlst_markup			rslt;
+	return (stcks);
+}
+/* ************************************************************************** */
+t_lst_psh_swp_1			*ft_do_ra_1(t_lst_psh_swp_1 *stcks)
+{
+	return (stcks);
+}
+/* ************************************************************************** */
+t_2_stcks_1				ft_do_from_a_to_b(t_2_stcks_1 stcks)
+{
+// Pseudocode
 
-	if (!mode_grtr.lst->next)
+	// WHILE stack A has elements with "false" value in "Keep in Stack A" field
+//       IF sa (swap a) is needed
+//             perform sa (swap a) command
+//             update markup
+//       ELSE IF head element of stack A has "false" value in "Keep in Stack A" field
+//             perform pb (push b) command
+//       ELSE
+//             perform ra (rotate a) command
+// How to check that sa (swap a) is needed?
+// You have to perform sa (swap a) and then remake markup. We only have to update markup with chosen at previous steps parameters (as markup_head).
+
+// Then we have to compare how many elements will be kept in stack A with performed sa (swap a) and without it.
+
+// If after performing sa (swap a) more elements will be kept, it means that there is a reason to do it.
+	while (!ft_is_stack_clear(stcks.a))
 	{
-		mode_grtr.head = mode_grtr.lst->elmnt.indx;
-		mode_grtr.elmnts_in_a = 1;
-		mode_grtr.lst->elmnt.rslt = 1;
-		return (mode_grtr);
-	}
-	prvs = mode_grtr;
-	prvs.lst = prvs.lst->next;
-	rslt = ft_do_mode_grtr(prvs);
-	if (mode_grtr.lst->elmnt.nmbr < rslt.lst->elmnt.nmbr)
-	{
-		mode_grtr.lst->elmnt.rslt = rslt.lst->elmnt.rslt + 1;
-		if (mode_grtr.lst->elmnt.rslt > rslt.elmnts_in_a || (
-			mode_grtr.lst->elmnt.rslt == rslt.elmnts_in_a &&
-			mode_grtr.lst->elmnt.indx < rslt.lst->elmnt.indx))
+		if (ft_is_sa_needed(stcks.a))
 		{
-			mode_grtr.head = mode_grtr.lst->elmnt.indx;
-			mode_grtr.elmnts_in_a = rslt.elmnts_in_a + 1;
+			stcks = ft_do_sa_1(stcks);
+			stcks.a = ft_do_markup(stcks.a);
+		}
+		else if (stcks.a->elmnt.rslt == 1)
+		{
+			stcks = ft_do_pb_1(stcks);
 		}
 		else
 		{
-			mode_grtr.elmnts_in_a = rslt.elmnts_in_a;
-			mode_grtr.head = rslt.head;
+			stcks = ft_do_ra_1(stcks);
 		}
 	}
-	else
-	{
-		mode_grtr.lst->elmnt.rslt = 1;
-		mode_grtr.elmnts_in_a = rslt.elmnts_in_a;
-		mode_grtr.head = rslt.head;
-	}
-	return (mode_grtr);
+	return (stcks);
 }
-
-/* ************************************************************************** */
-t_rlst_markup			ft_do_mode_indx(t_rlst_markup mode_indx)
-{
-	t_rlst_markup			tmp1;
-	int						tmp2;
-
-	tmp1 = mode_indx;
-	tmp2 = mode_indx.lst->elmnt.indx;
-	mode_indx.lst->elmnt.rslt = 1;
-	if (!mode_indx.lst)
-		return (mode_indx);
-	while (tmp1.lst)
-	{
-		if (tmp1.lst->elmnt.indx == tmp2 + 1 && tmp2++)
-			(mode_indx.lst->elmnt.rslt)++;
-		tmp1.lst = tmp1.lst->next;
-	}
-	if (mode_indx.lst->elmnt.rslt > mode_indx.elmnts_in_a || (
-		mode_indx.lst->elmnt.rslt == mode_indx.elmnts_in_a &&
-		mode_indx.lst->elmnt.indx < mode_indx.head))
-	{
-		mode_indx.head = mode_indx.lst->elmnt.indx;
-		mode_indx.elmnts_in_a = mode_indx.lst->elmnt.rslt;
-	}
-	mode_indx.lst = mode_indx.lst->next;
-	return (ft_do_mode_indx(mode_indx));
-}
-
-/* ************************************************************************** */
-t_lst_psh_swp_1			*ft_mark_in_indx_md(t_lst_psh_swp_1 *stck, int hd_indx)
-{
-	t_lst_psh_swp_1			*tmp1;
-
-	tmp1 = stck;
-	while (tmp1)
-	{
-		if (tmp1->elmnt.indx == hd_indx && hd_indx++)
-			tmp1->elmnt.rslt = 1;
-		tmp1 = tmp1->next;		
-	}
-	return (stck);		
-}
-
-/* ************************************************************************** */
-t_lst_psh_swp_1			*ft_mark_in_grtr_md(t_lst_psh_swp_1 *stck, int hd_indx)
-{
-	t_lst_psh_swp_1			*tmp1;
-
-	tmp1 = stck;
-	while (tmp1)
-	{
-		if (tmp1->elmnt.indx == hd_indx && hd_indx++)
-			tmp1->elmnt.rslt = 1;
-		tmp1 = tmp1->next;		
-	}
-	return (stck);	
-}
-
-/* ************************************************************************** */
-t_lst_psh_swp_1			*ft_do_markup(t_lst_psh_swp_1 *stck)
-{
-	t_rlst_markup			mode_grtr;
-	t_rlst_markup			mode_indx;
-
-	mode_grtr.lst = stck;
-	mode_indx.lst = stck;
-	mode_grtr = ft_do_mode_grtr(mode_grtr);
-	mode_indx.elmnts_in_a = 1;
-	mode_indx.head = mode_indx.lst->elmnt.indx;
-	mode_indx = ft_do_mode_indx(mode_indx);
-	stck = (mode_indx.elmnts_in_a > mode_grtr.elmnts_in_a ?
-		ft_mark_in_indx_md(stck, mode_indx.head) :
-		ft_mark_in_grtr_md(stck, mode_grtr.head));
-	return (stck);
-}
-
 /* ************************************************************************** */
 int						main(int ac, char **av)
 {
@@ -165,6 +78,7 @@ int						main(int ac, char **av)
 	// 	return (ft_sort_5_elmnts());
 	stcks.a = ft_clct_indxs(ac, av, stcks.a);
 	stcks.a = ft_do_markup(stcks.a);
+	stcks = ft_do_from_a_to_b(stcks);
 	ft_free_1(stcks.a,stcks.b);
 	return (0);
 }

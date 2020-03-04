@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:22:45 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/03 19:10:28 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/04 21:43:24 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,12 @@ t_2_stcks				ft_do_rrb(t_2_stcks stcks);
 t_2_stcks				ft_do_rrr(t_2_stcks stcks);
 /* ************************************************************************** */
 t_lst_psh_swp_1			*ft_lstnew_1(int nmbr, int indx);
+t_lst_psh_swp_1			*ft_clct_indxs(int ac, char **av, t_lst_psh_swp_1 *stck);
+t_lst_psh_swp_1			*ft_do_markup(t_lst_psh_swp_1 *stck);
+t_lst_psh_swp_1			*ft_mark_in_indx_md(t_lst_psh_swp_1 *stck, int hd_indx);
+t_lst_psh_swp_1			*ft_mark_in_grtr_md(t_lst_psh_swp_1 *stck, int hd_indx);
+t_rlst_markup			ft_do_mode_grtr(t_rlst_markup mode_grtr);
+t_rlst_markup			ft_do_mode_indx(t_rlst_markup mode_indx);
 t_2_stcks_1				ft_gt_stcks_1(int ac, char **av);
 t_2_stcks				ft_do_instrs(t_2_stcks stcks, char *instr, size_t n_s);
 t_2_stcks				ft_gt_stcks(int ac, char **av);
@@ -87,6 +93,7 @@ void					ft_error_1();
 void					ft_free(t_list *stck_a, t_list *stck_b);
 int						ft_chck_arg(int intgr, const char *strng);
 int						ft_is_dplcts(int ac,char **av);
+int						ft_is_stack_clear(t_lst_psh_swp_1 *stck);
 /* ************************************************************************** */
 
 #endif
