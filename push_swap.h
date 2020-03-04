@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:22:45 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/04 21:43:24 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/04 21:50:25 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <limits.h>
 
 /* content below should ne deleted before validation */
-// # include <stdio.h>
+# include <stdio.h>
 /* content above should ne deleted before validation */
 
 /* ************************************************************************** */
