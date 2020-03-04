@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/04 18:58:38 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/04 19:04:19 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int						main(int ac, char **av)
 	if (!ft_chk_instrs(buff))
 		ft_error(stcks.a, stcks.b);
 	stcks = ft_exct_instrs(stcks, *buff);
-	ft_is_lst_srtd(stcks.a) ?
+	(ft_is_lst_srtd(stcks.a) && !stcks.b) ?
 		ft_putstr_fd("OK\n", STDOUT_FILENO) :
 		ft_putstr_fd("KO\n", STDOUT_FILENO);
 
