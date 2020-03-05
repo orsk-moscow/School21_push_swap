@@ -10,7 +10,7 @@
 // /*                                                                            */
 // /* ************************************************************************** */
 
-// #include "../push_swap.h"
+// #include "../includes/push_swap.h"
 
 // t_2_stcks				ft_do_rb(t_2_stcks stcks)
 // {

@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:22:45 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/04 22:19:36 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/05 17:07:33 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define PUSH_SWAP_H
 
 # define SIZE 1000000
-# include "libft/libft.h"
-# include "gnl/get_next_line.h"
+# include "../libft/libft.h"
+# include "../gnl/get_next_line.h"
 
 # include <unistd.h>
 # include <stdlib.h>

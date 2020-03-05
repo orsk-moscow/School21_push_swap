@@ -5,14 +5,27 @@
 
 # /Users/u18188899/School21_push_swap/libft/libft.a \
 
-gcc -g \
-	./libft/*.c \
-	./libft/libft.h \
+# cd objects && \
+gcc -c \
 	./gnl/get_next_line.c \
-	./gnl/get_next_line.h \
 	./checker.c \
-	./push_swap.h \
-	./srcs/*
+	./srcs/*.c && \
+gcc \
+	./libft/libft.a \
+	-I ./gnl/get_next_line.h \
+	-I ./push_swap.h \
+	*.o \
+	-o checker 
+	# && \
+# cd ..
+# gcc -g \
+# 	./libft/*.c \
+# 	./libft/libft.h \
+# 	./gnl/get_next_line.c \
+# 	./gnl/get_next_line.h \
+# 	./checker.c \
+# 	./push_swap.h \
+# 	./srcs/*
 
 # /Users/u18188899/School21_push_swap/libft/*.c \
 # /Users/u18188899/School21_push_swap/libft/libft.h \
