@@ -6,7 +6,7 @@
 #    By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/05 20:42:36 by u18188899         #+#    #+#              #
-#    Updated: 2020/03/05 20:54:15 by u18188899        ###   ########.fr        #
+#    Updated: 2020/03/05 22:05:43 by u18188899        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,6 @@ NAME_2 = push_swap
 CC 	= gcc
 
 CFLAGS = -Wall -Wextra -Werror
-
-OBJDIR = ./objects/
 
 GNLDIR = ./gnl/
 
@@ -66,35 +64,32 @@ SOURCES_2 = \
 	instructions6.c
 
 OBJECTS_1_LIST = $(patsubst %.c, %.o, $(SOURCES_1) $(GNL_SRC))
-OBJECTS_1	= $(addprefix $(OBJDIR), $(OBJECTS_1_LIST))
+OBJECTS_1	= $(OBJECTS_1_LIST)
 
 OBJECTS_2_LIST = $(patsubst %.c, %.o, $(SOURCES_2))
-OBJECTS_2	= $(addprefix $(OBJDIR), $(OBJECTS_2_LIST))
+OBJECTS_2	= $(OBJECTS_2_LIST)
 
 all: $(NAME_1) $(NAME_2)
 
-$(NAME_1): $(LIBFT) $(OBJDIR) $(OBJECTS_1)
-	@$(CC) $(FLAGS) $(LIBFT) $(INC) $(OBJECTS) -o $(NAME_1)
+$(NAME_1): $(LIBFT) $(OBJECTS_1)
+	@$(CC) $(FLAGS) $(LIBFT) $(INC) $(OBJECTS_1) -o $(NAME_1)
 
-$(NAME_2): $(LIBFT) $(OBJDIR) $(OBJECTS_2)
-	@$(CC) $(FLAGS) $(LIBFT) $(INC) $(OBJECTS) -o $(NAME_2)
+$(NAME_2): $(LIBFT) $(OBJECTS_2)
+	@$(CC) $(FLAGS) $(LIBFT) $(INC) $(OBJECTS_2) -o $(NAME_2)
 
 $(LIBFT):
 	@$(MAKE) -sC $(LIBDIR)
 
-$(OBJDIR):
-	@mkdir -p $(OBJDIR)
+%.o: $(SRCDIR)%.c
+	@$(CC) $(CFLAGS) -c $(HEADERS) $<
 
-$(OBJDIR)%.o: $(SRCDIR)%.c
-	@$(CC) $(CFLAGS) -c $(HEADERS) $< && mv $(patsubst %.c, %.o, $(SOURCES_1)) $(OBJDIR)
-
-$(OBJDIR)%.o: $(GNLDIR)%.c
-	@$(CC) $(CFLAGS) -c $(HEADERS) $< && mv $(patsubst %.c, %.o, $(GNL_SRC)) $(OBJDIR)
+%.o: $(GNLDIR)%.c
+	@$(CC) $(CFLAGS) -c $(HEADERS) $<
 
 clean:
 	@$(MAKE) -sC $(LIBDIR) clean
-	@rm -rf $(OBJECTS)
-	@rm -rf $(OBJDIR)
+	@rm -rf $(OBJECTS_1)
+	@rm -rf $(OBJECTS_2)
 
 fclean: clean
 	@rm -f $(LIBFT)
