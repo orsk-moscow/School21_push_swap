@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:22:45 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/05 19:12:23 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/05 22:11:13 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void					ft_free(t_list *stck_a, t_list *stck_b);
 int						ft_chck_arg(int intgr, const char *strng);
 int						ft_is_dplcts(int ac,char **av);
 int						ft_is_stack_clear(t_lst_psh_swp_1 *stck);
+int						ft_is_sa_needed(t_lst_psh_swp_1 *stck);
 /* ************************************************************************** */
 size_t					ft_lstlen_1(t_lst_psh_swp_1 *lst);
 
