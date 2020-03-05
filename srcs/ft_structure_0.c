@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 15:14:05 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/05 16:06:30 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/05 19:04:22 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,11 @@ void	ft_lstdelone_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int))
 
 void					ft_del_1(int nmbr, int indx, int rslt)
 {
+	nmbr++;
+	nmbr--;
+	indx++;
+	indx--;
+	rslt++;
+	rslt--;
 	return ;
 }

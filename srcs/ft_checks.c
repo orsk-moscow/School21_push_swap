@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 16:53:04 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/05 16:06:30 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/05 19:03:29 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ void					ft_del(void *content, size_t content_size)
 	// free(content);
 	// ft_memdel(&content);
 	// content_size = 0;
+	content++;
+	content--;
+	content_size++;
+	content_size--;
 	return ;
 }
 

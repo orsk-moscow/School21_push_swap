@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 09:38:40 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/05 16:06:30 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/05 19:12:45 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_2_stcks_1				ft_do_pb_1(t_2_stcks_1 stcks)
 	size_t					len;
 	t_lst_psh_swp_1			*tmp1;
 
-	len = ft_lstlen(stcks.a);
+	len = ft_lstlen_1(stcks.a);
 	if (len < 1)
 		return (stcks);
 	tmp1 = stcks.a;
@@ -71,7 +71,7 @@ t_2_stcks_1				ft_do_ra_1(t_2_stcks_1 stcks)
 	t_lst_psh_swp_1			*tmp1;
 	t_lst_psh_swp_1			*tmp2;
 
-	len = ft_lstlen(stcks.a);
+	len = ft_lstlen_1(stcks.a);
 	if (len < 2)
 		return (stcks);
 	tmp1 = stcks.a;
