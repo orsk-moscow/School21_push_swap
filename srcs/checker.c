@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/05 16:07:04 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/08 19:21:16 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int						main(int ac, char **av)
 	t_2_stcks				stcks;
 	char					*buff[1];
 	int						i;
-	t_list					*temp;
 
 	if (ft_is_dplcts(ac, av))
 		ft_error(stcks.a, stcks.b);
@@ -72,22 +71,23 @@ int						main(int ac, char **av)
 
 
 /* content below should ne deleted before validation */
-	temp = stcks.a;
-	while (temp)
-	{
-		printf("content of chain element: %i\n",*((int*)(temp->content)));
-		temp = temp->next;
-	}
-	printf("-------end of stack a-------\n\n\n------start of stack b------\n");
+	// t_list					*temp;
+	// temp = stcks.a;
+	// while (temp)
+	// {
+	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
+	// 	temp = temp->next;
+	// }
+	// printf("-------end of stack a-------\n\n\n------start of stack b------\n");
 /* content above should ne deleted before validation */
 
 /* content below should ne deleted before validation */
-	temp = stcks.b;
-	while (temp)
-	{
-		printf("content of chain element: %i\n",*((int*)(temp->content)));
-		temp = temp->next;
-	}
+	// temp = stcks.b;
+	// while (temp)
+	// {
+	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
+	// 	temp = temp->next;
+	// }
 /* content above should ne deleted before validation */
 
 
