@@ -6,11 +6,11 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/26 19:48:24 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/05 16:07:04 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 /* ************************************************************************** */
 int						ft_chk_instrs(char **instr)
@@ -22,12 +22,12 @@ int						ft_chk_instrs(char **instr)
 	while (i && ft_strchr(i, '\n'))
 	{
 		n_s = ft_strchr(i, '\n') - i;
-		if (ft_strncmp(i, "sa", n_s) && ft_strncmp(i, "sb", n_s) &&
+		if (!n_s || (ft_strncmp(i, "sa", n_s) && ft_strncmp(i, "sb", n_s) &&
 			ft_strncmp(i, "ss", n_s) && ft_strncmp(i, "pa", n_s) &&
 			ft_strncmp(i, "pb", n_s) && ft_strncmp(i, "ra", n_s) &&
 			ft_strncmp(i, "rb", n_s) && ft_strncmp(i, "rr", n_s) &&
 			ft_strncmp(i, "rra", n_s) && ft_strncmp(i, "rrb", n_s) &&
-			ft_strncmp(i, "rrr", n_s))
+			ft_strncmp(i, "rrr", n_s)))
 			return (0);
 		i += (n_s + 1);
 	}
@@ -56,6 +56,7 @@ int						main(int ac, char **av)
 	t_2_stcks				stcks;
 	char					*buff[1];
 	int						i;
+	t_list					*temp;
 
 	if (ft_is_dplcts(ac, av))
 		ft_error(stcks.a, stcks.b);
@@ -64,14 +65,13 @@ int						main(int ac, char **av)
 	if (!ft_chk_instrs(buff))
 		ft_error(stcks.a, stcks.b);
 	stcks = ft_exct_instrs(stcks, *buff);
-	ft_is_lst_srtd(stcks.a) ?
+	(ft_is_lst_srtd(stcks.a) && !stcks.b && (int)ft_lstlen(stcks.a) == --ac) ?
 		ft_putstr_fd("OK\n", STDOUT_FILENO) :
 		ft_putstr_fd("KO\n", STDOUT_FILENO);
 
 
 
 /* content below should ne deleted before validation */
-	t_list					*temp;
 	temp = stcks.a;
 	while (temp)
 	{
