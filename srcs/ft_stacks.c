@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stacks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 15:07:56 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/05 16:06:30 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/08 14:25:54 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,22 +55,22 @@ t_2_stcks_1				ft_gt_stcks_1(int ac, char **av)
 	if (ac == 1)
 		exit(1);
 	n_arg = ac;
-	stcks.a = NULL;
-	stcks.b = NULL;
+	stcks.a->lst = NULL;
+	stcks.b->lst = NULL;
 	res = ft_atoi(av[--ac]);
 	if (ft_chck_arg(res, av[ac]))
 		ft_error_1();
-	stcks.a = ft_lstnew_1(res, -1);
+	stcks.a->lst = ft_lstnew_1(res, -1);
 	while (--ac > 0)
 	{
 		res = ft_atoi(av[ac]);
 		if (ft_chck_arg(res, av[ac]))
 			ft_error_1();
-		ft_lstadd_1(&stcks.a, ft_lstnew_1(res, -1));
+		ft_lstadd_1(&stcks.a->lst, ft_lstnew_1(res, -1));
 	}
 /* content below should ne deleted before validation */
 	// t_list					*temp;
-	// temp = stcks.a;
+	// temp = stcks.a->lst;
 	// while (temp)
 	// {
 	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
