@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:22:45 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/05 22:11:13 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/08 15:31:47 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,19 @@ typedef struct			s_2_stcks
 	t_list					*b;
 }						t_2_stcks;
 /* ************************************************************************** */
-typedef struct			s_2_stcks_1
-{
-	t_lst_psh_swp_1			*a;
-	t_lst_psh_swp_1			*b;
-}						t_2_stcks_1;
-/* ************************************************************************** */
 typedef struct			s_rlst_markup
 {
 	t_lst_psh_swp_1			*lst;
 	int						elmnts_in_a;
 	int						head;
+	char					*mode;
 }						t_rlst_markup;
+/* ************************************************************************** */
+typedef struct			s_2_stcks_1
+{
+	t_rlst_markup			*a;
+	t_rlst_markup			*b;
+}						t_2_stcks_1;
 /* ************************************************************************** */
 t_2_stcks				ft_do_sa(t_2_stcks stcks);
 t_2_stcks				ft_do_sb(t_2_stcks stcks);
@@ -74,12 +75,12 @@ t_2_stcks				ft_do_rrr(t_2_stcks stcks);
 /* ************************************************************************** */
 t_lst_psh_swp_1			*ft_lstnew_1(int nmbr, int indx);
 t_lst_psh_swp_1			*ft_clct_indxs(int ac, char **av, t_lst_psh_swp_1 *stck);
-t_lst_psh_swp_1			*ft_do_markup(t_lst_psh_swp_1 *stck);
-t_lst_psh_swp_1			*ft_mark_in_indx_md(t_lst_psh_swp_1 *stck, int hd_indx);
-t_lst_psh_swp_1			*ft_mark_in_grtr_md(t_lst_psh_swp_1 *stck, int hd_indx);
+t_rlst_markup			*ft_do_markup(t_rlst_markup *stck);
+t_rlst_markup			*ft_mark_in_indx_md(t_rlst_markup *stck, t_rlst_markup *indx);
+t_rlst_markup			*ft_mark_in_grtr_md(t_rlst_markup *stck, t_rlst_markup *grtr);
 /* ************************************************************************** */
-t_rlst_markup			ft_do_mode_grtr(t_rlst_markup mode_grtr);
-t_rlst_markup			ft_do_mode_indx(t_rlst_markup mode_indx);
+t_rlst_markup			*ft_do_mode_grtr(t_rlst_markup *mode_grtr);
+t_rlst_markup			*ft_do_mode_indx(t_rlst_markup *mode_indx);
 /* ************************************************************************** */
 t_2_stcks_1				ft_gt_stcks_1(int ac, char **av);
 t_2_stcks_1				ft_do_sa_1(t_2_stcks_1 stcks);
@@ -102,7 +103,7 @@ void					ft_free(t_list *stck_a, t_list *stck_b);
 int						ft_chck_arg(int intgr, const char *strng);
 int						ft_is_dplcts(int ac,char **av);
 int						ft_is_stack_clear(t_lst_psh_swp_1 *stck);
-int						ft_is_sa_needed(t_lst_psh_swp_1 *stck);
+int						ft_is_sa_needed(t_2_stcks_1 stcks);
 /* ************************************************************************** */
 size_t					ft_lstlen_1(t_lst_psh_swp_1 *lst);
 
