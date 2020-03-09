@@ -5,7 +5,7 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "(lldb) Запустить",
+			"name": "Debug",
 			"type": "lldb",
 			"request": "launch",
 			"args":["123","456","789"],

@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 21:37:26 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/09 09:06:24 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/09 14:57:13 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ t_lst_psh_swp_1			*ft_clct_indxs(int ac, char **av, t_lst_psh_swp_1 *stck)
 	int						itrtr1;
 	int						itrtr2;
 	int						indx;
+	t_lst_psh_swp_1			*tmp1;
 
 	itrtr1 = 1;
+	tmp1 = stck;
 	while (itrtr1 < ac)
 	{
 		indx = 0;
@@ -31,95 +33,111 @@ t_lst_psh_swp_1			*ft_clct_indxs(int ac, char **av, t_lst_psh_swp_1 *stck)
 		stck->elmnt.indx = indx;
 		stck = stck->next;
 	}
-	return (stck);
+	return (tmp1);
 }
 
 /* ************************************************************************** */
-t_rlst_markup			*ft_do_mode_grtr(t_rlst_markup *mode_grtr)
+	// t_lst_psh_swp_1			*lst;
+	// int						elmnts_in;
+	// int						head;
+	// char					*mode;
+
+t_rlst_markup			*ft_do_mode_grtr(t_lst_psh_swp_1 *mode_grtr, int elmnts_in, int head)
 {
-	t_rlst_markup			*prvs;
 	t_rlst_markup			*rslt;
 
-	if (!mode_grtr->lst->next)
+	if (!mode_grtr->next)
 	{
-		mode_grtr->head = mode_grtr->lst->elmnt.indx;
-		mode_grtr->elmnts_in_a = 1;
-		mode_grtr->lst->elmnt.rslt = 1;
-		return (mode_grtr);
+		if (!(rslt = (t_rlst_markup*)malloc(sizeof(t_rlst_markup*))))
+			ft_error_1();
+		rslt->head = mode_grtr->elmnt.indx;
+		rslt->elmnts_in = 1;
+		rslt->lst = mode_grtr;
+		rslt->lst->elmnt.rslt = 1;
+		return (rslt);
 	}
-	prvs = mode_grtr;
-	prvs->lst = prvs->lst->next;
-	rslt = ft_do_mode_grtr(prvs);
-	if (mode_grtr->lst->elmnt.nmbr < rslt->lst->elmnt.nmbr)
+	rslt = ft_do_mode_grtr(mode_grtr->next, elmnts_in, head);
+	if (mode_grtr->elmnt.nmbr < rslt->lst->elmnt.nmbr)
 	{
-		mode_grtr->lst->elmnt.rslt = rslt->lst->elmnt.rslt + 1;
-		if (mode_grtr->lst->elmnt.rslt > rslt->elmnts_in_a || (
-			mode_grtr->lst->elmnt.rslt == rslt->elmnts_in_a &&
-			mode_grtr->lst->elmnt.indx < rslt->lst->elmnt.indx))
+		mode_grtr->elmnt.rslt = rslt->lst->elmnt.rslt + 1;
+		if (mode_grtr->elmnt.rslt > rslt->elmnts_in || (
+			mode_grtr->elmnt.rslt == rslt->elmnts_in &&
+			mode_grtr->elmnt.indx < rslt->lst->elmnt.indx))
 		{
-			mode_grtr->head = mode_grtr->lst->elmnt.indx;
-			mode_grtr->elmnts_in_a = rslt->elmnts_in_a + 1;
+			head = mode_grtr->elmnt.indx;
+			elmnts_in = rslt->elmnts_in + 1;
 		}
 		else
 		{
-			mode_grtr->elmnts_in_a = rslt->elmnts_in_a;
-			mode_grtr->head = rslt->head;
+			elmnts_in = rslt->elmnts_in;
+			head = rslt->head;
 		}
 	}
 	else
 	{
-		mode_grtr->lst->elmnt.rslt = 1;
-		mode_grtr->elmnts_in_a = rslt->elmnts_in_a;
-		mode_grtr->head = rslt->head;
+		mode_grtr->elmnt.rslt = 1;
+		elmnts_in = rslt->elmnts_in;
+		head = rslt->head;
 	}
-	return (mode_grtr);
+	rslt->head = head;
+	rslt->elmnts_in = elmnts_in;
+	rslt->lst = mode_grtr;
+	return (rslt);
 }
 
 /* ************************************************************************** */
-t_rlst_markup			*ft_do_mode_indx(t_rlst_markup *mode_indx)
+t_rlst_markup			*ft_do_mode_indx(t_lst_psh_swp_1 *mode_indx, int elmnts_in, int head)
 {
 	t_rlst_markup			*tmp1;
 	int						tmp2;
+	t_lst_psh_swp_1			*tmp3;
 
-	tmp1 = mode_indx;
-	tmp2 = mode_indx->lst->elmnt.indx;
-	mode_indx->lst->elmnt.rslt = 1;
-	if (!mode_indx->lst)
-		return (mode_indx);
-	while (tmp1->lst)
+	if (!mode_indx)
 	{
-		if (tmp1->lst->elmnt.indx == tmp2 + 1 && tmp2++)
-			(mode_indx->lst->elmnt.rslt)++;
-		tmp1->lst = tmp1->lst->next;
+		if (!(tmp1 = (t_rlst_markup*)malloc(sizeof(t_rlst_markup*))))
+			ft_error_1();
+		tmp1->elmnts_in = elmnts_in;
+		tmp1->head = head;
+		tmp1->lst = NULL;
+		return (tmp1);
 	}
-	if (mode_indx->lst->elmnt.rslt > mode_indx->elmnts_in_a || (
-		mode_indx->lst->elmnt.rslt == mode_indx->elmnts_in_a &&
-		mode_indx->lst->elmnt.indx < mode_indx->head))
+	tmp2 = mode_indx->elmnt.indx;
+	mode_indx->elmnt.rslt = 1;
+	tmp3 = mode_indx;
+	while (tmp3)
 	{
-		mode_indx->head = mode_indx->lst->elmnt.indx;
-		mode_indx->elmnts_in_a = mode_indx->lst->elmnt.rslt;
+		if (tmp3->elmnt.indx == tmp2 + 1 && ++tmp2)
+			(mode_indx->elmnt.rslt)++;
+		tmp3 = tmp3->next;
 	}
-	mode_indx->lst = mode_indx->lst->next;
-	return (ft_do_mode_indx(mode_indx));
+	if (mode_indx->elmnt.rslt > elmnts_in || (
+		mode_indx->elmnt.rslt == elmnts_in &&
+		mode_indx->elmnt.indx < head))
+	{
+		head = mode_indx->elmnt.indx;
+		elmnts_in = mode_indx->elmnt.rslt;
+	}
+	return (ft_do_mode_indx(mode_indx->next, elmnts_in, head));
 }
 
 /* ************************************************************************** */
 t_rlst_markup			*ft_mark_in_indx_md(t_rlst_markup *stck, t_rlst_markup *indx)
 {
-	t_rlst_markup			*tmp1;
+	t_lst_psh_swp_1			*tmp2;
 
-	tmp1 = stck;
-	while (tmp1->lst)
-	{
-		if (tmp1->lst->elmnt.indx == indx->head && ++indx->head)
-			tmp1->lst->elmnt.rslt = 1;
-		else
-			tmp1->lst->elmnt.rslt = 0;
-		tmp1->lst = tmp1->lst->next;
-	}
+	tmp2 = stck->lst;
 	stck->head = indx->head;
-	stck->elmnts_in_a = indx->elmnts_in_a;
+	stck->elmnts_in = indx->elmnts_in;
 	stck->mode = "indx";
+	while (stck->lst)
+	{
+		if (stck->lst->elmnt.indx == indx->head && ++indx->head)
+			stck->lst->elmnt.rslt = 1;
+		else
+			stck->lst->elmnt.rslt = 0;
+		stck->lst = stck->lst->next;
+	}
+	stck->lst = tmp2;
 	return (stck);
 }
 
@@ -146,7 +164,7 @@ t_rlst_markup			*ft_mark_in_grtr_md(t_rlst_markup *stck, t_rlst_markup *grtr)
 		tmp1 = tmp1->next;
 	}
 	stck->head = grtr->head;
-	stck->elmnts_in_a = grtr->elmnts_in_a;
+	stck->elmnts_in = grtr->elmnts_in;
 	stck->mode = "grtr";
 	return (stck);
 }

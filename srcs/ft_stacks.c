@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stacks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 15:07:56 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/08 14:25:54 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/09 09:44:47 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_2_stcks_1				ft_gt_stcks_1(int ac, char **av)
 		exit(1);
 	n_arg = ac;
 	stcks.a->lst = NULL;
-	stcks.b->lst = NULL;
+	stcks.b = NULL;
 	res = ft_atoi(av[--ac]);
 	if (ft_chck_arg(res, av[ac]))
 		ft_error_1();

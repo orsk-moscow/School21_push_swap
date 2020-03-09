@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/09 09:11:00 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/09 22:45:09 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,29 +33,118 @@ int						ft_do_mode_grtr_2(t_rlst_markup *mode_grtr)
 	return (0);
 }
 
+/* ************************************************************************** */
 int						ft_is_sa_needed(t_2_stcks_1 stcks)
 {
 	return(ft_strcmp(stcks.a->mode,"grtr") ?
 		ft_do_mode_grtr_2(stcks.a) : 0);
 }
+
+/* ************************************************************************** */
+int						ft_clt_stps_a(t_lst_psh_swp_1 *srtd_stck, int nmbr, int elmnts_n)
+{
+	int						tmp1;
+	int						tmp2;
+	t_lst_psh_swp_1			*tmp3;
+	t_nmbr_indx_rslt		res;
+
+	tmp2 = 0;
+	tmp3 = srtd_stck;
+	while(tmp3)
+	{
+		tmp1 = tmp3->elmnt.nmbr;
+		tmp3 = tmp3->next;
+		tmp2++;
+		if (tmp3 && tmp3->elmnt.nmbr > nmbr && nmbr > tmp1)
+			break;
+	}
+	// ((tmp2 > elmnts_n / 2) ? elmnts_n - tmp2 : tmp2);
+	return (tmp2);
+}
+
+/* ************************************************************************** */
+int						ft_r_vs_rr(int indx, int elmts)
+{
+	return ((indx > elmts / 2) ?
+			elmts - indx :
+			indx);
+}
+
+/* ************************************************************************** */
+int						ft_r_vs_rr_2(int indx, int elmts)
+{
+	int						rr;
+	int						r;
+
+	rr = 1;
+	r = 0;
+	return ((indx > elmts / 2) ?
+			rr :
+			r);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				ft_do_from_b_to_a(t_2_stcks_1 stcks, int elmnts_b, int elmnts_a)
+{
+	t_lst_psh_swp_1			*tmp1;
+	int						tmp2;
+	t_lst_psh_swp_1			*tmp3;
+	int						tmp4_min;
+	int						tmp5_min_indx;
+
+	tmp1 = stcks.b->lst;
+	tmp2 = 0;
+	tmp3 = stcks.b->lst;
+	tmp4_min = elmnts_b;
+	while (tmp1)
+	{
+		tmp1->elmnt.indx = ft_clt_stps_a(stcks.a->lst,
+										tmp1->elmnt.nmbr, stcks.a->elmnts_in);
+		tmp1->elmnt.rslt = ft_r_vs_rr(tmp2, elmnts_b) + ft_r_vs_rr(tmp1->elmnt.indx, elmnts_a);
+		tmp5_min_indx = (tmp4_min < tmp1->elmnt.rslt ? tmp5_min_indx : tmp2);
+		tmp4_min = (tmp4_min < tmp1->elmnt.rslt ? tmp4_min : tmp1->elmnt.rslt);
+		tmp1 = tmp1->next;
+		tmp2++;
+	}
+	stcks.b->lst = tmp3;
+	tmp2 = 0;
+	stcks = (ft_r_vs_rr_2(tmp5_min_indx, elmnts_b) ? ft_do_rrb_n(stcks, elmnts_b - tmp5_min_indx) : ft_do_rb_n(stcks, tmp5_min_indx));
+	stcks = (ft_r_vs_rr_2(tmp1->elmnt.indx, elmnts_a) ? ft_do_rrb_n(stcks, elmnts_a - tmp1->elmnt.indx) : ft_do_rb_n(stcks, tmp1->elmnt.indx));
+	stcks = ft_do_pa_1(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				ft_do_rrb_n(t_2_stcks_1 stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_rrb_1(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				ft_do_rb_n(t_2_stcks_1 stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_rb_1(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
+t_lst_psh_swp_1			*ft_align_a(t_lst_psh_swp_1	*stack)
+{
+	return (stack);
+}
+
+/* ************************************************************************** */
 t_2_stcks_1				ft_do_from_a_to_b(t_2_stcks_1 stcks)
 {
-// Pseudocode
-
-	// WHILE stack A has elements with "false" value in "Keep in Stack A" field
-//       IF sa (swap a) is needed
-//             perform sa (swap a) command
-//             update markup
-//       ELSE IF head element of stack A has "false" value in "Keep in Stack A" field
-//             perform pb (push b) command
-//       ELSE
-//             perform ra (rotate a) command
-// How to check that sa (swap a) is needed?
-// You have to perform sa (swap a) and then remake markup. We only have to update markup with chosen at previous steps parameters (as markup_head).
-
-// Then we have to compare how many elements will be kept in stack A with performed sa (swap a) and without it.
-
-// If after performing sa (swap a) more elements will be kept, it means that there is a reason to do it.
 	while (!ft_is_stack_clear(stcks.a->lst))
 	{
 		if (ft_is_sa_needed(stcks))
@@ -79,6 +168,7 @@ t_2_stcks_1				ft_do_from_a_to_b(t_2_stcks_1 stcks)
 int						main(int ac, char **av)
 {
 	t_2_stcks_1				stcks;
+	int						elmnts_b;
 
 	if (ft_is_dplcts(ac, av))
 		ft_error_1();
@@ -89,7 +179,12 @@ int						main(int ac, char **av)
 	// 	return (ft_sort_5_elmnts());
 	stcks.a->lst = ft_clct_indxs(ac, av, stcks.a->lst);
 	stcks.a = ft_do_markup(stcks.a);
+	elmnts_b = ac-- - stcks.a->elmnts_in;
 	stcks = ft_do_from_a_to_b(stcks);
-	ft_free_1(stcks.a->lst,stcks.b->lst);
-	return (0);
+	while (!stcks.b->lst)
+		stcks = ft_do_from_b_to_a(stcks, elmnts_b--, ac++);
+	stcks.a->lst = ft_align_a(stcks.a->lst);
+	exit(0);
+	// ft_free_1(stcks.a->lst,stcks.b->lst);
+	// return (0);
 }

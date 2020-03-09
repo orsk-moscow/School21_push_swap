@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 09:38:40 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/09 09:09:29 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/09 18:30:06 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,20 @@
 // 	return (stcks);
 // }
 
-// t_2_stcks_1				ft_do_pa_1(t_2_stcks_1 stcks)
-// {
-// 	size_t					len;
-// 	t_lst_psh_swp_1			*tmp1;
+t_2_stcks_1				ft_do_pa_1(t_2_stcks_1 stcks)
+{
+	size_t					len;
+	t_lst_psh_swp_1			*tmp1;
 
-// 	len = ft_lstlen(stcks.b);
-// 	if (len < 1)
-// 		return (stcks);
-// 	tmp1 = stcks.b;
-// 	stcks.b = stcks.b->next;
-// 	tmp1->next = stcks.a;
-// 	stcks.a = tmp1;
-// 	return (stcks);
-// }
+	len = ft_lstlen_1(stcks.b->lst);
+	if (len < 1)
+		return (stcks);
+	tmp1 = stcks.b->lst;
+	stcks.b->lst = stcks.b->lst->next;
+	tmp1->next = stcks.a->lst;
+	stcks.a->lst = tmp1;
+	return (stcks);
+}
 
 t_2_stcks_1				ft_do_pb_1(t_2_stcks_1 stcks)
 {
