@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fnctns_for_psw_swp.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 21:37:26 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/08 15:32:30 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/09 09:06:24 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,13 +109,13 @@ t_rlst_markup			*ft_mark_in_indx_md(t_rlst_markup *stck, t_rlst_markup *indx)
 	t_rlst_markup			*tmp1;
 
 	tmp1 = stck;
-	while (tmp1)
+	while (tmp1->lst)
 	{
 		if (tmp1->lst->elmnt.indx == indx->head && ++indx->head)
 			tmp1->lst->elmnt.rslt = 1;
 		else
 			tmp1->lst->elmnt.rslt = 0;
-		tmp1 = tmp1->lst->next;
+		tmp1->lst = tmp1->lst->next;
 	}
 	stck->head = indx->head;
 	stck->elmnts_in_a = indx->elmnts_in_a;
@@ -129,7 +129,7 @@ t_rlst_markup			*ft_mark_in_grtr_md(t_rlst_markup *stck, t_rlst_markup *grtr)
 	t_lst_psh_swp_1			*tmp1;
 	int						tmp2;
 
-	tmp1 = stck;
+	tmp1 = stck->lst;
 	while (tmp1 && tmp1->elmnt.indx != grtr->head)
 		tmp1 = tmp1->next;
 	tmp2 = tmp1->elmnt.nmbr;

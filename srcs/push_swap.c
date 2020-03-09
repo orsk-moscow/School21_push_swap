@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/08 16:41:15 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/09 09:11:00 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ int						main(int ac, char **av)
 	// 	return (ft_sort_3_elmnts());
 	// else if (ac < 7)
 	// 	return (ft_sort_5_elmnts());
-	stcks.a->lst = ft_clct_indxs(ac, av, stcks.a);
+	stcks.a->lst = ft_clct_indxs(ac, av, stcks.a->lst);
 	stcks.a = ft_do_markup(stcks.a);
 	stcks = ft_do_from_a_to_b(stcks);
-	ft_free_1(stcks.a,stcks.b);
+	ft_free_1(stcks.a->lst,stcks.b->lst);
 	return (0);
 }
