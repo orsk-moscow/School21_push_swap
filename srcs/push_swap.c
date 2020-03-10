@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/09 22:45:09 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/10 21:23:12 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,50 @@ int						ft_r_vs_rr_2(int indx, int elmts)
 }
 
 /* ************************************************************************** */
+t_2_stcks_1				ft_do_rrb_n(t_2_stcks_1 stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_rrb_1(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				ft_do_rb_n(t_2_stcks_1 stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_rb_1(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				ft_do_rra_n(t_2_stcks_1 stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_rra_1(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				ft_do_ra_n(t_2_stcks_1 stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_ra_1(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
 t_2_stcks_1				ft_do_from_b_to_a(t_2_stcks_1 stcks, int elmnts_b, int elmnts_a)
 {
 	t_lst_psh_swp_1			*tmp1;
@@ -109,37 +153,9 @@ t_2_stcks_1				ft_do_from_b_to_a(t_2_stcks_1 stcks, int elmnts_b, int elmnts_a)
 	stcks.b->lst = tmp3;
 	tmp2 = 0;
 	stcks = (ft_r_vs_rr_2(tmp5_min_indx, elmnts_b) ? ft_do_rrb_n(stcks, elmnts_b - tmp5_min_indx) : ft_do_rb_n(stcks, tmp5_min_indx));
-	stcks = (ft_r_vs_rr_2(tmp1->elmnt.indx, elmnts_a) ? ft_do_rrb_n(stcks, elmnts_a - tmp1->elmnt.indx) : ft_do_rb_n(stcks, tmp1->elmnt.indx));
+	stcks = (ft_r_vs_rr_2(tmp1->elmnt.indx, elmnts_a) ? ft_do_rra_n(stcks, elmnts_a - tmp1->elmnt.indx) : ft_do_ra_n(stcks, tmp1->elmnt.indx));
 	stcks = ft_do_pa_1(stcks);
 	return (stcks);
-}
-
-/* ************************************************************************** */
-t_2_stcks_1				ft_do_rrb_n(t_2_stcks_1 stcks, int n)
-{
-	int						itrtr1;
-
-	itrtr1 = 0;
-	while (itrtr1++ < n)
-		stcks = ft_do_rrb_1(stcks);
-	return (stcks);
-}
-
-/* ************************************************************************** */
-t_2_stcks_1				ft_do_rb_n(t_2_stcks_1 stcks, int n)
-{
-	int						itrtr1;
-
-	itrtr1 = 0;
-	while (itrtr1++ < n)
-		stcks = ft_do_rb_1(stcks);
-	return (stcks);
-}
-
-/* ************************************************************************** */
-t_lst_psh_swp_1			*ft_align_a(t_lst_psh_swp_1	*stack)
-{
-	return (stack);
 }
 
 /* ************************************************************************** */
@@ -152,7 +168,7 @@ t_2_stcks_1				ft_do_from_a_to_b(t_2_stcks_1 stcks)
 			stcks = ft_do_sa_1(stcks);
 			stcks.a->lst->next->elmnt.rslt = 0;
 		}
-		else if (stcks.a->lst->elmnt.rslt == 1)
+		else if (!stcks.a->lst->elmnt.rslt)
 		{
 			stcks = ft_do_pb_1(stcks);
 		}
@@ -161,6 +177,35 @@ t_2_stcks_1				ft_do_from_a_to_b(t_2_stcks_1 stcks)
 			stcks = ft_do_ra_1(stcks);
 		}
 	}
+	return (stcks);
+}
+
+/* ************************************************************************** */
+int						ft_fnd_min(t_lst_psh_swp_1 *stck)
+{
+	int						tmp3;
+	int						tmp4_indx_min;
+	int						tmp5_min;
+ 
+	tmp5_min = INT_MAX;
+	tmp3 = 0;
+	while (stck)
+	{
+		tmp4_indx_min = (tmp5_min < stck->elmnt.nmbr ? tmp4_indx_min : tmp3);
+		tmp5_min = (tmp5_min < stck->elmnt.nmbr ? tmp5_min : stck->elmnt.nmbr);
+		stck = stck->next;
+		tmp3++;
+	}
+	return (tmp4_indx_min);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				ft_align_a(t_2_stcks_1 stcks, int elmnts_n)
+{
+	int						indx_min;
+
+	indx_min = ft_fnd_min(stcks.a->lst);
+	stcks = (indx_min < elmnts_n / 2 ? ft_do_ra_n(stcks, indx_min) : ft_do_rra_n(stcks, elmnts_n - indx_min));
 	return (stcks);
 }
 
@@ -178,13 +223,12 @@ int						main(int ac, char **av)
 	// else if (ac < 7)
 	// 	return (ft_sort_5_elmnts());
 	stcks.a->lst = ft_clct_indxs(ac, av, stcks.a->lst);
-	stcks.a = ft_do_markup(stcks.a);
-	elmnts_b = ac-- - stcks.a->elmnts_in;
+	stcks = ft_do_markup(stcks);
+	elmnts_b = --ac - stcks.a->elmnts_in;
+	ac = stcks.a->elmnts_in;
 	stcks = ft_do_from_a_to_b(stcks);
-	while (!stcks.b->lst)
+	while (stcks.b->lst)
 		stcks = ft_do_from_b_to_a(stcks, elmnts_b--, ac++);
-	stcks.a->lst = ft_align_a(stcks.a->lst);
+	stcks = ft_align_a(stcks, ac);
 	exit(0);
-	// ft_free_1(stcks.a->lst,stcks.b->lst);
-	// return (0);
 }

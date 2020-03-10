@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:22:45 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/09 22:20:11 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/10 21:23:09 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ t_lst_psh_swp_1			*ft_clct_indxs(int ac, char **av, t_lst_psh_swp_1 *stck);
 /* ************************************************************************** */
 int						ft_clt_stps_a(t_lst_psh_swp_1 *srtd_stck, int nmbr, int elmnts_n);
 /* ************************************************************************** */
-t_rlst_markup			*ft_do_markup(t_rlst_markup *stck);
 t_rlst_markup			*ft_mark_in_indx_md(t_rlst_markup *stck, t_rlst_markup *indx);
 t_rlst_markup			*ft_mark_in_grtr_md(t_rlst_markup *stck, t_rlst_markup *grtr);
 t_rlst_markup			*ft_do_mode_grtr(t_lst_psh_swp_1 *mode_grtr, int elmnts_in, int head);
 t_rlst_markup			*ft_do_mode_indx(t_lst_psh_swp_1 *mode_indx, int elmnts_in, int head);
 /* ************************************************************************** */
+t_2_stcks_1				ft_do_markup(t_2_stcks_1 stcks);
 t_2_stcks_1				ft_gt_stcks_1(int ac, char **av);
 t_2_stcks_1				ft_do_sa_1(t_2_stcks_1 stcks);
 t_2_stcks_1				ft_do_pb_1(t_2_stcks_1 stcks);

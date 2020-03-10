@@ -1,17 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_stacks.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 15:07:56 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/09 09:44:47 by u18188899        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/push_swap.h"
 
+/* ************************************************************************** */
 t_2_stcks				ft_gt_stcks(int ac, char **av)
 {
 	t_2_stcks				stcks;
@@ -46,6 +35,21 @@ t_2_stcks				ft_gt_stcks(int ac, char **av)
 	return (stcks);
 }
 
+/* ************************************************************************** */
+t_rlst_markup			*ft_init_stck()
+{
+	t_rlst_markup			*tmp1;
+
+	if (!(tmp1 = (t_rlst_markup*)malloc(sizeof(t_rlst_markup*))))
+		ft_error_1();
+	tmp1->lst = NULL;
+	tmp1->elmnts_in = 0;
+	tmp1->head = -1;
+	tmp1->mode = "";
+	return (tmp1);
+}
+
+/* ************************************************************************** */
 t_2_stcks_1				ft_gt_stcks_1(int ac, char **av)
 {
 	t_2_stcks_1				stcks;
@@ -55,8 +59,10 @@ t_2_stcks_1				ft_gt_stcks_1(int ac, char **av)
 	if (ac == 1)
 		exit(1);
 	n_arg = ac;
+	if (!(stcks.a = ft_init_stck()) ||
+		!(stcks.b = ft_init_stck()))
+		ft_error_1();
 	stcks.a->lst = NULL;
-	stcks.b = NULL;
 	res = ft_atoi(av[--ac]);
 	if (ft_chck_arg(res, av[ac]))
 		ft_error_1();
