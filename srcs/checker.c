@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/10 21:55:01 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/11 01:59:35 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ int						main(int ac, char **av)
 	int						i;
 
 	if (ft_is_dplcts(ac, av))
-		ft_error(stcks->a, stcks->b);
+		ft_error(stcks.a, stcks.b);
 	stcks = ft_gt_stcks(ac, av);
 	i = getNL(STDIN_FILENO, buff);
 	if (!ft_chk_instrs(buff))
-		ft_error(stcks->a, stcks->b);
+		ft_error(stcks.a, stcks.b);
 	stcks = ft_exct_instrs(stcks, *buff);
-	(ft_is_lst_srtd(stcks->a) && !stcks->b && (int)ft_lstlen(stcks->a) == --ac) ?
+	(ft_is_lst_srtd(stcks.a) && !stcks.b && (int)ft_lstlen(stcks.a) == --ac) ?
 		ft_putstr_fd("OK\n", STDOUT_FILENO) :
 		ft_putstr_fd("KO\n", STDOUT_FILENO);
 
@@ -72,7 +72,7 @@ int						main(int ac, char **av)
 
 /* content below should ne deleted before validation */
 	// t_list					*temp;
-	// temp = stcks->a;
+	// temp = stcks.a;
 	// while (temp)
 	// {
 	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
@@ -82,7 +82,7 @@ int						main(int ac, char **av)
 /* content above should ne deleted before validation */
 
 /* content below should ne deleted before validation */
-	// temp = stcks->b;
+	// temp = stcks.b;
 	// while (temp)
 	// {
 	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
@@ -91,7 +91,7 @@ int						main(int ac, char **av)
 /* content above should ne deleted before validation */
 
 
-
-	ft_free(stcks->a,stcks->b);
-	return (0);
+	exit(0);
+	// ft_free(stcks.a,stcks.b);
+	// return (0);
 }

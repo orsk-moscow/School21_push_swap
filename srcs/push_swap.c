@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/11 00:26:20 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/11 02:01:12 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,11 @@ int						ft_is_sa_needed(t_2_stcks_1 *stcks)
 }
 
 /* ************************************************************************** */
-int						ft_clt_stps_a(t_lst_psh_swp_1 *srtd_stck, int nmbr, int elmnts_n)
+int						ft_clt_stps_a(t_lst_psh_swp_1 *srtd_stck, int nmbr)
 {
 	int						tmp1;
 	int						tmp2;
 	t_lst_psh_swp_1			*tmp3;
-	t_nmbr_indx_rslt		res;
 
 	tmp2 = 0;
 	tmp3 = srtd_stck;
@@ -59,7 +58,6 @@ int						ft_clt_stps_a(t_lst_psh_swp_1 *srtd_stck, int nmbr, int elmnts_n)
 			tmp3->elmnt.nmbr < nmbr && nmbr > tmp1 && tmp3->elmnt.nmbr < tmp1)))
 			break;
 	}
-	// ((tmp2 > elmnts_n / 2) ? elmnts_n - tmp2 : tmp2);
 	return (tmp2);
 }
 
@@ -144,7 +142,7 @@ t_2_stcks_1				*ft_do_from_b_to_a(t_2_stcks_1 *stcks, int elmnts_b, int elmnts_a
 	while (tmp1)
 	{
 		tmp1->elmnt.indx = ft_clt_stps_a(stcks->a->lst,
-										tmp1->elmnt.nmbr, stcks->a->elmnts_in);
+										tmp1->elmnt.nmbr);
 		tmp1->elmnt.rslt = ft_r_vs_rr(tmp2, elmnts_b) + ft_r_vs_rr(tmp1->elmnt.indx, elmnts_a);
 		tmp5_min_indx = (tmp4_min < tmp1->elmnt.rslt ? tmp5_min_indx : tmp2);
 		tmp4_min = (tmp4_min < tmp1->elmnt.rslt ? tmp4_min : tmp1->elmnt.rslt);
@@ -231,7 +229,6 @@ int						main(int ac, char **av)
 	// 	return (ft_sort_5_elmnts());
 	stcks->a->lst = ft_clct_indxs(ac, av, stcks->a->lst);
 	stcks = ft_do_markup(stcks);
-	// ft_do_markup(stcks);
 	elmnts_b = --ac - stcks->a->elmnts_in;
 	ac = stcks->a->elmnts_in;
 	stcks = ft_do_from_a_to_b(stcks);

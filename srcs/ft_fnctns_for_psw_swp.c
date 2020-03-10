@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 21:37:26 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/11 00:13:00 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/11 01:41:02 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,14 @@ t_rlst_markup			*ft_do_mode_grtr(t_lst_psh_swp_1 *mode_grtr, int elmnts_in, int 
 	if (mode_grtr->elmnt.nmbr < rslt->lst->elmnt.nmbr)
 	{
 		mode_grtr->elmnt.rslt = rslt->lst->elmnt.rslt + 1;
-		if (mode_grtr->elmnt.rslt > rslt->elmnts_in || (
-			mode_grtr->elmnt.rslt == rslt->elmnts_in &&
-			mode_grtr->elmnt.indx < rslt->lst->elmnt.indx))
+		if (mode_grtr->elmnt.rslt > rslt->elmnts_in)
 		{
 			head = mode_grtr->elmnt.indx;
-			elmnts_in = rslt->elmnts_in + 1;
+			elmnts_in = mode_grtr->elmnt.rslt;
 		}
+		else if (mode_grtr->elmnt.rslt == rslt->elmnts_in &&
+			mode_grtr->elmnt.indx < rslt->lst->elmnt.indx)
+			head = mode_grtr->elmnt.indx;
 		else
 		{
 			elmnts_in = rslt->elmnts_in;
@@ -149,9 +150,12 @@ t_rlst_markup			*ft_mark_in_grtr_md(t_rlst_markup *stck, t_rlst_markup *grtr)
 
 	tmp1 = stck->lst;
 	while (tmp1 && tmp1->elmnt.indx != grtr->head)
+	{
+		tmp1->elmnt.rslt = 0;
 		tmp1 = tmp1->next;
+	}
 	tmp2 = tmp1->elmnt.nmbr;
-	tmp1->elmnt.rslt = 0;
+	tmp1->elmnt.rslt = 1;
 	while (tmp1)
 	{
 		if (tmp2 < tmp1->elmnt.nmbr)

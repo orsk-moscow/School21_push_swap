@@ -28,6 +28,7 @@ t_2_stcks_1				*ft_do_rb_1(t_2_stcks_1 *stcks)
 	while (tmp2->next)
 		tmp2 = tmp2->next;
 	tmp2->next = tmp1;
+	ft_putstr_fd("rb\n", (int)STDOUT_FILENO);
 	return (stcks);
 }
 
@@ -54,6 +55,7 @@ t_2_stcks_1				*ft_do_rra_1(t_2_stcks_1 *stcks)
 	tmp2->next = NULL;
 	tmp1->next = stcks->a->lst;
 	stcks->a->lst = tmp1;
+	ft_putstr_fd("rra\n", (int)STDOUT_FILENO);
 	return (stcks);
 }
 
@@ -73,6 +75,7 @@ t_2_stcks_1				*ft_do_rrb_1(t_2_stcks_1 *stcks)
 	tmp2->next = NULL;
 	tmp1->next = stcks->b->lst;
 	stcks->b->lst = tmp1;
+	ft_putstr_fd("rrb\n", (int)STDOUT_FILENO);
 	return (stcks);
 }
 
