@@ -8,7 +8,7 @@
 			"name": "Debug",
 			"type": "lldb",
 			"request": "launch",
-			"args":["123","789","456"],
+			"args":["1","3","2","5","4"],
 			// "args":[],
 			"terminal":"integrated",
 			"program": "${workspaceFolder}/./a.out",

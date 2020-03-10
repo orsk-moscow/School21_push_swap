@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/10 23:54:21 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/11 00:26:20 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,13 +152,13 @@ t_2_stcks_1				*ft_do_from_b_to_a(t_2_stcks_1 *stcks, int elmnts_b, int elmnts_a
 		tmp2++;
 	}
 	stcks->b->lst = tmp3;
-	tmp2 = 0;
+	// tmp2 = 0;
 	stcks = (ft_r_vs_rr_2(tmp5_min_indx, elmnts_b) ?
 			ft_do_rrb_n(stcks, elmnts_b - tmp5_min_indx) :
 			ft_do_rb_n(stcks, tmp5_min_indx));
-	stcks = (ft_r_vs_rr_2(tmp3->elmnt.indx, elmnts_a) ?
-			ft_do_rra_n(stcks, elmnts_a - tmp3->elmnt.indx) :
-			ft_do_ra_n(stcks, tmp3->elmnt.indx));
+	stcks = (ft_r_vs_rr_2(stcks->b->lst->elmnt.indx, elmnts_a) ?
+			ft_do_rra_n(stcks, elmnts_a - stcks->b->lst->elmnt.indx) :
+			ft_do_ra_n(stcks, stcks->b->lst->elmnt.indx));
 	stcks = ft_do_pa_1(stcks);
 	return (stcks);
 }
