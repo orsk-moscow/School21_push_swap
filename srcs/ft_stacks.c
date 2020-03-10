@@ -50,33 +50,45 @@ t_rlst_markup			*ft_init_stck()
 }
 
 /* ************************************************************************** */
-t_2_stcks_1				ft_gt_stcks_1(int ac, char **av)
+t_2_stcks_1				*ft_init_stcks()
 {
-	t_2_stcks_1				stcks;
+	t_2_stcks_1				*tmp1;
+
+	if (!(tmp1 = (t_2_stcks_1*)malloc(sizeof(t_2_stcks_1*))))
+		ft_error_1();
+	if (!(tmp1->a = ft_init_stck()))
+	//  ||
+	// 	!(tmp1->b = ft_init_stck()))
+		ft_error_1();
+	return (tmp1);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				*ft_gt_stcks_1(int ac, char **av)
+{
+	t_2_stcks_1				*stcks;
 	int						res;
 	int						n_arg;
 
 	if (ac == 1)
 		exit(1);
 	n_arg = ac;
-	if (!(stcks.a = ft_init_stck()) ||
-		!(stcks.b = ft_init_stck()))
-		ft_error_1();
-	stcks.a->lst = NULL;
+	stcks = ft_init_stcks();
+	stcks->a->lst = NULL;
 	res = ft_atoi(av[--ac]);
 	if (ft_chck_arg(res, av[ac]))
 		ft_error_1();
-	stcks.a->lst = ft_lstnew_1(res, -1);
+	stcks->a->lst = ft_lstnew_1(res, -1);
 	while (--ac > 0)
 	{
 		res = ft_atoi(av[ac]);
 		if (ft_chck_arg(res, av[ac]))
 			ft_error_1();
-		ft_lstadd_1(&stcks.a->lst, ft_lstnew_1(res, -1));
+		ft_lstadd_1(&stcks->a->lst, ft_lstnew_1(res, -1));
 	}
 /* content below should ne deleted before validation */
 	// t_list					*temp;
-	// temp = stcks.a->lst;
+	// temp = stcks->a->lst;
 	// while (temp)
 	// {
 	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));

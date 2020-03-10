@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:22:45 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/10 21:23:09 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/10 23:17:26 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ t_2_stcks				ft_do_rr(t_2_stcks stcks);
 t_2_stcks				ft_do_rra(t_2_stcks stcks);
 t_2_stcks				ft_do_rrb(t_2_stcks stcks);
 t_2_stcks				ft_do_rrr(t_2_stcks stcks);
+t_2_stcks				ft_do_instrs(t_2_stcks stcks, char *instr, size_t n_s);
+t_2_stcks				ft_gt_stcks(int ac, char **av);
 /* ************************************************************************** */
 t_lst_psh_swp_1			*ft_lstnew_1(int nmbr, int indx);
 t_lst_psh_swp_1			*ft_clct_indxs(int ac, char **av, t_lst_psh_swp_1 *stck);
@@ -82,19 +84,17 @@ t_rlst_markup			*ft_mark_in_indx_md(t_rlst_markup *stck, t_rlst_markup *indx);
 t_rlst_markup			*ft_mark_in_grtr_md(t_rlst_markup *stck, t_rlst_markup *grtr);
 t_rlst_markup			*ft_do_mode_grtr(t_lst_psh_swp_1 *mode_grtr, int elmnts_in, int head);
 t_rlst_markup			*ft_do_mode_indx(t_lst_psh_swp_1 *mode_indx, int elmnts_in, int head);
+t_rlst_markup			*ft_init_stck();
 /* ************************************************************************** */
-t_2_stcks_1				ft_do_markup(t_2_stcks_1 stcks);
-t_2_stcks_1				ft_gt_stcks_1(int ac, char **av);
-t_2_stcks_1				ft_do_sa_1(t_2_stcks_1 stcks);
-t_2_stcks_1				ft_do_pb_1(t_2_stcks_1 stcks);
-t_2_stcks_1				ft_do_ra_1(t_2_stcks_1 stcks);
-t_2_stcks_1				ft_do_rra_1(t_2_stcks_1 stcks);
-t_2_stcks_1				ft_do_pa_1(t_2_stcks_1 stcks);
-t_2_stcks_1				ft_do_rb_1(t_2_stcks_1 stcks);
-t_2_stcks_1				ft_do_rrb_1(t_2_stcks_1 stcks);
-/* ************************************************************************** */
-t_2_stcks				ft_do_instrs(t_2_stcks stcks, char *instr, size_t n_s);
-t_2_stcks				ft_gt_stcks(int ac, char **av);
+t_2_stcks_1				*ft_do_markup(t_2_stcks_1 *stcks);
+t_2_stcks_1				*ft_gt_stcks_1(int ac, char **av);
+t_2_stcks_1				*ft_do_sa_1(t_2_stcks_1 *stcks);
+t_2_stcks_1				*ft_do_pb_1(t_2_stcks_1 *stcks);
+t_2_stcks_1				*ft_do_ra_1(t_2_stcks_1 *stcks);
+t_2_stcks_1				*ft_do_rra_1(t_2_stcks_1 *stcks);
+t_2_stcks_1				*ft_do_pa_1(t_2_stcks_1 *stcks);
+t_2_stcks_1				*ft_do_rb_1(t_2_stcks_1 *stcks);
+t_2_stcks_1				*ft_do_rrb_1(t_2_stcks_1 *stcks);
 /* ************************************************************************** */
 void					ft_lstadd_1(t_lst_psh_swp_1 **alst, t_lst_psh_swp_1 *new);
 void					ft_lstdel_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int));
@@ -109,7 +109,7 @@ void					ft_free(t_list *stck_a, t_list *stck_b);
 int						ft_chck_arg(int intgr, const char *strng);
 int						ft_is_dplcts(int ac,char **av);
 int						ft_is_stack_clear(t_lst_psh_swp_1 *stck);
-int						ft_is_sa_needed(t_2_stcks_1 stcks);
+int						ft_is_sa_needed(t_2_stcks_1 *stcks);
 /* ************************************************************************** */
 size_t					ft_lstlen_1(t_lst_psh_swp_1 *lst);
 
