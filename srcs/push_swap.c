@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/11 21:39:59 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/12 00:27:01 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,7 +228,7 @@ int						main(int ac, char **av)
 	// 	return (ft_sort_3_elmnts());
 	// else if (ac < 7)
 	// 	return (ft_sort_5_elmnts());
-	stcks->a->lst = ft_clct_indxs(ac, av, stcks->a->lst);
+	stcks->a->lst = ft_clct_indxs(stcks->a->lst);
 	stcks = ft_do_markup(stcks);
 	elmnts_b = --ac - stcks->a->elmnts_in;
 	ac = stcks->a->elmnts_in;

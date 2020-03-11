@@ -6,34 +6,34 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 21:37:26 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/11 21:38:22 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/12 00:26:27 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
-t_lst_psh_swp_1			*ft_clct_indxs(int ac, char **av, t_lst_psh_swp_1 *stck)
+t_lst_psh_swp_1			*ft_clct_indxs(t_lst_psh_swp_1 *stck)
 {
-	int						itrtr1;
-	int						itrtr2;
 	int						indx;
 	t_lst_psh_swp_1			*tmp1;
+	t_lst_psh_swp_1			*tmp2;
 
-	itrtr1 = 1;
 	tmp1 = stck;
-	while (itrtr1 < ac)
+	while (tmp1)
 	{
 		indx = 0;
-		itrtr2 = 1;
-		while (itrtr2 < ac)
-			if (ft_strcmp(av[itrtr1], av[itrtr2++]) > 0)
+		tmp2 = stck;
+		while (tmp2)
+		{
+			if (tmp1->elmnt.nmbr > tmp2->elmnt.nmbr)
 				indx++;
-		itrtr1++;
-		stck->elmnt.indx = indx;
-		stck = stck->next;
+			tmp2 = tmp2->next;
+		}
+		tmp1->elmnt.indx = indx;
+		tmp1 = tmp1->next;
 	}
-	return (tmp1);
+	return (stck);
 }
 
 /* ************************************************************************** */
@@ -165,7 +165,14 @@ t_rlst_markup			*ft_mark_in_grtr_md(t_rlst_markup *stck, t_rlst_markup *grtr)
 			tmp1->elmnt.rslt = 1;
 		}
 		else
-			tmp1->elmnt.rslt = 0;
+		{
+			while (tmp1)
+			{
+				tmp1->elmnt.rslt = 0;
+				tmp1 = tmp1->next;
+			}
+			break;
+		}
 		tmp1 = tmp1->next;
 	}
 	stck->head = grtr->head;

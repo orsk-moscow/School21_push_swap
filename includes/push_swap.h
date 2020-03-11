@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:22:45 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/11 02:01:56 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/12 00:26:51 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_2_stcks				ft_do_instrs(t_2_stcks stcks, char *instr, size_t n_s);
 t_2_stcks				ft_gt_stcks(int ac, char **av);
 /* ************************************************************************** */
 t_lst_psh_swp_1			*ft_lstnew_1(int nmbr, int indx);
-t_lst_psh_swp_1			*ft_clct_indxs(int ac, char **av, t_lst_psh_swp_1 *stck);
+t_lst_psh_swp_1			*ft_clct_indxs(t_lst_psh_swp_1 *stck);
 /* ************************************************************************** */
 int						ft_clt_stps_a(t_lst_psh_swp_1 *srtd_stck, int nmbr);
 /* ************************************************************************** */
