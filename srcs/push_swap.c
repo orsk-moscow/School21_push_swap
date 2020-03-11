@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/11 02:01:12 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/11 21:39:59 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int						ft_clt_stps_a(t_lst_psh_swp_1 *srtd_stck, int nmbr)
 		tmp3 = tmp3->next;
 		tmp2++;
 		if (tmp3 && ((tmp3->elmnt.nmbr > nmbr && nmbr > tmp1 && tmp3->elmnt.nmbr > tmp1) || (
+			tmp3->elmnt.nmbr > nmbr && nmbr < tmp1 && tmp3->elmnt.nmbr < tmp1) || (
 			tmp3->elmnt.nmbr < nmbr && nmbr > tmp1 && tmp3->elmnt.nmbr < tmp1)))
 			break;
 	}

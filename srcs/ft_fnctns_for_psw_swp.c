@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 21:37:26 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/11 01:41:02 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/11 21:38:22 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,15 +156,16 @@ t_rlst_markup			*ft_mark_in_grtr_md(t_rlst_markup *stck, t_rlst_markup *grtr)
 	}
 	tmp2 = tmp1->elmnt.nmbr;
 	tmp1->elmnt.rslt = 1;
+	tmp1 = tmp1->next;
 	while (tmp1)
 	{
 		if (tmp2 < tmp1->elmnt.nmbr)
 		{
 			tmp2 = tmp1->elmnt.nmbr;
-			tmp1->elmnt.rslt = 0;
+			tmp1->elmnt.rslt = 1;
 		}
 		else
-			tmp1->elmnt.rslt = 1;
+			tmp1->elmnt.rslt = 0;
 		tmp1 = tmp1->next;
 	}
 	stck->head = grtr->head;
