@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/12 08:09:26 by u18188899        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
@@ -84,6 +72,28 @@ int						ft_r_vs_rr_2(int indx, int elmts)
 }
 
 /* ************************************************************************** */
+t_2_stcks_1				*ft_do_rrb_n_slnt(t_2_stcks_1 *stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_rrb_1_slnt(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				*ft_do_rb_n_slnt(t_2_stcks_1 *stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_rb_1_slnt(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
 t_2_stcks_1				*ft_do_rrb_n(t_2_stcks_1 *stcks, int n)
 {
 	int						itrtr1;
@@ -102,6 +112,28 @@ t_2_stcks_1				*ft_do_rb_n(t_2_stcks_1 *stcks, int n)
 	itrtr1 = 0;
 	while (itrtr1++ < n)
 		stcks = ft_do_rb_1(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				*ft_do_rra_n_slnt(t_2_stcks_1 *stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_rra_1_slnt(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				*ft_do_ra_n_slnt(t_2_stcks_1 *stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_ra_1_slnt(stcks);
 	return (stcks);
 }
 
@@ -128,30 +160,47 @@ t_2_stcks_1				*ft_do_ra_n(t_2_stcks_1 *stcks, int n)
 }
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_do_rrr_n(t_2_stcks_1 *stcks, int nb, int na)
+void					ft_prnt_ra_n(int n)
 {
 	int						itrtr1;
-	int						min_n;
-	int						max_n;
 
 	itrtr1 = 0;
-	min_n = (na > nb ? nb : na);
-	max_n = (na > nb ? na : nb);
-	while (itrtr1 < min_n)
-	{
-		stcks = ft_do_rrr_1(stcks);
-		itrtr1++;
-	}
-	while (itrtr1 < max_n)
-	{
-		stcks = (na < max_n ? ft_do_rrb_1(stcks) : ft_do_rra_1(stcks));
-		itrtr1++;
-	}
-	return (stcks);
+	while (itrtr1++ < n)
+		ft_putstr("ra\n");
 }
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_do_rr_n(t_2_stcks_1 *stcks, int nb, int na)
+void					ft_prnt_rra_n(int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		ft_putstr("rra\n");
+}
+
+/* ************************************************************************** */
+void					ft_prnt_rb_n(int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		ft_putstr("rb\n");
+}
+
+/* ************************************************************************** */
+void					ft_prnt_rrb_n(int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		ft_putstr("rrb\n");
+}
+
+/* ************************************************************************** */
+void					ft_prnt_rrr_n(int nb, int na)
 {
 	int						itrtr1;
 	int						min_n;
@@ -162,15 +211,36 @@ t_2_stcks_1				*ft_do_rr_n(t_2_stcks_1 *stcks, int nb, int na)
 	max_n = (na > nb ? na : nb);
 	while (itrtr1 < min_n)
 	{
-		stcks = ft_do_rr_1(stcks);
+		ft_putstr("rrr\n");
 		itrtr1++;
 	}
 	while (itrtr1 < max_n)
 	{
-		stcks = (na < max_n ? ft_do_rb_1(stcks) : ft_do_ra_1(stcks));
+		na < max_n ? ft_putstr("rrb\n") : ft_putstr("rra\n");
 		itrtr1++;
 	}
-	return (stcks);
+}
+
+/* ************************************************************************** */
+void					ft_prnt_rr_n(int nb, int na)
+{
+	int						itrtr1;
+	int						min_n;
+	int						max_n;
+
+	itrtr1 = 0;
+	min_n = (na > nb ? nb : na);
+	max_n = (na > nb ? na : nb);
+	while (itrtr1 < min_n)
+	{
+		ft_putstr("rr\n");
+		itrtr1++;
+	}
+	while (itrtr1 < max_n)
+	{
+		na < max_n ? ft_putstr("rb\n") : ft_putstr("ra\n");
+		itrtr1++;
+	}
 }
 
 /* ************************************************************************** */
@@ -181,6 +251,10 @@ t_2_stcks_1				*ft_do_from_b_to_a(t_2_stcks_1 *stcks, int elmnts_b, int elmnts_a
 	t_lst_psh_swp_1			*tmp3;
 	int						tmp4_min;
 	int						tmp5_min_indx;
+	int						rrb;
+	int						rra;
+	int						n_b;
+	int						n_a;
 
 	tmp1 = stcks->b->lst;
 	tmp2 = 0;
@@ -198,28 +272,29 @@ t_2_stcks_1				*ft_do_from_b_to_a(t_2_stcks_1 *stcks, int elmnts_b, int elmnts_a
 	}
 	stcks->b->lst = tmp3;
 
-	stcks = (ft_r_vs_rr_2(tmp5_min_indx, elmnts_b) ?
-			ft_do_rrb_n(stcks, elmnts_b - tmp5_min_indx) :
-			ft_do_rb_n(stcks, tmp5_min_indx));
-	stcks = (ft_r_vs_rr_2(stcks->b->lst->elmnt.indx, elmnts_a) ?
-			ft_do_rra_n(stcks, elmnts_a - stcks->b->lst->elmnt.indx) :
-			ft_do_ra_n(stcks, stcks->b->lst->elmnt.indx));
-
-	// if (ft_r_vs_rr_2(tmp5_min_indx, elmnts_b) &&
-	// 	ft_r_vs_rr_2(stcks->b->lst->elmnt.indx, elmnts_a))
-	// 	stcks = ft_do_rrr_n(stcks, elmnts_b - tmp5_min_indx, elmnts_a - stcks->b->lst->elmnt.indx);
-	// else if (!ft_r_vs_rr_2(tmp5_min_indx, elmnts_b) &&
-	// 		!ft_r_vs_rr_2(stcks->b->lst->elmnt.indx, elmnts_a))
-	// 	stcks = ft_do_rr_n(stcks, tmp5_min_indx, stcks->b->lst->elmnt.indx);
-	// else
-	// {
-	// 	stcks = (ft_r_vs_rr_2(tmp5_min_indx, elmnts_b) ?
-	// 			ft_do_rrb_n(stcks, elmnts_b - tmp5_min_indx) :
-	// 			ft_do_rb_n(stcks, tmp5_min_indx));
-	// 	stcks = (ft_r_vs_rr_2(stcks->b->lst->elmnt.indx, elmnts_a) ?
-	// 			ft_do_rra_n(stcks, elmnts_a - stcks->b->lst->elmnt.indx) :
-	// 			ft_do_ra_n(stcks, stcks->b->lst->elmnt.indx));
-	// }
+	rrb = ft_r_vs_rr_2(tmp5_min_indx, elmnts_b);
+	n_b = (rrb ?
+		elmnts_b - tmp5_min_indx :
+		tmp5_min_indx);
+	stcks = (rrb ?
+			ft_do_rrb_n_slnt(stcks, elmnts_b - tmp5_min_indx) :
+			ft_do_rb_n_slnt(stcks, tmp5_min_indx));
+	rra = ft_r_vs_rr_2(stcks->b->lst->elmnt.indx, elmnts_a);
+	n_a = (rra ?
+		elmnts_a - stcks->b->lst->elmnt.indx :
+		stcks->b->lst->elmnt.indx);
+	stcks = (rra ?
+			ft_do_rra_n_slnt(stcks, elmnts_a - stcks->b->lst->elmnt.indx) :
+			ft_do_ra_n_slnt(stcks, stcks->b->lst->elmnt.indx));
+	if (rrb && rra)
+		ft_prnt_rrr_n(n_b, n_a);
+	else if (!rrb && !rra)
+		ft_prnt_rr_n(n_b, n_a);
+	else
+	{
+		rrb ? ft_prnt_rrb_n(n_b) : ft_prnt_rb_n(n_b);
+		rra ? ft_prnt_rra_n(n_a) : ft_prnt_ra_n(n_a);
+	}
 	stcks = ft_do_pa_1(stcks);
 	return (stcks);
 }

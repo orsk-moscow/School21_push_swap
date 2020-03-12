@@ -19,7 +19,7 @@ def make_test_checker(array, stdin_input, errors_test = False, silent = True, su
     l = len(array)
     argv = " ".join(map(str,array))
     args = "/checker " + argv
-    args = os.path.abspath("../") + args
+    args = os.path.abspath(".") + args
     args = args.split()
     p = subprocess.run(args,
                        input = stdin_input,
@@ -58,7 +58,7 @@ def make_test_push_swap(array, errors_test = False, silent = True, success = Fal
     l1 = len(array)
     argv = " ".join(map(str,array))
     args = "/push_swap " + argv
-    args = os.path.abspath("../") + args
+    args = os.path.abspath(".") + args
     args = args.split()
     p = subprocess.run(args,
                        stdout=subprocess.PIPE,
@@ -78,8 +78,14 @@ def make_test_push_swap(array, errors_test = False, silent = True, success = Fal
     return p.stdout
 
 # 2. Making necessary compilations
-get_ipython().system('(cd ../libft && make re && make clean)')
-get_ipython().system('(cd .. && make re && make clean)')
+# build_dir = os.path.abspath("../libft")
+cwd = os.getcwd()
+try:
+	# os.chdir(build_dir)
+	os.system("cd libft && make re && make clean")
+finally:os.chdir(cwd)
+try:os.system("make re && make clean")
+finally:os.chdir(cwd)
 
 # 3. Base tests for all permutations of ints in range 5
 #All tests for this chapter should be passed as correct

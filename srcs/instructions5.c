@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 09:38:40 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/11 01:53:19 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/12 20:28:44 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,25 @@ t_2_stcks_1				*ft_do_pb_1(t_2_stcks_1 *stcks)
 	tmp1->next = stcks->b->lst;
 	stcks->b->lst = tmp1;
 	ft_putstr_fd("pb\n", (int)STDOUT_FILENO);
+	return (stcks);
+}
+
+t_2_stcks_1				*ft_do_ra_1_slnt(t_2_stcks_1 *stcks)
+{
+	size_t					len;
+	t_lst_psh_swp_1			*tmp1;
+	t_lst_psh_swp_1			*tmp2;
+
+	len = ft_lstlen_1(stcks->a->lst);
+	if (len < 2)
+		return (stcks);
+	tmp1 = stcks->a->lst;
+	stcks->a->lst = stcks->a->lst->next;
+	tmp2 = stcks->a->lst;
+	tmp1->next = NULL;
+	while (tmp2->next)
+		tmp2 = tmp2->next;
+	tmp2->next = tmp1;
 	return (stcks);
 }
 

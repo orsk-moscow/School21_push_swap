@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:22:45 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/12 01:26:56 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/12 20:30:27 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,16 @@ t_2_stcks_1				*ft_gt_stcks_1(int ac, char **av);
 t_2_stcks_1				*ft_do_sa_1(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_pb_1(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_ra_1(t_2_stcks_1 *stcks);
+t_2_stcks_1				*ft_do_ra_1_slnt(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_rra_1(t_2_stcks_1 *stcks);
+t_2_stcks_1				*ft_do_rra_1_slnt(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_pa_1(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_rb_1(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_rrb_1(t_2_stcks_1 *stcks);
+t_2_stcks_1				*ft_do_rrb_1_slnt(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_rrr_1(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_rr_1(t_2_stcks_1 *stcks);
+t_2_stcks_1				*ft_do_rb_1_slnt(t_2_stcks_1 *stcks);
 /* ************************************************************************** */
 void					ft_lstadd_1(t_lst_psh_swp_1 **alst, t_lst_psh_swp_1 *new);
 void					ft_lstdel_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int));
