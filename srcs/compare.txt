@@ -1,0 +1,7 @@
+compare.txt
+rb0	rra0	ok
+rb1	rra0	
+rb0	rra0
+rb0	ra2
+rb0	ra2
+rb0	rra0

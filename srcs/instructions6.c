@@ -32,12 +32,37 @@ t_2_stcks_1				*ft_do_rb_1(t_2_stcks_1 *stcks)
 	return (stcks);
 }
 
-// t_2_stcks				ft_do_rr(t_2_stcks stcks)
-// {
-// 	stcks = ft_do_ra(stcks);
-// 	stcks = ft_do_rb(stcks);
-// 	return (stcks);
-// }
+t_2_stcks_1				*ft_do_rr_1(t_2_stcks_1 *stcks)
+{
+	size_t					len;
+	t_lst_psh_swp_1			*tmp1;
+	t_lst_psh_swp_1			*tmp2;
+
+	len = ft_lstlen_1(stcks->b->lst);
+	if (len > 1)
+	{
+		tmp1 = stcks->b->lst;
+		stcks->b->lst = stcks->b->lst->next;
+		tmp2 = stcks->b->lst;
+		tmp1->next = NULL;
+		while (tmp2->next)
+			tmp2 = tmp2->next;
+		tmp2->next = tmp1;
+	}
+	len = ft_lstlen_1(stcks->a->lst);
+	if (len < 2)
+	{
+		tmp1 = stcks->a->lst;
+		stcks->a->lst = stcks->a->lst->next;
+		tmp2 = stcks->a->lst;
+		tmp1->next = NULL;
+		while (tmp2->next)
+			tmp2 = tmp2->next;
+		tmp2->next = tmp1;
+	}
+	ft_putstr_fd("rr\n", (int)STDOUT_FILENO);
+	return (stcks);
+}
 
 t_2_stcks_1				*ft_do_rra_1(t_2_stcks_1 *stcks)
 {
@@ -56,6 +81,38 @@ t_2_stcks_1				*ft_do_rra_1(t_2_stcks_1 *stcks)
 	tmp1->next = stcks->a->lst;
 	stcks->a->lst = tmp1;
 	ft_putstr_fd("rra\n", (int)STDOUT_FILENO);
+	return (stcks);
+}
+
+t_2_stcks_1				*ft_do_rrr_1(t_2_stcks_1 *stcks)
+{
+	size_t					len;
+	t_lst_psh_swp_1			*tmp1;
+	t_lst_psh_swp_1			*tmp2;
+
+	len = ft_lstlen_1(stcks->b->lst);
+	if (len < 2)
+		return (stcks);
+	tmp2 = stcks->b->lst;
+	while (tmp2->next->next)
+		tmp2 = tmp2->next;
+	tmp1 = tmp2->next;
+	tmp2->next = NULL;
+	tmp1->next = stcks->b->lst;
+	stcks->b->lst = tmp1;
+
+	len = ft_lstlen_1(stcks->a->lst);
+	if (len < 2)
+		return (stcks);
+	tmp2 = stcks->a->lst;
+	while (tmp2->next->next)
+		tmp2 = tmp2->next;
+	tmp1 = tmp2->next;
+	tmp2->next = NULL;
+	tmp1->next = stcks->a->lst;
+	stcks->a->lst = tmp1;
+
+	ft_putstr_fd("rrr\n", (int)STDOUT_FILENO);
 	return (stcks);
 }
 
@@ -78,10 +135,3 @@ t_2_stcks_1				*ft_do_rrb_1(t_2_stcks_1 *stcks)
 	ft_putstr_fd("rrb\n", (int)STDOUT_FILENO);
 	return (stcks);
 }
-
-// t_2_stcks				ft_do_rrr(t_2_stcks stcks)
-// {
-// 	stcks = ft_do_rra(stcks);
-// 	stcks = ft_do_rrb(stcks);
-// 	return (stcks);
-// }
