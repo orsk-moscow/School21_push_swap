@@ -87,6 +87,9 @@ t_2_stcks_1				*ft_do_rrb_1_slnt(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_rrr_1(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_rr_1(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_rb_1_slnt(t_2_stcks_1 *stcks);
+t_2_stcks_1				*ft_align_a(t_2_stcks_1 *stcks, int elmnts_n);
+t_2_stcks_1				*ft_do_from_a_to_b(t_2_stcks_1 *stcks);
+t_2_stcks_1				*ft_do_from_b_to_a(t_2_stcks_1 *stcks, int elmnts_b, int elmnts_a);
 /* ************************************************************************** */
 void					ft_lstadd_1(t_lst_psh_swp_1 **alst, t_lst_psh_swp_1 *new);
 void					ft_lstdel_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int));
@@ -97,12 +100,19 @@ void					ft_del(void *content, size_t content_size);
 void					ft_error(t_list *stck_a,t_list *stck_b);
 void					ft_error_1();
 void					ft_free(t_list *stck_a, t_list *stck_b);
+void					ft_prnt_rr_n(int nb, int na);
+void					ft_prnt_rrr_n(int nb, int na);
+void					ft_prnt_rrb_n(int n);
+void					ft_prnt_rb_n(int n);
+void					ft_prnt_ra_n(int n);
+void					ft_prnt_rra_n(int n);
 /* ************************************************************************** */
 int						ft_chck_arg(int intgr, const char *strng);
 int						ft_is_dplcts(int ac,char **av);
 int						ft_is_stack_clear(t_lst_psh_swp_1 *stck);
 int						ft_is_sa_needed(t_2_stcks_1 *stcks);
 int						ft_clt_stps_a(t_lst_psh_swp_1 *srtd_stck, int nmbr);
+int						ft_fnd_min(t_lst_psh_swp_1 *stck);
 /* ************************************************************************** */
 size_t					ft_lstlen_1(t_lst_psh_swp_1 *lst);
 

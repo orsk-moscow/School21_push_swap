@@ -6,7 +6,7 @@
 #    By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/05 20:42:36 by u18188899         #+#    #+#              #
-#    Updated: 2020/03/05 22:05:43 by u18188899        ###   ########.fr        #
+#    Updated: 2020/03/13 00:45:53 by u18188899        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ SOURCES_1 = \
 	instructions3.c \
 	instructions4.c \
 	instructions5.c \
-	instructions6.c
+	instructions6.c \
+	file1.c
 
 SOURCES_2 = \
 	push_swap.c \

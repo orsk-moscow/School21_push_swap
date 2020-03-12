@@ -25,8 +25,8 @@ void					ft_del(void *content, size_t content_size)
 void					ft_error(t_list *stck_a,t_list *stck_b)
 {
 	if (stck_a)
-		ft_lstdel(&stck_a, ft_del); // here smth wrong - exception
-	if (stck_b)	
+		ft_lstdel(&stck_a, ft_del);
+	if (stck_b)
 		ft_lstdel(&stck_b, ft_del);
 	ft_putstr_fd("Error\n",(int)STDERR_FILENO);
 	exit (-1);
