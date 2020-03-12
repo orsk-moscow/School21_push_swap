@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/16 18:22:45 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/12 20:30:27 by u18188899        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -78,8 +66,6 @@ t_2_stcks				ft_gt_stcks(int ac, char **av);
 t_lst_psh_swp_1			*ft_lstnew_1(int nmbr, int indx);
 t_lst_psh_swp_1			*ft_clct_indxs(t_lst_psh_swp_1 *stck);
 /* ************************************************************************** */
-int						ft_clt_stps_a(t_lst_psh_swp_1 *srtd_stck, int nmbr);
-/* ************************************************************************** */
 t_rlst_markup			*ft_mark_in_indx_md(t_rlst_markup *stck, t_rlst_markup *indx);
 t_rlst_markup			*ft_mark_in_grtr_md(t_rlst_markup *stck, t_rlst_markup *grtr);
 t_rlst_markup			*ft_do_mode_grtr(t_lst_psh_swp_1 *mode_grtr, int elmnts_in, int head);
@@ -116,6 +102,7 @@ int						ft_chck_arg(int intgr, const char *strng);
 int						ft_is_dplcts(int ac,char **av);
 int						ft_is_stack_clear(t_lst_psh_swp_1 *stck);
 int						ft_is_sa_needed(t_2_stcks_1 *stcks);
+int						ft_clt_stps_a(t_lst_psh_swp_1 *srtd_stck, int nmbr);
 /* ************************************************************************** */
 size_t					ft_lstlen_1(t_lst_psh_swp_1 *lst);
 
