@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_fnctns_for_psw_swp.c                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/04 21:37:26 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/12 00:26:27 by u18188899        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
@@ -37,11 +25,6 @@ t_lst_psh_swp_1			*ft_clct_indxs(t_lst_psh_swp_1 *stck)
 }
 
 /* ************************************************************************** */
-	// t_lst_psh_swp_1			*lst;
-	// int						elmnts_in;
-	// int						head;
-	// char					*mode;
-
 t_rlst_markup			*ft_do_mode_grtr(t_lst_psh_swp_1 *mode_grtr, int elmnts_in, int head)
 {
 	t_rlst_markup			*rslt;
@@ -180,4 +163,3 @@ t_rlst_markup			*ft_mark_in_grtr_md(t_rlst_markup *stck, t_rlst_markup *grtr)
 	stck->mode = "grtr";
 	return (stck);
 }
-

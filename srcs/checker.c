@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/16 18:20:59 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/11 01:59:35 by u18188899        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
@@ -67,31 +55,5 @@ int						main(int ac, char **av)
 	(ft_is_lst_srtd(stcks.a) && !stcks.b && (int)ft_lstlen(stcks.a) == --ac) ?
 		ft_putstr_fd("OK\n", STDOUT_FILENO) :
 		ft_putstr_fd("KO\n", STDOUT_FILENO);
-
-
-
-/* content below should ne deleted before validation */
-	// t_list					*temp;
-	// temp = stcks.a;
-	// while (temp)
-	// {
-	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
-	// 	temp = temp->next;
-	// }
-	// printf("-------end of stack a-------\n\n\n------start of stack b------\n");
-/* content above should ne deleted before validation */
-
-/* content below should ne deleted before validation */
-	// temp = stcks.b;
-	// while (temp)
-	// {
-	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
-	// 	temp = temp->next;
-	// }
-/* content above should ne deleted before validation */
-
-
 	exit(0);
-	// ft_free(stcks.a,stcks.b);
-	// return (0);
 }

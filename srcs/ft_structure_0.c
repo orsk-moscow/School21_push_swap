@@ -1,17 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_structure_0.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 15:14:05 by u18188899         #+#    #+#             */
-/*   Updated: 2020/03/05 19:04:22 by u18188899        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/push_swap.h"
 
+/* ************************************************************************** */
 t_lst_psh_swp_1			*ft_lstnew_1(int nmbr, int indx)
 {
 	t_lst_psh_swp_1			*p1;
@@ -27,6 +16,7 @@ t_lst_psh_swp_1			*ft_lstnew_1(int nmbr, int indx)
 	return (p1);
 }
 
+/* ************************************************************************** */
 void	ft_lstadd_1(t_lst_psh_swp_1 **alst, t_lst_psh_swp_1 *new)
 {
 	if (new && alst)
@@ -36,6 +26,7 @@ void	ft_lstadd_1(t_lst_psh_swp_1 **alst, t_lst_psh_swp_1 *new)
 	}
 }
 
+/* ************************************************************************** */
 void	ft_lstdel_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int))
 {
 	if (alst && del)
@@ -46,6 +37,7 @@ void	ft_lstdel_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int))
 	}
 }
 
+/* ************************************************************************** */
 void	ft_lstdelone_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int))
 {
 	if (!alst || !(*alst) || !del)
@@ -55,6 +47,7 @@ void	ft_lstdelone_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int))
 	(*alst) = NULL;
 }
 
+/* ************************************************************************** */
 void					ft_del_1(int nmbr, int indx, int rslt)
 {
 	nmbr++;

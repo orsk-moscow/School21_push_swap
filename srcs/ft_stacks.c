@@ -23,15 +23,6 @@ t_2_stcks				ft_gt_stcks(int ac, char **av)
 			ft_error(stcks.a, stcks.b);
 		ft_lstadd(&stcks.a, ft_lstnew(&res, sizeof(int)));
 	}
-/* content below should ne deleted before validation */
-	// t_list					*temp;
-	// temp = stcks.a;
-	// while (temp)
-	// {
-	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
-	// 	temp = temp->next;
-	// }
-/* content above should ne deleted before validation */
 	return (stcks);
 }
 
@@ -86,14 +77,5 @@ t_2_stcks_1				*ft_gt_stcks_1(int ac, char **av)
 			ft_error_1();
 		ft_lstadd_1(&stcks->a->lst, ft_lstnew_1(res, -1));
 	}
-/* content below should ne deleted before validation */
-	// t_list					*temp;
-	// temp = stcks->a->lst;
-	// while (temp)
-	// {
-	// 	printf("content of chain element: %i\n",*((int*)(temp->content)));
-	// 	temp = temp->next;
-	// }
-/* content above should ne deleted before validation */
 	return (stcks);
 }
