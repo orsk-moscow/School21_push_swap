@@ -1,1 +1,0 @@
-valgrind --leak-check=full ./lem-in maps/validation_errs/ants_inv1.txt
