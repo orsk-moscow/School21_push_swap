@@ -1,6 +1,39 @@
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
+t_2_stcks_1				*ft_do_rrb_n(t_2_stcks_1 *stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_rrb_1(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				*ft_do_rb_n(t_2_stcks_1 *stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_rb_1(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				*ft_do_rra_n_slnt(t_2_stcks_1 *stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_rra_1_slnt(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
 t_2_stcks				ft_do_instrs(t_2_stcks stcks, char *instr, size_t n_s)
 {
 	if (!ft_strncmp(instr, "sa", n_s))

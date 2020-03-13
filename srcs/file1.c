@@ -1,6 +1,17 @@
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
+t_2_stcks_1				*ft_do_rra_n(t_2_stcks_1 *stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_rra_1(stcks);
+	return (stcks);
+}
+
+/* ************************************************************************** */
 t_2_stcks_1				*ft_do_rra_1(t_2_stcks_1 *stcks)
 {
 	size_t					len;

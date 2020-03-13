@@ -93,3 +93,10 @@ t_2_stcks_1				*ft_do_rra_1_slnt(t_2_stcks_1 *stcks)
 	stcks->a->lst = tmp1;
 	return (stcks);
 }
+
+/* ************************************************************************** */
+int						ft_is_sa_needed(t_2_stcks_1 *stcks)
+{
+	return (ft_strcmp(stcks->a->mode,"grtr") ?
+		ft_do_mode_grtr_2(stcks->a) : 0);
+}

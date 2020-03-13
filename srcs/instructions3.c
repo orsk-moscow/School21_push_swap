@@ -1,38 +1,6 @@
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
-void					ft_prnt_rrb_n(int n)
-{
-	int						itrtr1;
-
-	itrtr1 = 0;
-	while (itrtr1++ < n)
-		ft_putstr("rrb\n");
-}
-
-/* ************************************************************************** */
-void					ft_prnt_rrr_n(int nb, int na)
-{
-	int						itrtr1;
-	int						min_n;
-	int						max_n;
-
-	itrtr1 = 0;
-	min_n = (na > nb ? nb : na);
-	max_n = (na > nb ? na : nb);
-	while (itrtr1 < min_n)
-	{
-		ft_putstr("rrr\n");
-		itrtr1++;
-	}
-	while (itrtr1 < max_n)
-	{
-		na < max_n ? ft_putstr("rrb\n") : ft_putstr("rra\n");
-		itrtr1++;
-	}
-}
-
-/* ************************************************************************** */
 void					ft_prnt_rr_n(int nb, int na)
 {
 	int						itrtr1;
