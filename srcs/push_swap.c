@@ -13,9 +13,9 @@ int						main(int ac, char **av)
 	stcks = ft_do_markup(stcks);
 	els_b = --ac - stcks->a->els_n;
 	ac = stcks->a->els_n;
-	stcks = ft_do_from_a_to_b(stcks);
+	stcks = ft_do_fr_a_to_b(stcks);
 	while (stcks->b->lst)
-		stcks = ft_do_from_b_to_a(stcks, els_b--, ac++);
+		stcks = ft_do_fr_b_to_a(stcks, els_b--, ac++);
 	stcks = ft_align_a(stcks, ac);
 	exit(0);
 }

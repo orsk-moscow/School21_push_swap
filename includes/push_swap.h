@@ -39,8 +39,8 @@ typedef struct			s_res_mrkp
 {
 	t_lst_p_s				*lst;
 	int						els_n;
-	int						head;
-	char					*mode;
+	int						hd;
+	char					*md;
 }						t_res_mrkp;
 /* ************************************************************************** */
 typedef struct			s_stcks
@@ -68,8 +68,8 @@ t_lst_p_s				*ft_clct_inds(t_lst_p_s *stck);
 /* ************************************************************************** */
 t_res_mrkp				*ft_mark_in_ind_md(t_res_mrkp *stck, t_res_mrkp *ind);
 t_res_mrkp				*ft_mark_in_grtr_md(t_res_mrkp *stck, t_res_mrkp *grtr);
-t_res_mrkp				*ft_do_mode_grtr(t_lst_p_s *mode_grtr, int els_n, int head);
-t_res_mrkp				*ft_do_mode_ind(t_lst_p_s *mode_ind, int els_n, int head);
+t_res_mrkp				*ft_do_md_grtr(t_lst_p_s *md_grtr, int els_n, int hd);
+t_res_mrkp				*ft_do_md_ind(t_lst_p_s *md_ind, int els_n, int hd);
 t_res_mrkp				*ft_init_stck();
 /* ************************************************************************** */
 t_stcks					*ft_do_markup(t_stcks *stcks);
@@ -85,8 +85,8 @@ t_stcks					*ft_do_rb_1(t_stcks *stcks);
 t_stcks					*ft_do_rrb_1(t_stcks *stcks);
 t_stcks					*ft_do_rb_1_slnt(t_stcks *stcks);
 t_stcks					*ft_align_a(t_stcks *stcks, int els_n);
-t_stcks					*ft_do_from_a_to_b(t_stcks *stcks);
-t_stcks					*ft_do_from_b_to_a(t_stcks *stcks, int els_b, int els_a);
+t_stcks					*ft_do_fr_a_to_b(t_stcks *stcks);
+t_stcks					*ft_do_fr_b_to_a(t_stcks *stcks, int els_b, int els_a);
 t_stcks					*ft_do_rrb_n_slnt(t_stcks *stcks, int n);
 t_stcks					*ft_do_rb_n_slnt(t_stcks *stcks, int n);
 t_stcks					*ft_do_rra_n_slnt(t_stcks *stcks, int n);
@@ -118,7 +118,7 @@ int						ft_clt_stps_a(t_lst_p_s *srtd_stck, int num);
 int						ft_fnd_min(t_lst_p_s *stck);
 int						ft_r_vs_rr(int ind, int elmts);
 int						ft_r_vs_rr_2(int ind, int elmts);
-int						ft_do_mode_grtr_2(t_res_mrkp *mode_grtr);
+int						ft_do_md_grtr_2(t_res_mrkp *md_grtr);
 /* ************************************************************************** */
 size_t					ft_lstlen_1(t_lst_p_s *lst);
 

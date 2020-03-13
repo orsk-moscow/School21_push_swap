@@ -3,18 +3,18 @@
 /* ************************************************************************** */
 t_stcks					*ft_do_markup(t_stcks *stcks)
 {
-	t_res_mrkp				*mode_grtr;
-	t_res_mrkp				*mode_ind;
+	t_res_mrkp				*md_grtr;
+	t_res_mrkp				*md_ind;
 
-	mode_grtr = stcks->a;
-	mode_ind = stcks->a;
-	mode_grtr = ft_do_mode_grtr(mode_grtr->lst,0,0);
-	mode_ind->els_n = 1;
-	mode_ind->head = mode_ind->lst->el.ind;
-	mode_ind = ft_do_mode_ind(mode_ind->lst,0,0);
-	stcks->a = (mode_ind->els_n >= mode_grtr->els_n ?
-		ft_mark_in_ind_md(stcks->a, mode_ind) :
-		ft_mark_in_grtr_md(stcks->a, mode_grtr));
+	md_grtr = stcks->a;
+	md_ind = stcks->a;
+	md_grtr = ft_do_md_grtr(md_grtr->lst,0,0);
+	md_ind->els_n = 1;
+	md_ind->hd = md_ind->lst->el.ind;
+	md_ind = ft_do_md_ind(md_ind->lst,0,0);
+	stcks->a = (md_ind->els_n >= md_grtr->els_n ?
+		ft_mark_in_ind_md(stcks->a, md_ind) :
+		ft_mark_in_grtr_md(stcks->a, md_grtr));
 	stcks->b = ft_init_stck();
 	return (stcks);
 }

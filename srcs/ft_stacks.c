@@ -35,8 +35,8 @@ t_res_mrkp				*ft_init_stck()
 		ft_error_1();
 	tmp1->lst = NULL;
 	tmp1->els_n = 0;
-	tmp1->head = -1;
-	tmp1->mode = "";
+	tmp1->hd = -1;
+	tmp1->md = "";
 	return (tmp1);
 }
 

@@ -23,7 +23,7 @@ void					ft_prnt_rr_n(int nb, int na)
 }
 
 /* ************************************************************************** */
-t_stcks					*ft_do_from_b_to_a(t_stcks *stcks, int els_b, int els_a)
+t_stcks					*ft_do_fr_b_to_a(t_stcks *stcks, int els_b, int els_a)
 {
 	t_lst_p_s				*tmp1;
 	int						tmp2;
@@ -79,7 +79,7 @@ t_stcks					*ft_do_from_b_to_a(t_stcks *stcks, int els_b, int els_a)
 }
 
 /* ************************************************************************** */
-t_stcks					*ft_do_from_a_to_b(t_stcks *stcks)
+t_stcks					*ft_do_fr_a_to_b(t_stcks *stcks)
 {
 	while (!ft_is_stack_clear(stcks->a->lst))
 	{

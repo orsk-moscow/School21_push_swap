@@ -41,13 +41,13 @@ t_stcks					*ft_do_ra_n(t_stcks *stcks, int n)
 }
 
 /* ************************************************************************** */
-int						ft_do_mode_grtr_2(t_res_mrkp *mode_grtr)
+int						ft_do_md_grtr_2(t_res_mrkp *md_grtr)
 {
 	int						tmp1;
 	t_lst_p_s				*tmp2;
 
-	tmp1 = mode_grtr->head;
-	tmp2 = mode_grtr->lst;
+	tmp1 = md_grtr->hd;
+	tmp2 = md_grtr->lst;
 	if (!tmp2 || !tmp2->nxt || !tmp2->nxt->nxt)
 		return (0);
 	if (!tmp2 || !tmp2->nxt || !tmp2->nxt->nxt)
