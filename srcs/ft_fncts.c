@@ -10,22 +10,22 @@ void					ft_free(t_list *stck_a, t_list *stck_b)
 }
 
 /* ************************************************************************** */
-int						ft_r_vs_rr(int indx, int elmts)
+int						ft_r_vs_rr(int ind, int elmts)
 {
-	return ((indx > elmts / 2) ?
-			elmts - indx :
-			indx);
+	return ((ind > elmts / 2) ?
+			elmts - ind :
+			ind);
 }
 
 /* ************************************************************************** */
-int						ft_r_vs_rr_2(int indx, int elmts)
+int						ft_r_vs_rr_2(int ind, int elmts)
 {
 	int						rr;
 	int						r;
 
 	rr = 1;
 	r = 0;
-	return ((indx > elmts / 2) ?
+	return ((ind > elmts / 2) ?
 			rr :
 			r);
 }

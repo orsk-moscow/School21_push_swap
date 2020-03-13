@@ -27,25 +27,25 @@ t_2_stcks				ft_gt_stcks(int ac, char **av)
 }
 
 /* ************************************************************************** */
-t_rlst_markup			*ft_init_stck()
+t_res_mrkp				*ft_init_stck()
 {
-	t_rlst_markup			*tmp1;
+	t_res_mrkp				*tmp1;
 
-	if (!(tmp1 = (t_rlst_markup*)malloc(sizeof(t_rlst_markup*))))
+	if (!(tmp1 = (t_res_mrkp*)malloc(sizeof(t_res_mrkp*))))
 		ft_error_1();
 	tmp1->lst = NULL;
-	tmp1->els_in = 0;
+	tmp1->els_n = 0;
 	tmp1->head = -1;
 	tmp1->mode = "";
 	return (tmp1);
 }
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_init_stcks()
+t_stcks					*ft_init_stcks()
 {
-	t_2_stcks_1				*tmp1;
+	t_stcks					*tmp1;
 
-	if (!(tmp1 = (t_2_stcks_1*)malloc(sizeof(t_2_stcks_1*))))
+	if (!(tmp1 = (t_stcks*)malloc(sizeof(t_stcks*))))
 		ft_error_1();
 	if (!(tmp1->a = ft_init_stck()))
 	//  ||
@@ -55,9 +55,9 @@ t_2_stcks_1				*ft_init_stcks()
 }
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_gt_stcks_1(int ac, char **av)
+t_stcks					*ft_gt_stcks_1(int ac, char **av)
 {
-	t_2_stcks_1				*stcks;
+	t_stcks					*stcks;
 	int						res;
 	int						n_arg;
 
@@ -81,7 +81,7 @@ t_2_stcks_1				*ft_gt_stcks_1(int ac, char **av)
 }
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_do_rrb_n_slnt(t_2_stcks_1 *stcks, int n)
+t_stcks					*ft_do_rrb_n_slnt(t_stcks *stcks, int n)
 {
 	int						itrtr1;
 

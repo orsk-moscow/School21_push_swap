@@ -1,7 +1,7 @@
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_do_rrb_n(t_2_stcks_1 *stcks, int n)
+t_stcks					*ft_do_rrb_n(t_stcks *stcks, int n)
 {
 	int						itrtr1;
 
@@ -12,7 +12,7 @@ t_2_stcks_1				*ft_do_rrb_n(t_2_stcks_1 *stcks, int n)
 }
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_do_rb_n(t_2_stcks_1 *stcks, int n)
+t_stcks					*ft_do_rb_n(t_stcks *stcks, int n)
 {
 	int						itrtr1;
 
@@ -23,7 +23,7 @@ t_2_stcks_1				*ft_do_rb_n(t_2_stcks_1 *stcks, int n)
 }
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_do_rra_n_slnt(t_2_stcks_1 *stcks, int n)
+t_stcks					*ft_do_rra_n_slnt(t_stcks *stcks, int n)
 {
 	int						itrtr1;
 

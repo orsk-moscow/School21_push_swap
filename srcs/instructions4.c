@@ -1,7 +1,7 @@
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
-size_t					ft_lstlen_1(t_lst_psh_swp_1 *lst)
+size_t					ft_lstlen_1(t_lst_p_s *lst)
 {
 	size_t					sz;
 
@@ -15,11 +15,11 @@ size_t					ft_lstlen_1(t_lst_psh_swp_1 *lst)
 }
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_do_sa_1(t_2_stcks_1 *stcks)
+t_stcks					*ft_do_sa_1(t_stcks *stcks)
 {
 	size_t					len_a;
-	t_nmbr_indx_rslt		tmp1;
-	t_nmbr_indx_rslt		tmp2;
+	t_num_ind_res			tmp1;
+	t_num_ind_res			tmp2;
 
 	len_a = ft_lstlen_1(stcks->a->lst);
 	if (len_a <= 1)

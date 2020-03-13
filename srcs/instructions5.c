@@ -1,10 +1,10 @@
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_do_pa_1(t_2_stcks_1 *stcks)
+t_stcks					*ft_do_pa_1(t_stcks *stcks)
 {
 	size_t					len;
-	t_lst_psh_swp_1			*tmp1;
+	t_lst_p_s				*tmp1;
 
 	len = ft_lstlen_1(stcks->b->lst);
 	if (len < 1)
@@ -18,10 +18,10 @@ t_2_stcks_1				*ft_do_pa_1(t_2_stcks_1 *stcks)
 }
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_do_pb_1(t_2_stcks_1 *stcks)
+t_stcks					*ft_do_pb_1(t_stcks *stcks)
 {
 	size_t					len;
-	t_lst_psh_swp_1			*tmp1;
+	t_lst_p_s				*tmp1;
 
 	len = ft_lstlen_1(stcks->a->lst);
 	if (len < 1)
@@ -35,11 +35,11 @@ t_2_stcks_1				*ft_do_pb_1(t_2_stcks_1 *stcks)
 }
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_do_ra_1_slnt(t_2_stcks_1 *stcks)
+t_stcks					*ft_do_ra_1_slnt(t_stcks *stcks)
 {
 	size_t					len;
-	t_lst_psh_swp_1			*tmp1;
-	t_lst_psh_swp_1			*tmp2;
+	t_lst_p_s				*tmp1;
+	t_lst_p_s				*tmp2;
 
 	len = ft_lstlen_1(stcks->a->lst);
 	if (len < 2)
@@ -55,11 +55,11 @@ t_2_stcks_1				*ft_do_ra_1_slnt(t_2_stcks_1 *stcks)
 }
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_do_ra_1(t_2_stcks_1 *stcks)
+t_stcks					*ft_do_ra_1(t_stcks *stcks)
 {
 	size_t					len;
-	t_lst_psh_swp_1			*tmp1;
-	t_lst_psh_swp_1			*tmp2;
+	t_lst_p_s				*tmp1;
+	t_lst_p_s				*tmp2;
 
 	len = ft_lstlen_1(stcks->a->lst);
 	if (len < 2)

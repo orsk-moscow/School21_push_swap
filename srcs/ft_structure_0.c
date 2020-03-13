@@ -1,23 +1,23 @@
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
-t_lst_psh_swp_1			*ft_lstnew_1(int nmbr, int indx)
+t_lst_p_s				*ft_lstnew_1(int num, int ind)
 {
-	t_lst_psh_swp_1			*p1;
-	t_nmbr_indx_rslt		elm;
+	t_lst_p_s				*p1;
+	t_num_ind_res			elm;
 
-	if (!(p1 = (t_lst_psh_swp_1*)malloc(sizeof(t_lst_psh_swp_1))))
+	if (!(p1 = (t_lst_p_s*)malloc(sizeof(t_lst_p_s))))
 		return (NULL);
-	elm.indx = indx;
-	elm.rslt = -1;
-	elm.nmbr = nmbr;
+	elm.ind = ind;
+	elm.res = -1;
+	elm.num = num;
 	p1->el = elm;
 	p1->nxt = NULL;
 	return (p1);
 }
 
 /* ************************************************************************** */
-void	ft_lstadd_1(t_lst_psh_swp_1 **alst, t_lst_psh_swp_1 *new)
+void	ft_lstadd_1(t_lst_p_s **alst, t_lst_p_s *new)
 {
 	if (new && alst)
 	{
@@ -27,7 +27,7 @@ void	ft_lstadd_1(t_lst_psh_swp_1 **alst, t_lst_psh_swp_1 *new)
 }
 
 /* ************************************************************************** */
-void	ft_lstdel_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int))
+void	ft_lstdel_1(t_lst_p_s **alst, void (*del)(int, int, int))
 {
 	if (alst && del)
 	{
@@ -38,23 +38,23 @@ void	ft_lstdel_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int))
 }
 
 /* ************************************************************************** */
-void	ft_lstdelone_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int))
+void	ft_lstdelone_1(t_lst_p_s **alst, void (*del)(int, int, int))
 {
 	if (!alst || !(*alst) || !del)
 		return ;
-	del((*alst)->el.indx, (*alst)->el.nmbr, (*alst)->el.rslt);
+	del((*alst)->el.ind, (*alst)->el.num, (*alst)->el.res);
 	free(*(alst));
 	(*alst) = NULL;
 }
 
 /* ************************************************************************** */
-void					ft_del_1(int nmbr, int indx, int rslt)
+void					ft_del_1(int num, int ind, int res)
 {
-	nmbr++;
-	nmbr--;
-	indx++;
-	indx--;
-	rslt++;
-	rslt--;
+	num++;
+	num--;
+	ind++;
+	ind--;
+	res++;
+	res--;
 	return ;
 }

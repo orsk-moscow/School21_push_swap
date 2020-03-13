@@ -30,7 +30,7 @@ void					ft_prnt_rb_n(int n)
 }
 
 /* ************************************************************************** */
-t_2_stcks_1				*ft_do_ra_n(t_2_stcks_1 *stcks, int n)
+t_stcks					*ft_do_ra_n(t_stcks *stcks, int n)
 {
 	int						itrtr1;
 
@@ -41,10 +41,10 @@ t_2_stcks_1				*ft_do_ra_n(t_2_stcks_1 *stcks, int n)
 }
 
 /* ************************************************************************** */
-int						ft_do_mode_grtr_2(t_rlst_markup *mode_grtr)
+int						ft_do_mode_grtr_2(t_res_mrkp *mode_grtr)
 {
 	int						tmp1;
-	t_lst_psh_swp_1			*tmp2;
+	t_lst_p_s				*tmp2;
 
 	tmp1 = mode_grtr->head;
 	tmp2 = mode_grtr->lst;
@@ -52,11 +52,11 @@ int						ft_do_mode_grtr_2(t_rlst_markup *mode_grtr)
 		return (0);
 	if (!tmp2 || !tmp2->nxt || !tmp2->nxt->nxt)
 		return (0);
-	if (tmp2->el.indx == tmp1 ||
-		tmp2->nxt ->el.indx != tmp1)
+	if (tmp2->el.ind == tmp1 ||
+		tmp2->nxt ->el.ind != tmp1)
 		return (0);
-	if (tmp2->el.nmbr > tmp2->nxt->el.nmbr &&
-		tmp2->el.nmbr < tmp2->nxt->nxt->el.nmbr)
+	if (tmp2->el.num > tmp2->nxt->el.num &&
+		tmp2->el.num < tmp2->nxt->nxt->el.num)
 		return (1);
 	return (0);
 }

@@ -1,124 +1,124 @@
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
-t_lst_psh_swp_1			*ft_clct_indxs(t_lst_psh_swp_1 *stck)
+t_lst_p_s				*ft_clct_inds(t_lst_p_s *stck)
 {
-	int						indx;
-	t_lst_psh_swp_1			*tmp1;
-	t_lst_psh_swp_1			*tmp2;
+	int						ind;
+	t_lst_p_s				*tmp1;
+	t_lst_p_s				*tmp2;
 
 	tmp1 = stck;
 	while (tmp1)
 	{
-		indx = 0;
+		ind = 0;
 		tmp2 = stck;
 		while (tmp2)
 		{
-			if (tmp1->el.nmbr > tmp2->el.nmbr)
-				indx++;
+			if (tmp1->el.num > tmp2->el.num)
+				ind++;
 			tmp2 = tmp2->nxt;
 		}
-		tmp1->el.indx = indx;
+		tmp1->el.ind = ind;
 		tmp1 = tmp1->nxt;
 	}
 	return (stck);
 }
 
 /* ************************************************************************** */
-t_rlst_markup			*ft_do_mode_grtr(t_lst_psh_swp_1 *mode_grtr, int els_in, int head)
+t_res_mrkp				*ft_do_mode_grtr(t_lst_p_s *mode_grtr, int els_n, int head)
 {
-	t_rlst_markup			*rslt;
+	t_res_mrkp				*res;
 
 	if (!mode_grtr->nxt)
 	{
-		if (!(rslt = (t_rlst_markup*)malloc(sizeof(t_rlst_markup*))))
+		if (!(res = (t_res_mrkp*)malloc(sizeof(t_res_mrkp*))))
 			ft_error_1();
-		rslt->head = mode_grtr->el.indx;
-		rslt->els_in = 1;
-		rslt->lst = mode_grtr;
-		rslt->lst->el.rslt = 1;
-		return (rslt);
+		res->head = mode_grtr->el.ind;
+		res->els_n = 1;
+		res->lst = mode_grtr;
+		res->lst->el.res = 1;
+		return (res);
 	}
-	rslt = ft_do_mode_grtr(mode_grtr->nxt, els_in, head);
-	if (mode_grtr->el.nmbr < rslt->lst->el.nmbr)
+	res = ft_do_mode_grtr(mode_grtr->nxt, els_n, head);
+	if (mode_grtr->el.num < res->lst->el.num)
 	{
-		mode_grtr->el.rslt = rslt->lst->el.rslt + 1;
-		if (mode_grtr->el.rslt > rslt->els_in)
+		mode_grtr->el.res = res->lst->el.res + 1;
+		if (mode_grtr->el.res > res->els_n)
 		{
-			head = mode_grtr->el.indx;
-			els_in = mode_grtr->el.rslt;
+			head = mode_grtr->el.ind;
+			els_n = mode_grtr->el.res;
 		}
-		else if (mode_grtr->el.rslt == rslt->els_in &&
-			mode_grtr->el.indx < rslt->lst->el.indx)
-			head = mode_grtr->el.indx;
+		else if (mode_grtr->el.res == res->els_n &&
+			mode_grtr->el.ind < res->lst->el.ind)
+			head = mode_grtr->el.ind;
 		else
 		{
-			els_in = rslt->els_in;
-			head = rslt->head;
+			els_n = res->els_n;
+			head = res->head;
 		}
 	}
 	else
 	{
-		mode_grtr->el.rslt = 1;
-		els_in = rslt->els_in;
-		head = rslt->head;
+		mode_grtr->el.res = 1;
+		els_n = res->els_n;
+		head = res->head;
 	}
-	rslt->head = head;
-	rslt->els_in = els_in;
-	rslt->lst = mode_grtr;
-	return (rslt);
+	res->head = head;
+	res->els_n = els_n;
+	res->lst = mode_grtr;
+	return (res);
 }
 
 /* ************************************************************************** */
-t_rlst_markup			*ft_do_mode_indx(t_lst_psh_swp_1 *mode_indx, int els_in, int head)
+t_res_mrkp				*ft_do_mode_ind(t_lst_p_s *mode_ind, int els_n, int head)
 {
-	t_rlst_markup			*tmp1;
+	t_res_mrkp				*tmp1;
 	int						tmp2;
-	t_lst_psh_swp_1			*tmp3;
+	t_lst_p_s				*tmp3;
 
-	if (!mode_indx)
+	if (!mode_ind)
 	{
-		if (!(tmp1 = (t_rlst_markup*)malloc(sizeof(t_rlst_markup*))))
+		if (!(tmp1 = (t_res_mrkp*)malloc(sizeof(t_res_mrkp*))))
 			ft_error_1();
-		tmp1->els_in = els_in;
+		tmp1->els_n = els_n;
 		tmp1->head = head;
 		tmp1->lst = NULL;
 		return (tmp1);
 	}
-	tmp2 = mode_indx->el.indx;
-	mode_indx->el.rslt = 1;
-	tmp3 = mode_indx;
+	tmp2 = mode_ind->el.ind;
+	mode_ind->el.res = 1;
+	tmp3 = mode_ind;
 	while (tmp3)
 	{
-		if (tmp3->el.indx == tmp2 + 1 && ++tmp2)
-			(mode_indx->el.rslt)++;
+		if (tmp3->el.ind == tmp2 + 1 && ++tmp2)
+			(mode_ind->el.res)++;
 		tmp3 = tmp3->nxt;
 	}
-	if (mode_indx->el.rslt > els_in || (
-		mode_indx->el.rslt == els_in &&
-		mode_indx->el.indx < head))
+	if (mode_ind->el.res > els_n || (
+		mode_ind->el.res == els_n &&
+		mode_ind->el.ind < head))
 	{
-		head = mode_indx->el.indx;
-		els_in = mode_indx->el.rslt;
+		head = mode_ind->el.ind;
+		els_n = mode_ind->el.res;
 	}
-	return (ft_do_mode_indx(mode_indx->nxt, els_in, head));
+	return (ft_do_mode_ind(mode_ind->nxt, els_n, head));
 }
 
 /* ************************************************************************** */
-t_rlst_markup			*ft_mark_in_indx_md(t_rlst_markup *stck, t_rlst_markup *indx)
+t_res_mrkp				*ft_mark_in_ind_md(t_res_mrkp *stck, t_res_mrkp *ind)
 {
-	t_lst_psh_swp_1			*tmp2;
+	t_lst_p_s				*tmp2;
 
 	tmp2 = stck->lst;
-	stck->head = indx->head;
-	stck->els_in = indx->els_in;
-	stck->mode = "indx";
+	stck->head = ind->head;
+	stck->els_n = ind->els_n;
+	stck->mode = "ind";
 	while (stck->lst)
 	{
-		if (stck->lst->el.indx == indx->head && ++indx->head)
-			stck->lst->el.rslt = 1;
+		if (stck->lst->el.ind == ind->head && ++ind->head)
+			stck->lst->el.res = 1;
 		else
-			stck->lst->el.rslt = 0;
+			stck->lst->el.res = 0;
 		stck->lst = stck->lst->nxt;
 	}
 	stck->lst = tmp2;
@@ -126,32 +126,32 @@ t_rlst_markup			*ft_mark_in_indx_md(t_rlst_markup *stck, t_rlst_markup *indx)
 }
 
 /* ************************************************************************** */
-t_rlst_markup			*ft_mark_in_grtr_md(t_rlst_markup *stck, t_rlst_markup *grtr)
+t_res_mrkp				*ft_mark_in_grtr_md(t_res_mrkp *stck, t_res_mrkp *grtr)
 {
-	t_lst_psh_swp_1			*tmp1;
+	t_lst_p_s				*tmp1;
 	int						tmp2;
 
 	tmp1 = stck->lst;
-	while (tmp1 && tmp1->el.indx != grtr->head)
+	while (tmp1 && tmp1->el.ind != grtr->head)
 	{
-		tmp1->el.rslt = 0;
+		tmp1->el.res = 0;
 		tmp1 = tmp1->nxt;
 	}
-	tmp2 = tmp1->el.nmbr;
-	tmp1->el.rslt = 1;
+	tmp2 = tmp1->el.num;
+	tmp1->el.res = 1;
 	tmp1 = tmp1->nxt;
 	while (tmp1)
 	{
-		if (tmp2 < tmp1->el.nmbr)
+		if (tmp2 < tmp1->el.num)
 		{
-			tmp2 = tmp1->el.nmbr;
-			tmp1->el.rslt = 1;
+			tmp2 = tmp1->el.num;
+			tmp1->el.res = 1;
 		}
 		else
 		{
 			while (tmp1)
 			{
-				tmp1->el.rslt = 0;
+				tmp1->el.res = 0;
 				tmp1 = tmp1->nxt;
 			}
 			break;
@@ -159,7 +159,7 @@ t_rlst_markup			*ft_mark_in_grtr_md(t_rlst_markup *stck, t_rlst_markup *grtr)
 		tmp1 = tmp1->nxt;
 	}
 	stck->head = grtr->head;
-	stck->els_in = grtr->els_in;
+	stck->els_n = grtr->els_n;
 	stck->mode = "grtr";
 	return (stck);
 }
