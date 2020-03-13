@@ -106,7 +106,7 @@ int						ft_fnd_min(t_lst_psh_swp_1 *stck)
 	int						tmp3;
 	int						tmp4_indx_min;
 	int						tmp5_min;
- 
+
 	tmp5_min = INT_MAX;
 	tmp3 = 0;
 	while (stck)
