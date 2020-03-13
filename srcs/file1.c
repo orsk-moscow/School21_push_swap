@@ -22,11 +22,11 @@ t_2_stcks_1				*ft_do_rra_1(t_2_stcks_1 *stcks)
 	if (len < 2)
 		return (stcks);
 	tmp2 = stcks->a->lst;
-	while (tmp2->next->next)
-		tmp2 = tmp2->next;
-	tmp1 = tmp2->next;
-	tmp2->next = NULL;
-	tmp1->next = stcks->a->lst;
+	while (tmp2->nxt->nxt)
+		tmp2 = tmp2->nxt;
+	tmp1 = tmp2->nxt;
+	tmp2->nxt = NULL;
+	tmp1->nxt = stcks->a->lst;
 	stcks->a->lst = tmp1;
 	ft_putstr_fd("rra\n", (int)STDOUT_FILENO);
 	return (stcks);
@@ -43,22 +43,22 @@ t_2_stcks_1				*ft_do_rra_1(t_2_stcks_1 *stcks)
 // 	if (len < 2)
 // 		return (stcks);
 // 	tmp2 = stcks->b->lst;
-// 	while (tmp2->next->next)
-// 		tmp2 = tmp2->next;
-// 	tmp1 = tmp2->next;
-// 	tmp2->next = NULL;
-// 	tmp1->next = stcks->b->lst;
+// 	while (tmp2->nxt->nxt)
+// 		tmp2 = tmp2->nxt;
+// 	tmp1 = tmp2->nxt;
+// 	tmp2->nxt = NULL;
+// 	tmp1->nxt = stcks->b->lst;
 // 	stcks->b->lst = tmp1;
 
 // 	len = ft_lstlen_1(stcks->a->lst);
 // 	if (len < 2)
 // 		return (stcks);
 // 	tmp2 = stcks->a->lst;
-// 	while (tmp2->next->next)
-// 		tmp2 = tmp2->next;
-// 	tmp1 = tmp2->next;
-// 	tmp2->next = NULL;
-// 	tmp1->next = stcks->a->lst;
+// 	while (tmp2->nxt->nxt)
+// 		tmp2 = tmp2->nxt;
+// 	tmp1 = tmp2->nxt;
+// 	tmp2->nxt = NULL;
+// 	tmp1->nxt = stcks->a->lst;
 // 	stcks->a->lst = tmp1;
 
 // 	ft_putstr_fd("rrr\n", (int)STDOUT_FILENO);
@@ -76,11 +76,11 @@ t_2_stcks_1				*ft_do_rrb_1(t_2_stcks_1 *stcks)
 	if (len < 2)
 		return (stcks);
 	tmp2 = stcks->b->lst;
-	while (tmp2->next->next)
-		tmp2 = tmp2->next;
-	tmp1 = tmp2->next;
-	tmp2->next = NULL;
-	tmp1->next = stcks->b->lst;
+	while (tmp2->nxt->nxt)
+		tmp2 = tmp2->nxt;
+	tmp1 = tmp2->nxt;
+	tmp2->nxt = NULL;
+	tmp1->nxt = stcks->b->lst;
 	stcks->b->lst = tmp1;
 	ft_putstr_fd("rrb\n", (int)STDOUT_FILENO);
 	return (stcks);
@@ -97,11 +97,11 @@ t_2_stcks_1				*ft_do_rrb_1_slnt(t_2_stcks_1 *stcks)
 	if (len < 2)
 		return (stcks);
 	tmp2 = stcks->b->lst;
-	while (tmp2->next->next)
-		tmp2 = tmp2->next;
-	tmp1 = tmp2->next;
-	tmp2->next = NULL;
-	tmp1->next = stcks->b->lst;
+	while (tmp2->nxt->nxt)
+		tmp2 = tmp2->nxt;
+	tmp1 = tmp2->nxt;
+	tmp2->nxt = NULL;
+	tmp1->nxt = stcks->b->lst;
 	stcks->b->lst = tmp1;
 	return (stcks);
 }

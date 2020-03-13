@@ -34,7 +34,7 @@ t_rlst_markup			*ft_init_stck()
 	if (!(tmp1 = (t_rlst_markup*)malloc(sizeof(t_rlst_markup*))))
 		ft_error_1();
 	tmp1->lst = NULL;
-	tmp1->elmnts_in = 0;
+	tmp1->els_in = 0;
 	tmp1->head = -1;
 	tmp1->mode = "";
 	return (tmp1);
@@ -77,5 +77,16 @@ t_2_stcks_1				*ft_gt_stcks_1(int ac, char **av)
 			ft_error_1();
 		ft_lstadd_1(&stcks->a->lst, ft_lstnew_1(res, -1));
 	}
+	return (stcks);
+}
+
+/* ************************************************************************** */
+t_2_stcks_1				*ft_do_rrb_n_slnt(t_2_stcks_1 *stcks, int n)
+{
+	int						itrtr1;
+
+	itrtr1 = 0;
+	while (itrtr1++ < n)
+		stcks = ft_do_rrb_1_slnt(stcks);
 	return (stcks);
 }

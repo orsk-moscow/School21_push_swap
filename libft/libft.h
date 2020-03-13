@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 20:49:11 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/13 00:27:24 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/13 22:26:25 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct						s_list
 {
 	void							*content;
 	size_t							content_size;
-	struct s_list					*next;
+	struct s_list					*nxt;
 }									t_list;
 int									ft_atoi(const char *str);
 void								ft_bzero(void *s, size_t n);

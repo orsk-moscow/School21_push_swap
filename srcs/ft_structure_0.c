@@ -11,8 +11,8 @@ t_lst_psh_swp_1			*ft_lstnew_1(int nmbr, int indx)
 	elm.indx = indx;
 	elm.rslt = -1;
 	elm.nmbr = nmbr;
-	p1->elmnt = elm;
-	p1->next = NULL;
+	p1->el = elm;
+	p1->nxt = NULL;
 	return (p1);
 }
 
@@ -21,7 +21,7 @@ void	ft_lstadd_1(t_lst_psh_swp_1 **alst, t_lst_psh_swp_1 *new)
 {
 	if (new && alst)
 	{
-		new->next = (*alst);
+		new->nxt = (*alst);
 		(*alst) = new;
 	}
 }
@@ -31,8 +31,8 @@ void	ft_lstdel_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int))
 {
 	if (alst && del)
 	{
-		if ((*alst)->next)
-			ft_lstdel_1(&((*alst)->next), del);
+		if ((*alst)->nxt)
+			ft_lstdel_1(&((*alst)->nxt), del);
 		ft_lstdelone_1(&(*alst), del);
 	}
 }
@@ -42,7 +42,7 @@ void	ft_lstdelone_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int))
 {
 	if (!alst || !(*alst) || !del)
 		return ;
-	del((*alst)->elmnt.indx, (*alst)->elmnt.nmbr, (*alst)->elmnt.rslt);
+	del((*alst)->el.indx, (*alst)->el.nmbr, (*alst)->el.rslt);
 	free(*(alst));
 	(*alst) = NULL;
 }

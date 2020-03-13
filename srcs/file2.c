@@ -48,15 +48,15 @@ int						ft_do_mode_grtr_2(t_rlst_markup *mode_grtr)
 
 	tmp1 = mode_grtr->head;
 	tmp2 = mode_grtr->lst;
-	if (!tmp2 || !tmp2->next || !tmp2->next->next)
+	if (!tmp2 || !tmp2->nxt || !tmp2->nxt->nxt)
 		return (0);
-	if (!tmp2 || !tmp2->next || !tmp2->next->next)
+	if (!tmp2 || !tmp2->nxt || !tmp2->nxt->nxt)
 		return (0);
-	if (tmp2->elmnt.indx == tmp1 ||
-		tmp2->next ->elmnt.indx != tmp1)
+	if (tmp2->el.indx == tmp1 ||
+		tmp2->nxt ->el.indx != tmp1)
 		return (0);
-	if (tmp2->elmnt.nmbr > tmp2->next->elmnt.nmbr &&
-		tmp2->elmnt.nmbr < tmp2->next->next->elmnt.nmbr)
+	if (tmp2->el.nmbr > tmp2->nxt->el.nmbr &&
+		tmp2->el.nmbr < tmp2->nxt->nxt->el.nmbr)
 		return (1);
 	return (0);
 }

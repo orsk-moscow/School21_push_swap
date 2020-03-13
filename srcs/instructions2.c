@@ -11,12 +11,12 @@ t_2_stcks				ft_do_rb(t_2_stcks stcks)
 	if (len < 2)
 		return (stcks);
 	tmp1 = stcks.b;
-	stcks.b = stcks.b->next;
+	stcks.b = stcks.b->nxt;
 	tmp2 = stcks.b;
-	tmp1->next = NULL;
-	while (tmp2->next)
-		tmp2 = tmp2->next;
-	tmp2->next = tmp1;
+	tmp1->nxt = NULL;
+	while (tmp2->nxt)
+		tmp2 = tmp2->nxt;
+	tmp2->nxt = tmp1;
 	return (stcks);
 }
 
@@ -39,11 +39,11 @@ t_2_stcks				ft_do_rra(t_2_stcks stcks)
 	if (len < 2)
 		return (stcks);
 	tmp2 = stcks.a;
-	while (tmp2->next->next)
-		tmp2 = tmp2->next;
-	tmp1 = tmp2->next;
-	tmp2->next = NULL;
-	tmp1->next = stcks.a;
+	while (tmp2->nxt->nxt)
+		tmp2 = tmp2->nxt;
+	tmp1 = tmp2->nxt;
+	tmp2->nxt = NULL;
+	tmp1->nxt = stcks.a;
 	stcks.a = tmp1;
 	return (stcks);
 }
@@ -59,11 +59,11 @@ t_2_stcks				ft_do_rrb(t_2_stcks stcks)
 	if (len < 2)
 		return (stcks);
 	tmp2 = stcks.b;
-	while (tmp2->next->next)
-		tmp2 = tmp2->next;
-	tmp1 = tmp2->next;
-	tmp2->next = NULL;
-	tmp1->next = stcks.b;
+	while (tmp2->nxt->nxt)
+		tmp2 = tmp2->nxt;
+	tmp1 = tmp2->nxt;
+	tmp2->nxt = NULL;
+	tmp1->nxt = stcks.b;
 	stcks.b = tmp1;
 	return (stcks);
 }

@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 20:42:12 by u18188899         #+#    #+#             */
-/*   Updated: 2020/02/25 21:14:53 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/13 22:26:42 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int						ft_is_lst_srtd(t_list *lst)
 {
 	if (!lst)
 		return (0);
-	while (lst->next)
+	while (lst->nxt)
 	{
-		if (*((int*)(lst->content)) >= *((int*)(lst->next->content)))
+		if (*((int*)(lst->content)) >= *((int*)(lst->nxt->content)))
 			return (0);
-		lst = lst->next;
+		lst = lst->nxt;
 	}
 	return (1);
 }

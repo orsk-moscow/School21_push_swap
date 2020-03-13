@@ -6,7 +6,7 @@
 #    By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/05 20:42:36 by u18188899         #+#    #+#              #
-#    Updated: 2020/03/13 00:45:53 by u18188899        ###   ########.fr        #
+#    Updated: 2020/03/13 22:38:52 by u18188899        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ SOURCES_1 = \
 	instructions4.c \
 	instructions5.c \
 	instructions6.c \
-	file1.c
+	file1.c \
+	file2.c
 
 SOURCES_2 = \
 	push_swap.c \
@@ -62,7 +63,10 @@ SOURCES_2 = \
 	instructions3.c \
 	instructions4.c \
 	instructions5.c \
-	instructions6.c
+	instructions6.c \
+	file1.c \
+	file2.c
+
 
 OBJECTS_1_LIST = $(patsubst %.c, %.o, $(SOURCES_1) $(GNL_SRC))
 OBJECTS_1	= $(OBJECTS_1_LIST)

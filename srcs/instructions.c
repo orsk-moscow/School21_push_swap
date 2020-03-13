@@ -72,8 +72,8 @@ t_2_stcks				ft_do_sa(t_2_stcks stcks)
 	if (len_a <= 1)
 		return (stcks);
 	tmp1 = stcks.a->content;
-	tmp2 = stcks.a->next->content;
+	tmp2 = stcks.a->nxt->content;
 	stcks.a->content = tmp2;
-	stcks.a->next->content = tmp1;
+	stcks.a->nxt->content = tmp1;
 	return (stcks);
 }

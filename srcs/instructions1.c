@@ -11,9 +11,9 @@ t_2_stcks				ft_do_sb(t_2_stcks stcks)
 	if (len <= 1)
 		return (stcks);
 	tmp1 = stcks.b->content;
-	tmp2 = stcks.b->next->content;
+	tmp2 = stcks.b->nxt->content;
 	stcks.b->content = tmp2;
-	stcks.b->next->content = tmp1;
+	stcks.b->nxt->content = tmp1;
 	return (stcks);
 }
 
@@ -35,8 +35,8 @@ t_2_stcks				ft_do_pa(t_2_stcks stcks)
 	if (len < 1)
 		return (stcks);
 	tmp1 = stcks.b;
-	stcks.b = stcks.b->next;
-	tmp1->next = stcks.a;
+	stcks.b = stcks.b->nxt;
+	tmp1->nxt = stcks.a;
 	stcks.a = tmp1;
 	return (stcks);
 }
@@ -51,8 +51,8 @@ t_2_stcks				ft_do_pb(t_2_stcks stcks)
 	if (len < 1)
 		return (stcks);
 	tmp1 = stcks.a;
-	stcks.a = stcks.a->next;
-	tmp1->next = stcks.b;
+	stcks.a = stcks.a->nxt;
+	tmp1->nxt = stcks.b;
 	stcks.b = tmp1;
 	return (stcks);
 }
@@ -68,11 +68,11 @@ t_2_stcks				ft_do_ra(t_2_stcks stcks)
 	if (len < 2)
 		return (stcks);
 	tmp1 = stcks.a;
-	stcks.a = stcks.a->next;
+	stcks.a = stcks.a->nxt;
 	tmp2 = stcks.a;
-	tmp1->next = NULL;
-	while (tmp2->next)
-		tmp2 = tmp2->next;
-	tmp2->next = tmp1;
+	tmp1->nxt = NULL;
+	while (tmp2->nxt)
+		tmp2 = tmp2->nxt;
+	tmp2->nxt = tmp1;
 	return (stcks);
 }

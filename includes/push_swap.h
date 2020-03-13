@@ -25,8 +25,8 @@ typedef struct			s_nmbr_indx_rslt
 /* ************************************************************************** */
 typedef struct			s_lst_psh_swp_1
 {
-	t_nmbr_indx_rslt		elmnt;
-	struct s_lst_psh_swp_1	*next;
+	t_nmbr_indx_rslt		el;
+	struct s_lst_psh_swp_1	*nxt;
 }						t_lst_psh_swp_1;
 /* ************************************************************************** */
 typedef struct			s_2_stcks
@@ -38,7 +38,7 @@ typedef struct			s_2_stcks
 typedef struct			s_rlst_markup
 {
 	t_lst_psh_swp_1			*lst;
-	int						elmnts_in;
+	int						els_in;
 	int						head;
 	char					*mode;
 }						t_rlst_markup;
@@ -68,8 +68,8 @@ t_lst_psh_swp_1			*ft_clct_indxs(t_lst_psh_swp_1 *stck);
 /* ************************************************************************** */
 t_rlst_markup			*ft_mark_in_indx_md(t_rlst_markup *stck, t_rlst_markup *indx);
 t_rlst_markup			*ft_mark_in_grtr_md(t_rlst_markup *stck, t_rlst_markup *grtr);
-t_rlst_markup			*ft_do_mode_grtr(t_lst_psh_swp_1 *mode_grtr, int elmnts_in, int head);
-t_rlst_markup			*ft_do_mode_indx(t_lst_psh_swp_1 *mode_indx, int elmnts_in, int head);
+t_rlst_markup			*ft_do_mode_grtr(t_lst_psh_swp_1 *mode_grtr, int els_in, int head);
+t_rlst_markup			*ft_do_mode_indx(t_lst_psh_swp_1 *mode_indx, int els_in, int head);
 t_rlst_markup			*ft_init_stck();
 /* ************************************************************************** */
 t_2_stcks_1				*ft_do_markup(t_2_stcks_1 *stcks);
@@ -83,11 +83,17 @@ t_2_stcks_1				*ft_do_rra_1_slnt(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_pa_1(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_rb_1(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_rrb_1(t_2_stcks_1 *stcks);
-t_2_stcks_1				*ft_do_rrb_1_slnt(t_2_stcks_1 *stcks);
 t_2_stcks_1				*ft_do_rb_1_slnt(t_2_stcks_1 *stcks);
-t_2_stcks_1				*ft_align_a(t_2_stcks_1 *stcks, int elmnts_n);
+t_2_stcks_1				*ft_align_a(t_2_stcks_1 *stcks, int els_n);
 t_2_stcks_1				*ft_do_from_a_to_b(t_2_stcks_1 *stcks);
-t_2_stcks_1				*ft_do_from_b_to_a(t_2_stcks_1 *stcks, int elmnts_b, int elmnts_a);
+t_2_stcks_1				*ft_do_from_b_to_a(t_2_stcks_1 *stcks, int els_b, int els_a);
+t_2_stcks_1				*ft_do_rrb_n_slnt(t_2_stcks_1 *stcks, int n);
+t_2_stcks_1				*ft_do_rb_n_slnt(t_2_stcks_1 *stcks, int n);
+t_2_stcks_1				*ft_do_rra_n_slnt(t_2_stcks_1 *stcks, int n);
+t_2_stcks_1				*ft_do_rra_n(t_2_stcks_1 *stcks, int n);
+t_2_stcks_1				*ft_do_ra_n_slnt(t_2_stcks_1 *stcks, int n);
+t_2_stcks_1				*ft_do_ra_n(t_2_stcks_1 *stcks, int n);
+t_2_stcks_1				*ft_do_rrb_1_slnt(t_2_stcks_1 *stcks);
 /* ************************************************************************** */
 void					ft_lstadd_1(t_lst_psh_swp_1 **alst, t_lst_psh_swp_1 *new);
 void					ft_lstdel_1(t_lst_psh_swp_1 **alst, void (*del)(int, int, int));
@@ -110,6 +116,9 @@ int						ft_is_stack_clear(t_lst_psh_swp_1 *stck);
 int						ft_is_sa_needed(t_2_stcks_1 *stcks);
 int						ft_clt_stps_a(t_lst_psh_swp_1 *srtd_stck, int nmbr);
 int						ft_fnd_min(t_lst_psh_swp_1 *stck);
+int						ft_r_vs_rr(int indx, int elmts);
+int						ft_r_vs_rr_2(int indx, int elmts);
+int						ft_do_mode_grtr_2(t_rlst_markup *mode_grtr);
 /* ************************************************************************** */
 size_t					ft_lstlen_1(t_lst_psh_swp_1 *lst);
 

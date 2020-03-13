@@ -9,7 +9,7 @@ size_t					ft_lstlen_1(t_lst_psh_swp_1 *lst)
 	while (lst)
 	{
 		sz++;
-		lst = lst->next;
+		lst = lst->nxt;
 	}
 	return (sz);
 }
@@ -24,10 +24,10 @@ t_2_stcks_1				*ft_do_sa_1(t_2_stcks_1 *stcks)
 	len_a = ft_lstlen_1(stcks->a->lst);
 	if (len_a <= 1)
 		return (stcks);
-	tmp1 = stcks->a->lst->elmnt;
-	tmp2 = stcks->a->lst->next->elmnt;
-	stcks->a->lst->elmnt = tmp2;
-	stcks->a->lst->next->elmnt = tmp1;
+	tmp1 = stcks->a->lst->el;
+	tmp2 = stcks->a->lst->nxt->el;
+	stcks->a->lst->el = tmp2;
+	stcks->a->lst->nxt->el = tmp1;
 	ft_putstr_fd("sa\n", (int)STDOUT_FILENO);
 	return (stcks);
 }
