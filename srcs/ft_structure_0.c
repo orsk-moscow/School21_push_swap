@@ -6,7 +6,7 @@
 /*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:10:01 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/14 12:13:46 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/14 14:52:30 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_lst_p_s			*ft_lstnew_1(int num, int ind)
 	t_lst_p_s				*p1;
 	t_num_ind_res			elm;
 
-	if (!(p1 = (t_lst_p_s*)malloc(sizeof(t_lst_p_s))))
+	if (!(p1 = (t_lst_p_s*)ft_memalloc(sizeof(t_lst_p_s))))
 		return (NULL);
 	elm.ind = ind;
 	elm.res = -1;

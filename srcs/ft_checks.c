@@ -6,7 +6,7 @@
 /*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:09:46 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/14 12:14:24 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/14 15:07:35 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 int						ft_chck_arg(int intgr, const char *strng)
 {
-	return (ft_strcmp(ft_itoa(intgr), strng));
+	char				*s;
+	int					res;
+
+	s = ft_itoa(intgr);
+	res = ft_strcmp(s, strng);
+	free(s);
+	return (res);
 }
 
 void					ft_del(void *content, size_t content_size)
@@ -26,12 +32,8 @@ void					ft_del(void *content, size_t content_size)
 	return ;
 }
 
-void					ft_error(t_list *stck_a, t_list *stck_b)
+void					ft_error(void)
 {
-	if (stck_a)
-		ft_lstdel(&stck_a, ft_del);
-	if (stck_b)
-		ft_lstdel(&stck_b, ft_del);
 	ft_putstr_fd("Error\n", (int)STDERR_FILENO);
 	exit(-1);
 }

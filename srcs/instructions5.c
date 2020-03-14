@@ -6,7 +6,7 @@
 /*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:10:15 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/14 12:10:15 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/14 15:15:10 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ t_res_mrkp				*ft_init_md_ind(int els_n, int hd)
 {
 	t_res_mrkp				*tmp1;
 
-	if (!(tmp1 = (t_res_mrkp*)malloc(sizeof(t_res_mrkp*))))
+	if (!(tmp1 = (t_res_mrkp*)ft_memalloc(sizeof(t_res_mrkp))))
 		ft_error_1();
 	tmp1->els_n = els_n;
 	tmp1->hd = hd;

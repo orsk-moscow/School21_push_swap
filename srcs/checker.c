@@ -6,7 +6,7 @@
 /*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:09:39 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/14 12:11:55 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/14 15:14:51 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,26 @@ int						main(int ac, char **av)
 {
 	t_2_stcks				stcks;
 	char					*buff[1];
+	char					*tmp;
 	int						i;
+	int						size;
 
 	if (ft_is_dplcts(ac, av))
-		ft_error(stcks.a, stcks.b);
+		ft_error();
 	stcks = ft_gt_stcks(ac, av);
-	i = get_nl(STDIN_FILENO, buff);
+	*buff = (char*)ft_memalloc(sizeof(char) * (SIZE + 1));
+	tmp = *buff;
+	size = SIZE;
+	while ((i = read(STDIN_FILENO, tmp, size)) != 0 && (
+		tmp = tmp + i))
+		size = size - i;
 	if (!ft_chk_instrs(buff))
-		ft_error(stcks.a, stcks.b);
+		ft_error();
 	stcks = ft_exct_instrs(stcks, *buff);
 	(ft_is_lst_srtd(stcks.a) && !stcks.b && (int)ft_lstlen(stcks.a) == --ac) ?
 		ft_putstr_fd("OK\n", STDOUT_FILENO) :
 		ft_putstr_fd("KO\n", STDOUT_FILENO);
+	free(*buff);
+	*buff = NULL;
 	exit(0);
 }

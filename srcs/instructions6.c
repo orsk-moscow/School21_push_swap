@@ -6,7 +6,7 @@
 /*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:10:17 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/14 12:10:18 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/14 14:52:30 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_res_mrkp				*ft_init_res(t_lst_p_s *md_grtr)
 {
 	t_res_mrkp				*res;
 
-	(!(res = (t_res_mrkp*)malloc(sizeof(t_res_mrkp*)))) ? ft_error_1() : 0;
+	(!(res = (t_res_mrkp*)ft_memalloc(sizeof(t_res_mrkp)))) ? ft_error_1() : 0;
 	res->hd = md_grtr->el.ind;
 	res->els_n = 1;
 	res->lst = md_grtr;
