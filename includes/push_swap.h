@@ -6,7 +6,7 @@
 /*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:10:43 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/14 15:09:23 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/14 15:20:17 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # define SIZE 1000000
 # include "../libft/libft.h"
-# include "../gnl/get_next_line.h"
 
 # include <unistd.h>
 # include <stdlib.h>

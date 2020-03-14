@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+         #
+#    By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/05 20:42:36 by u18188899         #+#    #+#              #
-#    Updated: 2020/03/13 22:38:52 by u18188899        ###   ########.fr        #
+#    Updated: 2020/03/14 15:19:57 by klekisha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,18 +18,14 @@ CC 	= gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-GNLDIR = ./gnl/
-
-GNL_SRC = get_next_line.c
-
 SRCDIR = ./srcs/
 
 LIBDIR = ./libft/
 LIBFT = $(LIBDIR)libft.a
 
-INC = -I includes/push_swap.h -I gnl/get_next_line.h -I libft/libft.h
+INC = -I includes/push_swap.h -I libft/libft.h
 
-HEADERS = includes/push_swap.h gnl/get_next_line.h libft/libft.h
+HEADERS = includes/push_swap.h libft/libft.h
 
 SOURCES_1 = \
 	checker.c \
@@ -68,7 +64,7 @@ SOURCES_2 = \
 	file2.c
 
 
-OBJECTS_1_LIST = $(patsubst %.c, %.o, $(SOURCES_1) $(GNL_SRC))
+OBJECTS_1_LIST = $(patsubst %.c, %.o, $(SOURCES_1))
 OBJECTS_1	= $(OBJECTS_1_LIST)
 
 OBJECTS_2_LIST = $(patsubst %.c, %.o, $(SOURCES_2))
@@ -86,9 +82,6 @@ $(LIBFT):
 	@$(MAKE) -sC $(LIBDIR)
 
 %.o: $(SRCDIR)%.c
-	@$(CC) $(CFLAGS) -c $(HEADERS) $<
-
-%.o: $(GNLDIR)%.c
 	@$(CC) $(CFLAGS) -c $(HEADERS) $<
 
 clean:
