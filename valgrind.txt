@@ -1,0 +1,30 @@
+valgrind.txt
+valgrind how-to
+
+help:
+valgrind --help
+
+base using:
+valgrind <valid command>
+
+leak details:
+valgrind --leak-check=full <valid command>
+
+how to read results of valgrind's output:
+bad cases are next =
+	definitely lost bytes
+	possible lost bytes
+some specific:
+	valgrind on mac shows lost bytes 72 bytes in 3 blocks. this is unideal graphic library on MAC.
+
+in a case, when you malloc some memory and do not initialized it,
+valgrind will show an indirectly reading-writing warning.
+for fixing it you need to use ft_memcalloc function.
+it initialize memory as nulls. it mean:
+all pointers inside structure will be NULL,
+all chars will '\0',
+all integers will be 0.
+
+also, when call malloc, better to get a structure, not a pointer.
+also, when call malloc for structure and it consis of some different types of elements,
+OS give back the same blocks of memory for every structure element.
