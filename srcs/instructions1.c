@@ -1,7 +1,7 @@
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
-t_2_stcks				ft_do_sb(t_2_stcks stcks)
+t_2_stcks				do_sb(t_2_stcks stcks)
 {
 	size_t					len;
 	void					*tmp1;
@@ -18,15 +18,15 @@ t_2_stcks				ft_do_sb(t_2_stcks stcks)
 }
 
 /* ************************************************************************** */
-t_2_stcks				ft_do_ss(t_2_stcks stcks)
+t_2_stcks				do_ss(t_2_stcks stcks)
 {
-	stcks = ft_do_sa(stcks);
-	stcks = ft_do_sb(stcks);
+	stcks = do_sa(stcks);
+	stcks = do_sb(stcks);
 	return (stcks);
 }
 
 /* ************************************************************************** */
-t_2_stcks				ft_do_pa(t_2_stcks stcks)
+t_2_stcks				do_pa(t_2_stcks stcks)
 {
 	size_t					len;
 	t_list					*tmp1;
@@ -42,7 +42,7 @@ t_2_stcks				ft_do_pa(t_2_stcks stcks)
 }
 
 /* ************************************************************************** */
-t_2_stcks				ft_do_pb(t_2_stcks stcks)
+t_2_stcks				do_pb(t_2_stcks stcks)
 {
 	size_t					len;
 	t_list					*tmp1;
@@ -58,7 +58,7 @@ t_2_stcks				ft_do_pb(t_2_stcks stcks)
 }
 
 /* ************************************************************************** */
-t_2_stcks				ft_do_ra(t_2_stcks stcks)
+t_2_stcks				ra(t_2_stcks stcks)
 {
 	size_t					len;
 	t_list					*tmp1;

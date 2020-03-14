@@ -30,18 +30,18 @@ void					ft_prnt_rb_n(int n)
 }
 
 /* ************************************************************************** */
-t_stcks					*ft_do_ra_n(t_stcks *stcks, int n)
+t_stcks					*ra_n(t_stcks *stcks, int n)
 {
 	int						itrtr1;
 
 	itrtr1 = 0;
 	while (itrtr1++ < n)
-		stcks = ft_do_ra_1(stcks);
+		stcks = ra_1(stcks);
 	return (stcks);
 }
 
 /* ************************************************************************** */
-int						ft_do_md_grtr_2(t_res_mrkp *md_grtr)
+int						do_md_grtr_2(t_res_mrkp *md_grtr)
 {
 	int						tmp1;
 	t_lst_p_s				*tmp2;

@@ -10,12 +10,12 @@ int						main(int ac, char **av)
 		ft_error_1();
 	stcks = ft_gt_stcks_1(ac, av);
 	stcks->a->lst = ft_clct_inds(stcks->a->lst);
-	stcks = ft_do_markup(stcks);
+	stcks = do_markup(stcks);
 	els_b = --ac - stcks->a->els_n;
 	ac = stcks->a->els_n;
-	stcks = ft_do_fr_a_to_b(stcks);
+	stcks = do_fr_a_to_b(stcks);
 	while (stcks->b->lst)
-		stcks = ft_do_fr_b_to_a(stcks, els_b--, ac++);
+		stcks = do_fr_b_to_a(stcks, els_b--, ac++);
 	stcks = ft_align_a(stcks, ac);
 	exit(0);
 }

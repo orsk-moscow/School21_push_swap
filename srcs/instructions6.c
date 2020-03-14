@@ -1,7 +1,7 @@
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
-t_stcks					*ft_do_rb_1_slnt(t_stcks *stcks)
+t_stcks					*rb_1_s(t_stcks *stcks)
 {
 	size_t					len;
 	t_lst_p_s				*tmp1;
@@ -21,7 +21,7 @@ t_stcks					*ft_do_rb_1_slnt(t_stcks *stcks)
 }
 
 /* ************************************************************************** */
-t_stcks					*ft_do_rb_1(t_stcks *stcks)
+t_stcks					*rb_1(t_stcks *stcks)
 {
 	size_t					len;
 	t_lst_p_s				*tmp1;
@@ -42,7 +42,7 @@ t_stcks					*ft_do_rb_1(t_stcks *stcks)
 }
 
 /* ************************************************************************** */
-t_stcks					*ft_do_rra_1_slnt(t_stcks *stcks)
+t_stcks					*rra_1_s(t_stcks *stcks)
 {
 	size_t					len;
 	t_lst_p_s				*tmp1;
@@ -65,5 +65,18 @@ t_stcks					*ft_do_rra_1_slnt(t_stcks *stcks)
 int						ft_is_sa_needed(t_stcks *stcks)
 {
 	return (ft_strcmp(stcks->a->md,"grtr") ?
-		ft_do_md_grtr_2(stcks->a) : 0);
+		do_md_grtr_2(stcks->a) : 0);
+}
+
+/* ************************************************************************** */
+t_res_mrkp				*ft_init_res(t_lst_p_s *md_grtr)
+{
+	t_res_mrkp				*res;
+
+	(!(res = (t_res_mrkp*)malloc(sizeof(t_res_mrkp*)))) ? ft_error_1() : 0;
+	res->hd = md_grtr->el.ind;
+	res->els_n = 1;
+	res->lst = md_grtr;
+	res->lst->el.res = 1;
+	return (res);
 }

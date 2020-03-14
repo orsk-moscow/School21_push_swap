@@ -25,44 +25,27 @@ t_lst_p_s				*ft_clct_inds(t_lst_p_s *stck)
 }
 
 /* ************************************************************************** */
-t_res_mrkp				*ft_do_md_grtr(t_lst_p_s *md_grtr, int els_n, int hd)
+t_res_mrkp				*do_md_grtr(t_lst_p_s *md_grtr, int els_n, int hd)
 {
 	t_res_mrkp				*res;
 
 	if (!md_grtr->nxt)
-	{
-		if (!(res = (t_res_mrkp*)malloc(sizeof(t_res_mrkp*))))
-			ft_error_1();
-		res->hd = md_grtr->el.ind;
-		res->els_n = 1;
-		res->lst = md_grtr;
-		res->lst->el.res = 1;
-		return (res);
-	}
-	res = ft_do_md_grtr(md_grtr->nxt, els_n, hd);
+		return (ft_init_res(md_grtr));
+	res = do_md_grtr(md_grtr->nxt, els_n, hd);
 	if (md_grtr->el.num < res->lst->el.num)
 	{
 		md_grtr->el.res = res->lst->el.res + 1;
-		if (md_grtr->el.res > res->els_n)
-		{
-			hd = md_grtr->el.ind;
+		if (md_grtr->el.res > res->els_n && (hd = md_grtr->el.ind) >= INT_MIN)
 			els_n = md_grtr->el.res;
-		}
 		else if (md_grtr->el.res == res->els_n &&
 			md_grtr->el.ind < res->lst->el.ind)
 			hd = md_grtr->el.ind;
-		else
-		{
-			els_n = res->els_n;
+		else if ((els_n = res->els_n) > -1)
 			hd = res->hd;
-		}
 	}
-	else
-	{
-		md_grtr->el.res = 1;
-		els_n = res->els_n;
+	else if ((md_grtr->el.res = 1) &&
+			(els_n = res->els_n) > -2)
 		hd = res->hd;
-	}
 	res->hd = hd;
 	res->els_n = els_n;
 	res->lst = md_grtr;
@@ -70,7 +53,7 @@ t_res_mrkp				*ft_do_md_grtr(t_lst_p_s *md_grtr, int els_n, int hd)
 }
 
 /* ************************************************************************** */
-t_res_mrkp				*ft_do_md_ind(t_lst_p_s *md_ind, int els_n, int hd)
+t_res_mrkp				*do_md_ind(t_lst_p_s *md_ind, int els_n, int hd)
 {
 	t_res_mrkp				*tmp1;
 	int						tmp2;
@@ -101,7 +84,7 @@ t_res_mrkp				*ft_do_md_ind(t_lst_p_s *md_ind, int els_n, int hd)
 		hd = md_ind->el.ind;
 		els_n = md_ind->el.res;
 	}
-	return (ft_do_md_ind(md_ind->nxt, els_n, hd));
+	return (do_md_ind(md_ind->nxt, els_n, hd));
 }
 
 /* ************************************************************************** */

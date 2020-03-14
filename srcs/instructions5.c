@@ -1,7 +1,7 @@
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
-t_stcks					*ft_do_pa_1(t_stcks *stcks)
+t_stcks					*do_pa_1(t_stcks *stcks)
 {
 	size_t					len;
 	t_lst_p_s				*tmp1;
@@ -18,7 +18,7 @@ t_stcks					*ft_do_pa_1(t_stcks *stcks)
 }
 
 /* ************************************************************************** */
-t_stcks					*ft_do_pb_1(t_stcks *stcks)
+t_stcks					*do_pb_1(t_stcks *stcks)
 {
 	size_t					len;
 	t_lst_p_s				*tmp1;
@@ -35,7 +35,7 @@ t_stcks					*ft_do_pb_1(t_stcks *stcks)
 }
 
 /* ************************************************************************** */
-t_stcks					*ft_do_ra_1_slnt(t_stcks *stcks)
+t_stcks					*ra_1_s(t_stcks *stcks)
 {
 	size_t					len;
 	t_lst_p_s				*tmp1;
@@ -55,7 +55,7 @@ t_stcks					*ft_do_ra_1_slnt(t_stcks *stcks)
 }
 
 /* ************************************************************************** */
-t_stcks					*ft_do_ra_1(t_stcks *stcks)
+t_stcks					*ra_1(t_stcks *stcks)
 {
 	size_t					len;
 	t_lst_p_s				*tmp1;

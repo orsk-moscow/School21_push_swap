@@ -1,7 +1,7 @@
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
-t_2_stcks				ft_do_rb(t_2_stcks stcks)
+t_2_stcks				rb(t_2_stcks stcks)
 {
 	size_t					len;
 	t_list					*tmp1;
@@ -21,15 +21,15 @@ t_2_stcks				ft_do_rb(t_2_stcks stcks)
 }
 
 /* ************************************************************************** */
-t_2_stcks				ft_do_rr(t_2_stcks stcks)
+t_2_stcks				rr(t_2_stcks stcks)
 {
-	stcks = ft_do_ra(stcks);
-	stcks = ft_do_rb(stcks);
+	stcks = ra(stcks);
+	stcks = rb(stcks);
 	return (stcks);
 }
 
 /* ************************************************************************** */
-t_2_stcks				ft_do_rra(t_2_stcks stcks)
+t_2_stcks				rra(t_2_stcks stcks)
 {
 	size_t					len;
 	t_list					*tmp1;
@@ -49,7 +49,7 @@ t_2_stcks				ft_do_rra(t_2_stcks stcks)
 }
 
 /* ************************************************************************** */
-t_2_stcks				ft_do_rrb(t_2_stcks stcks)
+t_2_stcks				rrb(t_2_stcks stcks)
 {
 	size_t					len;
 	t_list					*tmp1;
@@ -69,9 +69,9 @@ t_2_stcks				ft_do_rrb(t_2_stcks stcks)
 }
 
 /* ************************************************************************** */
-t_2_stcks				ft_do_rrr(t_2_stcks stcks)
+t_2_stcks				rrr(t_2_stcks stcks)
 {
-	stcks = ft_do_rra(stcks);
-	stcks = ft_do_rrb(stcks);
+	stcks = rra(stcks);
+	stcks = rrb(stcks);
 	return (stcks);
 }

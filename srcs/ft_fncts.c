@@ -29,3 +29,17 @@ int						ft_r_vs_rr_2(int ind, int elmts)
 			rr :
 			r);
 }
+
+/* ************************************************************************** */
+void					ft_prnt(int tmp2, int els_b, int tmp4, int tmp5)
+{
+	if (tmp2 && els_b)
+		ft_prnt_rrr_n(tmp4, tmp5);
+	else if (!tmp2 && !els_b)
+		ft_prnt_rr_n(tmp4, tmp5);
+	else
+	{
+		tmp2 ? ft_prnt_rrb_n(tmp4) : ft_prnt_rb_n(tmp4);
+		els_b ? ft_prnt_rra_n(tmp5) : ft_prnt_ra_n(tmp5);
+	}
+}

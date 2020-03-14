@@ -81,12 +81,12 @@ t_stcks					*ft_gt_stcks_1(int ac, char **av)
 }
 
 /* ************************************************************************** */
-t_stcks					*ft_do_rrb_n_slnt(t_stcks *stcks, int n)
+t_stcks					*rrb_n_s(t_stcks *stcks, int n)
 {
 	int						itrtr1;
 
 	itrtr1 = 0;
 	while (itrtr1++ < n)
-		stcks = ft_do_rrb_1_slnt(stcks);
+		stcks = rrb_1_s(stcks);
 	return (stcks);
 }

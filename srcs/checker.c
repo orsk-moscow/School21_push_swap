@@ -32,7 +32,7 @@ t_2_stcks				ft_exct_instrs(t_2_stcks stcks, char *instr)
 	while (instr && ft_strchr(instr, '\n'))
 	{
 		n_s = ft_strchr(instr, '\n') - instr;
-		stcks = ft_do_instrs(stcks, instr, n_s);
+		stcks = do_instrs(stcks, instr, n_s);
 		instr += (n_s + 1);
 	}	
 	return (stcks);

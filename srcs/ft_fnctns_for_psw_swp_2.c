@@ -1,17 +1,17 @@
 #include "../includes/push_swap.h"
 
 /* ************************************************************************** */
-t_stcks					*ft_do_markup(t_stcks *stcks)
+t_stcks					*do_markup(t_stcks *stcks)
 {
 	t_res_mrkp				*md_grtr;
 	t_res_mrkp				*md_ind;
 
 	md_grtr = stcks->a;
 	md_ind = stcks->a;
-	md_grtr = ft_do_md_grtr(md_grtr->lst,0,0);
+	md_grtr = do_md_grtr(md_grtr->lst,0,0);
 	md_ind->els_n = 1;
 	md_ind->hd = md_ind->lst->el.ind;
-	md_ind = ft_do_md_ind(md_ind->lst,0,0);
+	md_ind = do_md_ind(md_ind->lst,0,0);
 	stcks->a = (md_ind->els_n >= md_grtr->els_n ?
 		ft_mark_in_ind_md(stcks->a, md_ind) :
 		ft_mark_in_grtr_md(stcks->a, md_grtr));
@@ -32,24 +32,24 @@ int						ft_is_stack_clear(t_lst_p_s *stck)
 }
 
 /* ************************************************************************** */
-t_stcks					*ft_do_rb_n_slnt(t_stcks *stcks, int n)
+t_stcks					*rb_n_s(t_stcks *stcks, int n)
 {
 	int						itrtr1;
 
 	itrtr1 = 0;
 	while (itrtr1++ < n)
-		stcks = ft_do_rb_1_slnt(stcks);
+		stcks = rb_1_s(stcks);
 	return (stcks);
 }
 
 /* ************************************************************************** */
-t_stcks					*ft_do_ra_n_slnt(t_stcks *stcks, int n)
+t_stcks					*ra_n_s(t_stcks *stcks, int n)
 {
 	int						itrtr1;
 
 	itrtr1 = 0;
 	while (itrtr1++ < n)
-		stcks = ft_do_ra_1_slnt(stcks);
+		stcks = ra_1_s(stcks);
 	return (stcks);
 }
 

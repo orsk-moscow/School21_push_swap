@@ -15,7 +15,7 @@ size_t					ft_lstlen_1(t_lst_p_s *lst)
 }
 
 /* ************************************************************************** */
-t_stcks					*ft_do_sa_1(t_stcks *stcks)
+t_stcks					*do_sa_1(t_stcks *stcks)
 {
 	size_t					len_a;
 	t_num_ind_res			tmp1;
