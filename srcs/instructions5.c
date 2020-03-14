@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instructions5.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/14 12:10:15 by klekisha          #+#    #+#             */
+/*   Updated: 2020/03/14 12:10:15 by klekisha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-/* ************************************************************************** */
 t_stcks					*do_pa_1(t_stcks *stcks)
 {
 	size_t					len;
@@ -17,7 +28,6 @@ t_stcks					*do_pa_1(t_stcks *stcks)
 	return (stcks);
 }
 
-/* ************************************************************************** */
 t_stcks					*do_pb_1(t_stcks *stcks)
 {
 	size_t					len;
@@ -34,7 +44,6 @@ t_stcks					*do_pb_1(t_stcks *stcks)
 	return (stcks);
 }
 
-/* ************************************************************************** */
 t_stcks					*ra_1_s(t_stcks *stcks)
 {
 	size_t					len;
@@ -54,7 +63,6 @@ t_stcks					*ra_1_s(t_stcks *stcks)
 	return (stcks);
 }
 
-/* ************************************************************************** */
 t_stcks					*ra_1(t_stcks *stcks)
 {
 	size_t					len;
@@ -73,4 +81,16 @@ t_stcks					*ra_1(t_stcks *stcks)
 	tmp2->nxt = tmp1;
 	ft_putstr_fd("ra\n", (int)STDOUT_FILENO);
 	return (stcks);
+}
+
+t_res_mrkp				*ft_init_md_ind(int els_n, int hd)
+{
+	t_res_mrkp				*tmp1;
+
+	if (!(tmp1 = (t_res_mrkp*)malloc(sizeof(t_res_mrkp*))))
+		ft_error_1();
+	tmp1->els_n = els_n;
+	tmp1->hd = hd;
+	tmp1->lst = NULL;
+	return (tmp1);
 }

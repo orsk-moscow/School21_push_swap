@@ -1,5 +1,17 @@
-#include "../includes/push_swap.h"
 /* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   file2.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/14 12:09:44 by klekisha          #+#    #+#             */
+/*   Updated: 2020/03/14 12:09:45 by klekisha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/push_swap.h"
+
 void					ft_prnt_ra_n(int n)
 {
 	int						itrtr1;
@@ -9,7 +21,6 @@ void					ft_prnt_ra_n(int n)
 		ft_putstr("ra\n");
 }
 
-/* ************************************************************************** */
 void					ft_prnt_rra_n(int n)
 {
 	int						itrtr1;
@@ -19,7 +30,6 @@ void					ft_prnt_rra_n(int n)
 		ft_putstr("rra\n");
 }
 
-/* ************************************************************************** */
 void					ft_prnt_rb_n(int n)
 {
 	int						itrtr1;
@@ -29,7 +39,6 @@ void					ft_prnt_rb_n(int n)
 		ft_putstr("rb\n");
 }
 
-/* ************************************************************************** */
 t_stcks					*ra_n(t_stcks *stcks, int n)
 {
 	int						itrtr1;
@@ -40,7 +49,6 @@ t_stcks					*ra_n(t_stcks *stcks, int n)
 	return (stcks);
 }
 
-/* ************************************************************************** */
 int						do_md_grtr_2(t_res_mrkp *md_grtr)
 {
 	int						tmp1;

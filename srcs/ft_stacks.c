@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stacks.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/14 12:09:58 by klekisha          #+#    #+#             */
+/*   Updated: 2020/03/14 12:09:59 by klekisha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-/* ************************************************************************** */
 t_2_stcks				ft_gt_stcks(int ac, char **av)
 {
 	t_2_stcks				stcks;
@@ -26,8 +37,7 @@ t_2_stcks				ft_gt_stcks(int ac, char **av)
 	return (stcks);
 }
 
-/* ************************************************************************** */
-t_res_mrkp				*ft_init_stck()
+t_res_mrkp				*ft_init_stck(void)
 {
 	t_res_mrkp				*tmp1;
 
@@ -40,8 +50,7 @@ t_res_mrkp				*ft_init_stck()
 	return (tmp1);
 }
 
-/* ************************************************************************** */
-t_stcks					*ft_init_stcks()
+t_stcks					*ft_init_stcks(void)
 {
 	t_stcks					*tmp1;
 
@@ -52,7 +61,6 @@ t_stcks					*ft_init_stcks()
 	return (tmp1);
 }
 
-/* ************************************************************************** */
 t_stcks					*ft_gt_stcks_1(int ac, char **av)
 {
 	t_stcks					*stcks;
@@ -78,7 +86,6 @@ t_stcks					*ft_gt_stcks_1(int ac, char **av)
 	return (stcks);
 }
 
-/* ************************************************************************** */
 t_stcks					*rrb_n_s(t_stcks *stcks, int n)
 {
 	int						itrtr1;

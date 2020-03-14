@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/23 20:49:11 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/13 22:26:25 by u18188899        ###   ########.fr       */
+/*   Created: 2020/03/14 11:59:00 by klekisha          #+#    #+#             */
+/*   Updated: 2020/03/14 11:59:45 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+
 typedef struct						s_list
 {
 	void							*content;
