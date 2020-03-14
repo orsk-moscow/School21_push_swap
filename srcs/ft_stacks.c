@@ -48,8 +48,6 @@ t_stcks					*ft_init_stcks()
 	if (!(tmp1 = (t_stcks*)malloc(sizeof(t_stcks*))))
 		ft_error_1();
 	if (!(tmp1->a = ft_init_stck()))
-	//  ||
-	// 	!(tmp1->b = ft_init_stck()))
 		ft_error_1();
 	return (tmp1);
 }
