@@ -6,7 +6,7 @@
 /*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:09:58 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/14 15:08:19 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/14 15:34:35 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_stcks					*ft_init_stcks(void)
 {
 	t_stcks					*tmp1;
 
-	if (!(tmp1 = (t_stcks*)ft_memalloc(sizeof(t_stcks*))))
+	if (!(tmp1 = (t_stcks*)ft_memalloc(sizeof(t_stcks))))
 		ft_error_1();
 	if (!(tmp1->a = ft_init_stck()))
 		ft_error_1();

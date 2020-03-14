@@ -6,7 +6,7 @@
 /*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:09:53 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/14 12:09:53 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/14 15:49:20 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ t_stcks					*do_markup(t_stcks *stcks)
 	stcks->a = (md_ind->els_n >= md_grtr->els_n ?
 		ft_mark_in_ind_md(stcks->a, md_ind) :
 		ft_mark_in_grtr_md(stcks->a, md_grtr));
+	free(md_grtr);
+	free(md_ind);
 	stcks->b = ft_init_stck();
 	return (stcks);
 }
