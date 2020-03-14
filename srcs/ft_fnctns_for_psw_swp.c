@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_fnctns_for_psw_swp.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/14 12:09:50 by klekisha          #+#    #+#             */
+/*   Updated: 2020/03/14 12:09:51 by klekisha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-/* ************************************************************************** */
 t_lst_p_s				*ft_clct_inds(t_lst_p_s *stck)
 {
 	int						ind;
@@ -24,7 +35,6 @@ t_lst_p_s				*ft_clct_inds(t_lst_p_s *stck)
 	return (stck);
 }
 
-/* ************************************************************************** */
 t_res_mrkp				*do_md_grtr(t_lst_p_s *md_grtr, int els_n, int hd)
 {
 	t_res_mrkp				*res;
@@ -52,20 +62,6 @@ t_res_mrkp				*do_md_grtr(t_lst_p_s *md_grtr, int els_n, int hd)
 	return (res);
 }
 
-/* ************************************************************************** */
-t_res_mrkp				*ft_init_md_ind(int els_n, int hd)
-{
-	t_res_mrkp				*tmp1;
-
-	if (!(tmp1 = (t_res_mrkp*)malloc(sizeof(t_res_mrkp*))))
-		ft_error_1();
-	tmp1->els_n = els_n;
-	tmp1->hd = hd;
-	tmp1->lst = NULL;
-	return (tmp1);
-}
-
-/* ************************************************************************** */
 t_res_mrkp				*do_md_ind(t_lst_p_s *md_ind, int els_n, int hd)
 {
 	int						tmp2;
@@ -91,7 +87,6 @@ t_res_mrkp				*do_md_ind(t_lst_p_s *md_ind, int els_n, int hd)
 	return (do_md_ind(md_ind->nxt, els_n, hd));
 }
 
-/* ************************************************************************** */
 t_res_mrkp				*ft_mark_in_ind_md(t_res_mrkp *stck, t_res_mrkp *ind)
 {
 	t_lst_p_s				*tmp2;
@@ -112,7 +107,6 @@ t_res_mrkp				*ft_mark_in_ind_md(t_res_mrkp *stck, t_res_mrkp *ind)
 	return (stck);
 }
 
-/* ************************************************************************** */
 t_res_mrkp				*ft_mark_in_grtr_md(t_res_mrkp *stck, t_res_mrkp *grtr)
 {
 	t_lst_p_s				*tmp1;
@@ -132,7 +126,7 @@ t_res_mrkp				*ft_mark_in_grtr_md(t_res_mrkp *stck, t_res_mrkp *grtr)
 		{
 			while (tmp1 && (tmp1->el.res = 0) > -1)
 				tmp1 = tmp1->nxt;
-			break;
+			break ;
 		}
 		tmp1 = tmp1->nxt;
 	}

@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instructions3.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/14 12:10:10 by klekisha          #+#    #+#             */
+/*   Updated: 2020/03/14 12:10:10 by klekisha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-/* ************************************************************************** */
 void					ft_prnt_rr_n(int nb, int na)
 {
 	int						itrtr1;
@@ -22,7 +33,6 @@ void					ft_prnt_rr_n(int nb, int na)
 	}
 }
 
-/* ************************************************************************** */
 t_stcks					*do_fr_b_to_a(t_stcks *s, int b, int a)
 {
 	t_lst_p_s				*t1;
@@ -51,7 +61,6 @@ t_stcks					*do_fr_b_to_a(t_stcks *s, int b, int a)
 	return (do_pa_1(s));
 }
 
-/* ************************************************************************** */
 t_stcks					*do_fr_a_to_b(t_stcks *stcks)
 {
 	while (!ft_is_stack_clear(stcks->a->lst))
@@ -73,7 +82,6 @@ t_stcks					*do_fr_a_to_b(t_stcks *stcks)
 	return (stcks);
 }
 
-/* ************************************************************************** */
 int						ft_fnd_min(t_lst_p_s *stck)
 {
 	int						tmp3;
@@ -92,7 +100,6 @@ int						ft_fnd_min(t_lst_p_s *stck)
 	return (tmp4_ind_min);
 }
 
-/* ************************************************************************** */
 t_stcks					*ft_align_a(t_stcks *stcks, int els_n)
 {
 	int						ind_min;

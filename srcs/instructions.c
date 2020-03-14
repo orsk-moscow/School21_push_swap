@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instructions.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/14 12:10:03 by klekisha          #+#    #+#             */
+/*   Updated: 2020/03/14 12:10:04 by klekisha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-/* ************************************************************************** */
 t_stcks					*rrb_n(t_stcks *stcks, int n)
 {
 	int						itrtr1;
@@ -11,7 +22,6 @@ t_stcks					*rrb_n(t_stcks *stcks, int n)
 	return (stcks);
 }
 
-/* ************************************************************************** */
 t_stcks					*rb_n(t_stcks *stcks, int n)
 {
 	int						itrtr1;
@@ -22,7 +32,6 @@ t_stcks					*rb_n(t_stcks *stcks, int n)
 	return (stcks);
 }
 
-/* ************************************************************************** */
 t_stcks					*rra_n_s(t_stcks *stcks, int n)
 {
 	int						itrtr1;
@@ -33,7 +42,6 @@ t_stcks					*rra_n_s(t_stcks *stcks, int n)
 	return (stcks);
 }
 
-/* ************************************************************************** */
 t_2_stcks				do_instrs(t_2_stcks stcks, char *instr, size_t n_s)
 {
 	if (!ft_strncmp(instr, "sa", n_s))
@@ -61,7 +69,6 @@ t_2_stcks				do_instrs(t_2_stcks stcks, char *instr, size_t n_s)
 	return (stcks);
 }
 
-/* ************************************************************************** */
 t_2_stcks				do_sa(t_2_stcks stcks)
 {
 	size_t					len_a;

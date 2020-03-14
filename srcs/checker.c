@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/14 12:09:39 by klekisha          #+#    #+#             */
+/*   Updated: 2020/03/14 12:11:55 by klekisha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-/* ************************************************************************** */
 int						ft_chk_instrs(char **instr)
 {
 	size_t					n_s;
@@ -24,7 +35,6 @@ int						ft_chk_instrs(char **instr)
 	return (0);
 }
 
-/* ************************************************************************** */
 t_2_stcks				ft_exct_instrs(t_2_stcks stcks, char *instr)
 {
 	size_t					n_s;
@@ -34,11 +44,10 @@ t_2_stcks				ft_exct_instrs(t_2_stcks stcks, char *instr)
 		n_s = ft_strchr(instr, '\n') - instr;
 		stcks = do_instrs(stcks, instr, n_s);
 		instr += (n_s + 1);
-	}	
+	}
 	return (stcks);
 }
 
-/* ************************************************************************** */
 int						main(int ac, char **av)
 {
 	t_2_stcks				stcks;
@@ -48,7 +57,7 @@ int						main(int ac, char **av)
 	if (ft_is_dplcts(ac, av))
 		ft_error(stcks.a, stcks.b);
 	stcks = ft_gt_stcks(ac, av);
-	i = getNL(STDIN_FILENO, buff);
+	i = get_nl(STDIN_FILENO, buff);
 	if (!ft_chk_instrs(buff))
 		ft_error(stcks.a, stcks.b);
 	stcks = ft_exct_instrs(stcks, *buff);

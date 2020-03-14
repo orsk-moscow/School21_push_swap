@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instructions6.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/14 12:10:17 by klekisha          #+#    #+#             */
+/*   Updated: 2020/03/14 12:10:18 by klekisha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-/* ************************************************************************** */
 t_stcks					*rb_1_s(t_stcks *stcks)
 {
 	size_t					len;
@@ -20,7 +31,6 @@ t_stcks					*rb_1_s(t_stcks *stcks)
 	return (stcks);
 }
 
-/* ************************************************************************** */
 t_stcks					*rb_1(t_stcks *stcks)
 {
 	size_t					len;
@@ -41,7 +51,6 @@ t_stcks					*rb_1(t_stcks *stcks)
 	return (stcks);
 }
 
-/* ************************************************************************** */
 t_stcks					*rra_1_s(t_stcks *stcks)
 {
 	size_t					len;
@@ -61,14 +70,12 @@ t_stcks					*rra_1_s(t_stcks *stcks)
 	return (stcks);
 }
 
-/* ************************************************************************** */
 int						ft_is_sa_needed(t_stcks *stcks)
 {
-	return (ft_strcmp(stcks->a->md,"grtr") ?
+	return (ft_strcmp(stcks->a->md, "grtr") ?
 		do_md_grtr_2(stcks->a) : 0);
 }
 
-/* ************************************************************************** */
 t_res_mrkp				*ft_init_res(t_lst_p_s *md_grtr)
 {
 	t_res_mrkp				*res;

@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_structure_0.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/14 12:10:01 by klekisha          #+#    #+#             */
+/*   Updated: 2020/03/14 12:13:46 by klekisha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-/* ************************************************************************** */
-t_lst_p_s				*ft_lstnew_1(int num, int ind)
+t_lst_p_s			*ft_lstnew_1(int num, int ind)
 {
 	t_lst_p_s				*p1;
 	t_num_ind_res			elm;
@@ -16,8 +27,7 @@ t_lst_p_s				*ft_lstnew_1(int num, int ind)
 	return (p1);
 }
 
-/* ************************************************************************** */
-void	ft_lstadd_1(t_lst_p_s **alst, t_lst_p_s *new)
+void				ft_lstadd_1(t_lst_p_s **alst, t_lst_p_s *new)
 {
 	if (new && alst)
 	{
@@ -26,8 +36,7 @@ void	ft_lstadd_1(t_lst_p_s **alst, t_lst_p_s *new)
 	}
 }
 
-/* ************************************************************************** */
-void	ft_lstdel_1(t_lst_p_s **alst, void (*del)(int, int, int))
+void				ft_lstdel_1(t_lst_p_s **alst, void (*del)(int, int, int))
 {
 	if (alst && del)
 	{
@@ -37,8 +46,7 @@ void	ft_lstdel_1(t_lst_p_s **alst, void (*del)(int, int, int))
 	}
 }
 
-/* ************************************************************************** */
-void	ft_lstdelone_1(t_lst_p_s **alst, void (*del)(int, int, int))
+void				ft_lstdelone_1(t_lst_p_s **alst, void (*del)(int, int, int))
 {
 	if (!alst || !(*alst) || !del)
 		return ;
@@ -47,8 +55,7 @@ void	ft_lstdelone_1(t_lst_p_s **alst, void (*del)(int, int, int))
 	(*alst) = NULL;
 }
 
-/* ************************************************************************** */
-void					ft_del_1(int num, int ind, int res)
+void				ft_del_1(int num, int ind, int res)
 {
 	num++;
 	num--;
