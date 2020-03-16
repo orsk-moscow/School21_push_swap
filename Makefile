@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+         #
+#    By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/05 20:42:36 by u18188899         #+#    #+#              #
-#    Updated: 2020/03/14 15:19:57 by klekisha         ###   ########.fr        #
+#    Updated: 2020/03/16 21:44:42 by u18188899        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,3 +97,9 @@ fclean: clean
 re:
 	@$(MAKE) fclean
 	@$(MAKE) all
+
+test_c: 
+	@$(CC) -g ./libft/*.c \
+		-o $(NAME_1) $(OBJECTS_1_LIST)
+# $(NAME_1) $(OBJECTS_1_LIST)
+# $(NAME_1):
