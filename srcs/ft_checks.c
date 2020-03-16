@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:09:46 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/14 15:07:35 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/16 21:20:58 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void					ft_del(void *content, size_t content_size)
 	return ;
 }
 
-void					ft_error(void)
+int						ft_error(void)
 {
 	ft_putstr_fd("Error\n", (int)STDERR_FILENO);
 	exit(-1);

@@ -1,0 +1,7 @@
+1. Make reading an some numbers in 1 argument
+2. Fix atoi with plus before number
+3. Biuld an online checking and execution of instructions
+4. Do a unittests:
+	ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
+	ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
+5. Make test with  recompile: touch checker.c (check the command) and do make

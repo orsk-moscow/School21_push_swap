@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 11:59:00 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/14 11:59:45 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/16 21:17:49 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct						s_list
 	struct s_list					*nxt;
 }									t_list;
 int									ft_atoi(const char *str);
-void								ft_bzero(void *s, size_t n);
+int									ft_bzero(void *s, size_t n);
 int									ft_isalnum(int c);
 int									ft_isalpha(int c);
 char								*ft_strjoin(char const *s1,
