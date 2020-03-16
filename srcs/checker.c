@@ -6,7 +6,7 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:09:39 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/16 21:27:37 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/17 00:08:35 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int						main(int ac, char **av)
 	t_2_stcks				stcks;
 	char					*buff;
 
+	if (ac == 1)
+		exit(1);
 	if (ft_is_dplcts(ac, av))
 		ft_error();
 	stcks = ft_gt_stcks(ac, av);

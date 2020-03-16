@@ -55,7 +55,7 @@ def make_test_checker(array, stdin_input, errors_test = False, silent = True, su
     return -10
 
 def make_test_push_swap(array, errors_test = False, silent = True, success = False):
-    l1 = len(array)
+    l = len(array)
     argv = " ".join(map(str,array))
     args = "/push_swap " + argv
     args = os.path.abspath(".") + args
@@ -65,15 +65,15 @@ def make_test_push_swap(array, errors_test = False, silent = True, success = Fal
                        stderr=subprocess.PIPE)
     if errors_test:
         if bytes.decode(p.stderr) != "Error\n":
-            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"                                 &(l,argv,bytes.decode(p.stdout),bytes.decode(p.stderr)))
+            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%(l,argv,bytes.decode(p.stdout),bytes.decode(p.stderr)))
             return -1
         if bytes.decode(p.stdout) != "":
-            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"&                                 (l,argv,bytes.decode(p.stdout),bytes.decode(p.stderr)))
+            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%(l,argv,bytes.decode(p.stdout),bytes.decode(p.stderr)))
             return -2
         if success: print("Test passed correctly, your push_swap program detected mistakes in argv properly")
         return 1
     if bytes.decode(p.stderr) != "":
-        if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"&                             (l,argv,bytes.decode(p.stdout),bytes.decode(p.stderr)))
+        if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%(l,argv,bytes.decode(p.stdout),bytes.decode(p.stderr)))
         return -1
     return p.stdout
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stacks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:09:58 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/14 15:34:35 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/17 00:15:15 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,31 @@ t_2_stcks				ft_gt_stcks(int ac, char **av)
 {
 	t_2_stcks				stcks;
 	int						res;
-	int						n_arg;
+	int						n_w;
 
-	if (ac == 1)
-		exit(1);
-	n_arg = ac;
 	stcks.a = NULL;
 	stcks.b = NULL;
-	res = ft_atoi(av[--ac]);
-	if (ft_chck_arg(res, av[ac]))
-		ft_error();
-	stcks.a = ft_lstnew(&res, sizeof(int));
+	// res = (n_w == 1 ? ft_atoi(av[ac--]) : ft_atoi(strrchr(av[ac], ' ')));
+	// res = ft_atoi(av[--ac]);
+	// if (ft_chck_arg(res, av[ac]))
+	// 	ft_error();
+	// stcks.a = ft_lstnew(&res, sizeof(int));
 	while (--ac > 0)
 	{
-		res = ft_atoi(av[ac]);
-		if (ft_chck_arg(res, av[ac]))
-			ft_error();
-		ft_lstadd(&stcks.a, ft_lstnew(&res, sizeof(int)));
+		if ((n_w = ft_count_words(av[ac],' ')) > 1)
+		{
+			while (n_w--)
+			{
+				
+			}
+		}
+		else if (n_w == 1)
+		{
+			res = ft_atoi(av[ac]);
+			if (ft_chck_arg(res, av[ac]))
+				ft_error();
+			ft_lstadd(&stcks.a, ft_lstnew(&res, sizeof(int)));
+		}
 	}
 	return (stcks);
 }
@@ -65,11 +73,9 @@ t_stcks					*ft_gt_stcks_1(int ac, char **av)
 {
 	t_stcks					*stcks;
 	int						res;
-	int						n_arg;
 
 	if (ac == 1)
 		exit(1);
-	n_arg = ac;
 	stcks = ft_init_stcks();
 	stcks->a->lst = NULL;
 	res = ft_atoi(av[--ac]);
