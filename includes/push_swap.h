@@ -6,14 +6,14 @@
 /*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:10:43 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/18 10:56:47 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/18 11:46:35 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# define SIZE 5
+# define SIZE 1000000
 # include "../libft/libft.h"
 
 # include <unistd.h>

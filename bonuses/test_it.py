@@ -27,19 +27,19 @@ def make_test_checker(array, stdin_input, errors_test = False, silent = True, su
                        stderr=subprocess.PIPE)
     if errors_test:
         if bytes.decode(p.stderr) != "Error\n":
-            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%                                 (l,argv,
+            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%(l,argv,
                                   bytes.decode(p.stdout),
                                   bytes.decode(p.stderr)))
             return -1
         if bytes.decode(p.stdout) != "":
-            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%                                 (l,argv,
+            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%(l,argv,
                                   bytes.decode(p.stdout),
                                   bytes.decode(p.stderr)))
             return -2
         if success: print("Test passed correctly, your checker program detected mistakes in argv properly")
         return 1
     if bytes.decode(p.stderr) != "":
-        if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%                             (l,argv,
+        if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%(l,argv,
                               bytes.decode(p.stdout),
                               bytes.decode(p.stderr)))
         return -1
@@ -394,7 +394,7 @@ i2 = 0
 i3 = 0
 for array, command in pairs:
     command = bytes(command,encoding = 'ascii')
-    res = make_test_checker(array, command, errors_test = False, silent = False, success=False)
+    res = make_test_checker(array, command, errors_test = False, silent = True, success=False)
     if res == 1:i1+=1
     elif res == 2:i2+=1
     elif res == -1:i2+=1
