@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:05:18 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/14 12:05:19 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/18 09:13:59 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int			ft_bzero(void *s, size_t n)
 {
 	size_t			i1;
 	unsigned char	*ps;
@@ -21,7 +21,7 @@ void	ft_bzero(void *s, size_t n)
 	ps = (unsigned char*)s;
 	if (n == 0)
 	{
-		return ;
+		return (1);
 	}
 	while (i1 < n)
 	{
@@ -29,4 +29,5 @@ void	ft_bzero(void *s, size_t n)
 		i1++;
 		ps++;
 	}
+	return (1);
 }

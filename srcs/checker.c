@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:09:39 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/14 15:14:51 by klekisha         ###   ########.fr       */
+/*   Updated: 2020/03/18 11:18:54 by u18188899        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,30 +48,51 @@ t_2_stcks				ft_exct_instrs(t_2_stcks stcks, char *instr)
 	return (stcks);
 }
 
+// int						main(int ac, char **av)
+// {
+// 	t_2_stcks				stcks;
+// 	char					*buff[1];
+// 	char					*tmp;
+// 	int						i;
+// 	int						size;
+
+// 	if (ft_is_dplcts(ac, av))
+// 		ft_error();
+// 	stcks = ft_gt_stcks(ac, av);
+// 	*buff = (char*)ft_memalloc(sizeof(char) * (SIZE + 1));
+// 	tmp = *buff;
+// 	size = SIZE;
+// 	while ((i = read(STDIN_FILENO, tmp, size)) != 0 && (
+// 		tmp = tmp + i))
+// 		size = size - i;
+// 	if (!ft_chk_instrs(buff))
+// 		ft_error();
+// 	stcks = ft_exct_instrs(stcks, *buff);
+// 	(ft_is_lst_srtd(stcks.a) && !stcks.b && (int)ft_lstlen(stcks.a) == --ac) ?
+// 		ft_putstr_fd("OK\n", STDOUT_FILENO) :
+// 		ft_putstr_fd("KO\n", STDOUT_FILENO);
+// 	free(*buff);
+// 	*buff = NULL;
+// 	exit(0);
+// }
+
 int						main(int ac, char **av)
 {
 	t_2_stcks				stcks;
-	char					*buff[1];
-	char					*tmp;
-	int						i;
-	int						size;
+	char					*buff;
 
+	if (ac == 1)
+		exit(1);
 	if (ft_is_dplcts(ac, av))
 		ft_error();
 	stcks = ft_gt_stcks(ac, av);
-	*buff = (char*)ft_memalloc(sizeof(char) * (SIZE + 1));
-	tmp = *buff;
-	size = SIZE;
-	while ((i = read(STDIN_FILENO, tmp, size)) != 0 && (
-		tmp = tmp + i))
-		size = size - i;
-	if (!ft_chk_instrs(buff))
-		ft_error();
-	stcks = ft_exct_instrs(stcks, *buff);
+	buff = (char*)ft_memalloc(sizeof(char) * SIZE);
+	while (ft_bzero(buff, SIZE) && read(STDIN_FILENO, buff, SIZE) && (
+			!ft_chk_instrs(&buff) ? ft_error() : 1))
+		stcks = ft_exct_instrs(stcks, buff);	
 	(ft_is_lst_srtd(stcks.a) && !stcks.b && (int)ft_lstlen(stcks.a) == --ac) ?
 		ft_putstr_fd("OK\n", STDOUT_FILENO) :
 		ft_putstr_fd("KO\n", STDOUT_FILENO);
-	free(*buff);
-	*buff = NULL;
+	// free(buff);
 	exit(0);
 }
