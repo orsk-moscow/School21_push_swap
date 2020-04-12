@@ -3,9 +3,14 @@
 
 # 0. Libraries import
 import os
+
+try:import numpy
+except:os.system("pip3 install -q numpy --user")
+
 import io
 import sys
 import subprocess
+
 from numpy import arange
 from numpy import array
 from numpy.random import MT19937, RandomState, SeedSequence, shuffle, randint, choice
@@ -27,19 +32,19 @@ def make_test_checker(array, stdin_input, errors_test = False, silent = True, su
                        stderr=subprocess.PIPE)
     if errors_test:
         if bytes.decode(p.stderr) != "Error\n":
-            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%                                 (l,argv,
+            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%(l,argv,
                                   bytes.decode(p.stdout),
                                   bytes.decode(p.stderr)))
             return -1
         if bytes.decode(p.stdout) != "":
-            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%                                 (l,argv,
+            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%(l,argv,
                                   bytes.decode(p.stdout),
                                   bytes.decode(p.stderr)))
             return -2
         if success: print("Test passed correctly, your checker program detected mistakes in argv properly")
         return 1
     if bytes.decode(p.stderr) != "":
-        if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%                             (l,argv,
+        if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%(l,argv,
                               bytes.decode(p.stdout),
                               bytes.decode(p.stderr)))
         return -1
@@ -55,7 +60,7 @@ def make_test_checker(array, stdin_input, errors_test = False, silent = True, su
     return -10
 
 def make_test_push_swap(array, errors_test = False, silent = True, success = False):
-    l1 = len(array)
+    l = len(array)
     argv = " ".join(map(str,array))
     args = "/push_swap " + argv
     args = os.path.abspath(".") + args
@@ -65,25 +70,36 @@ def make_test_push_swap(array, errors_test = False, silent = True, success = Fal
                        stderr=subprocess.PIPE)
     if errors_test:
         if bytes.decode(p.stderr) != "Error\n":
-            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"                                 &(l,argv,bytes.decode(p.stdout),bytes.decode(p.stderr)))
+            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%(l,argv,bytes.decode(p.stdout),bytes.decode(p.stderr)))
             return -1
         if bytes.decode(p.stdout) != "":
-            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"&                                 (l,argv,bytes.decode(p.stdout),bytes.decode(p.stderr)))
+            if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%(l,argv,bytes.decode(p.stdout),bytes.decode(p.stderr)))
             return -2
         if success: print("Test passed correctly, your push_swap program detected mistakes in argv properly")
         return 1
     if bytes.decode(p.stderr) != "":
-        if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"&                             (l,argv,bytes.decode(p.stdout),bytes.decode(p.stderr)))
+        if not silent: print("Test failed with %i arguments:\n%s\nSTDOUT output:\n%s\nSTDERR output:\n%s"%(l,argv,bytes.decode(p.stdout),bytes.decode(p.stderr)))
         return -1
     return p.stdout
 
+
+def feedback():
+	print("\nDo you have any errors or bugs?\nType \'yes\' or \'no\':")
+	orig_out = sys.stdout
+	while True:
+		sys.stdout = io.StringIO()
+		inp = input()
+		sys.stdout = orig_out
+		if inp == 'yes' or inp == 'no':
+			break
+	if inp == "yes":
+		print("\nPlease, fix bugs/errors and welcome back\nGood luck!\n")
+		sys.exit()
+	return None
+
+
 # 2. Making necessary compilations
-# build_dir = os.path.abspath("../libft")
 cwd = os.getcwd()
-try:
-	# os.chdir(build_dir)
-	os.system("cd libft && make re && make clean")
-finally:os.chdir(cwd)
 try:os.system("make re && make clean")
 finally:os.chdir(cwd)
 
@@ -136,17 +152,10 @@ for size in array_sizes:
         elif res == -1:i2+=1
         elif res == -2:i2+=1
         elif res == -10:i3+=1
-print("\nDo you have any bugs?\nType \'yes\' or \'no\':")
-orig_out = sys.stdout
-while True:
-    sys.stdout = io.StringIO()
-    inp = input()
-    sys.stdout = orig_out
-    if inp == 'yes' or inp == 'no':
-        break
-if inp == "yes":sys.exit()
 sum_ = i1+i2+i3
 print("Resume:\n%4i/%-4i tests passed\n%4i/%-4i tests failed\n%4i/%-4i tests finished unexpectedly"%(i1,sum_,i2,sum_,i3,sum_,))
+
+feedback()
 
 # 5. Test of non-numbers detection
 array_mistakes = ['a', 'one', '1-', 'tt', '@',  '1\\n', '\\n','\\n\\n\\n1']
@@ -198,18 +207,11 @@ for mistake in array_mistakes:
             if res == 1:i1+=1
             elif res == -1:i2+=1
             elif res == -2:i2+=1
-            elif res == -10:i3+=1
-print("\nDo you have any bugs?\nType \'yes\' or \'no\':")
-orig_out = sys.stdout
-while True:
-    sys.stdout = io.StringIO()
-    inp = input()
-    sys.stdout = orig_out
-    if inp == 'yes' or inp == 'no':
-        break
-if inp == "yes":sys.exit()                
+            elif res == -10:i3+=1          
 sum_ = i1+i2+i3
 print("Resume:\n%4i/%-4i tests passed\n%4i/%-4i tests failed\n%4i/%-4i tests finished unexpectedly"%(i1,sum_,i2,sum_,i3,sum_,))
+
+feedback()
 
 # 6. Test of ints sizes detection
 array_sizes = [1, 2, 3, 4, 5, 100, 500]
@@ -236,17 +238,9 @@ for size in array_sizes:
     elif res == -1:i2+=1
     elif res == -2:i2+=1
     elif res == -10:i3+=1
-print("\nDo you have any bugs?\nType \'yes\' or \'no\':")
-orig_out = sys.stdout
-while True:
-    sys.stdout = io.StringIO()
-    inp = input()
-    sys.stdout = orig_out
-    if inp == 'yes' or inp == 'no':
-        break
-if inp == "yes":sys.exit()
 sum_ = i1+i2+i3
 print("Resume:\n%4i/%-4i tests passed\n%4i/%-4i tests failed\n%4i/%-4i tests finished unexpectedly"%(i1,sum_,i2,sum_,i3,sum_,))
+
 print("3.2 Test for PUSH_SWAP binary")
 i1 = 0
 i2 = 0
@@ -266,19 +260,11 @@ for size in array_sizes:
     if res == 1:i1+=1
     elif res == -1:i2+=1
     elif res == -2:i2+=1
-    elif res == -10:i3+=1
-print("\nDo you have any bugs?\nType \'yes\' or \'no\':")
-orig_out = sys.stdout
-while True:
-    sys.stdout = io.StringIO()
-    inp = input()
-    sys.stdout = orig_out
-    if inp == 'yes' or inp == 'no':
-        break
-if inp == "yes":sys.exit()
-        
+    elif res == -10:i3+=1        
 sum_ = i1+i2+i3
 print("Resume:\n%4i/%-4i tests passed\n%4i/%-4i tests failed\n%4i/%-4i tests finished unexpectedly"%(i1,sum_,i2,sum_,i3,sum_,))
+
+feedback()
 
 # 7. Test of random numbers
 print("________________________________________________")
@@ -297,18 +283,12 @@ while cnt < 10:
         elif res == -2:i2+=1
         elif res == -10:i3+=1
     cnt += 1
-print("\nDo you have any bugs?\nType \'yes\' or \'no\':")
-orig_out = sys.stdout
-while True:
-    sys.stdout = io.StringIO()
-    inp = input()
-    sys.stdout = orig_out
-    if inp == 'yes' or inp == 'no':
-        break
-if inp == "yes":sys.exit()
 sum_ = i1+i2+i3
 print("Resume:\n%4i/%-4i tests passed\n%4i/%-4i tests failed\n%4i/%-4i tests finished unexpectedly"%(i1,sum_,i2,sum_,i3,sum_,))
 array_sizes = [2, 3, 4, 5, 100, 500]
+
+feedback()
+
 print("____________________________________________________")
 print("5. Valid tests for program Checker: array not sorted")
 i1 = 0
@@ -327,17 +307,10 @@ while cnt < 10:
             i2+=1
         elif res == -10:i3+=1
     cnt += 1
-print("\nDo you have any bugs?\nType \'yes\' or \'no\':")
-orig_out = sys.stdout
-while True:
-    sys.stdout = io.StringIO()
-    inp = input()
-    sys.stdout = orig_out
-    if inp == 'yes' or inp == 'no':
-        break
-if inp == "yes":sys.exit()
 sum_ = i1+i2+i3
 print("Resume:\n%4i/%-4i tests passed\n%4i/%-4i tests failed\n%4i/%-4i tests finished unexpectedly"%(i1,sum_,i2,sum_,i3,sum_,))
+
+feedback()
 
 # 8. Test of instructions (for checker binary)
 pairs = [
@@ -359,22 +332,16 @@ i2 = 0
 i3 = 0
 for array, command in pairs:
     command = bytes(command,encoding = 'ascii')
-    res = make_test_checker(array, command, errors_test = False, silent = True, success=False)
+    res = make_test_checker(array, command, errors_test = False, silent = False, success=False)
     if res == 2:i1+=1
     elif res == 1:i2+=1
-    elif res == -2:i2+=1
+    elif res == -1:i2+=1
     elif res == -10:i3+=1
-print("\nDo you have any bugs?\nType \'yes\' or \'no\':")
-orig_out = sys.stdout
-while True:
-    sys.stdout = io.StringIO()
-    inp = input()
-    sys.stdout = orig_out
-    if inp == 'yes' or inp == 'no':
-        break
-if inp == "yes":sys.exit()
 sum_ = i1+i2+i3
 print("Resume:\n%4i/%-4i tests passed\n%4i/%-4i tests failed\n%4i/%-4i tests finished unexpectedly"%(i1,sum_,i2,sum_,i3,sum_,))
+
+feedback()
+
 pairs = [
         [[21, 0, 564, 666, 8239], 'sa\npb\n'],
         [[21, 0, 564, 666, 8239], 'pb\npb\nsb\npa\n'],
@@ -397,19 +364,12 @@ for array, command in pairs:
     res = make_test_checker(array, command, errors_test = False, silent = True, success=False)
     if res == 1:i1+=1
     elif res == 2:i2+=1
-    elif res == -2:i2+=1
+    elif res == -1:i2+=1
     elif res == -10:i3+=1
-print("\nDo you have any bugs?\nType \'yes\' or \'no\':")
-orig_out = sys.stdout
-while True:
-    sys.stdout = io.StringIO()
-    inp = input()
-    sys.stdout = orig_out
-    if inp == 'yes' or inp == 'no':
-        break
-if inp == "yes":sys.exit()
 sum_ = i1+i2+i3
 print("Resume:\n%4i/%-4i tests passed\n%4i/%-4i tests failed\n%4i/%-4i tests finished unexpectedly"%(i1,sum_,i2,sum_,i3,sum_,))
+
+feedback()
 
 # 9. Test with no args
 array_nothing = []
@@ -438,17 +398,11 @@ for command in instructions:
     elif res == 2:i2+=1
     elif res == -2:i2+=1
     elif res == -10:i1+=1
-print("\nDo you have any bugs?\nType \'yes\' or \'no\':")
-orig_out = sys.stdout
-while True:
-    sys.stdout = io.StringIO()
-    inp = input()
-    sys.stdout = orig_out
-    if inp == 'yes' or inp == 'no':
-        break
-if inp == "yes":sys.exit()
+
 sum_ = i1+i2+i3
 print("Resume:\n%4i/%-4i tests passed\n%4i/%-4i tests failed\n%4i/%-4i tests finished unexpectedly"%(i1,sum_,i2,sum_,i3,sum_,))
+
+feedback()
 
 # 10. Test of pipeline from push_swap ands checker for array of 1-5 numbers
 array_sizes = range(1,6)
@@ -471,19 +425,13 @@ for size in array_sizes:
             else:i2+=1
             sum_instructions+=len(bytes.decode(instructions).split('\n')[:-1])
     list_amounts.append(sum_instructions//cnt)
-print("\nDo you have any bugs?\nType \'yes\' or \'no\':")
-orig_out = sys.stdout
-while True:
-    sys.stdout = io.StringIO()
-    inp = input()
-    sys.stdout = orig_out
-    if inp == 'yes' or inp == 'no':
-        break
-if inp == "yes":sys.exit()
+
 sum_ = i1+i2+i3
 print("Resume:\n%4i/%-4i tests passed\n%4i/%-4i tests failed\n%4i/%-4i tests finished unexpectedly"%(i1,sum_,i2,sum_,i3,sum_,))
 for size, amount in zip(array_sizes, list_amounts):
     print("\nAverage amount of instructions for array size %4i:%-5i"%(size,amount))
+
+feedback()
 
 # 11. Test of pipeline from push_swap and checker for array of 10-500 numbers
 array_sizes = [10,20,30,40,50,75,100,200,300,400,500]
@@ -509,17 +457,6 @@ for i, size in enumerate(array_sizes):
             else:i2+=1
             sum_instructions+=len(bytes.decode(instructions).split('\n')[:-1])
         cnt2+=1
-    if (i + 1) < len(array_sizes):
-        inp = ""
-        print("\nNext step is %i random numbers. Do you have any bugs?\nType \'yes\' or \'no\':"%(array_sizes[i + 1]))
-        orig_out = sys.stdout
-        while True:
-            sys.stdout = io.StringIO()
-            inp = input()
-            sys.stdout = orig_out
-            if inp == 'yes' or inp == 'no':
-                break
-        if inp == "yes": break
     list_amounts.append(sum_instructions//(cnt if cnt != 0 else 1))
 sum_ = i1+i2+i3
 print("Resume:\n%4i/%-4i tests passed\n%4i/%-4i tests failed\n%4i/%-4i tests finished unexpectedly"%(i1,sum_,i2,sum_,i3,sum_,))

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+         #
+#    By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/05 20:42:36 by u18188899         #+#    #+#              #
-#    Updated: 2020/03/14 15:19:57 by klekisha         ###   ########.fr        #
+#    Updated: 2020/04/12 15:42:17 by u18188899        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,10 +72,10 @@ OBJECTS_2	= $(OBJECTS_2_LIST)
 
 all: $(NAME_1) $(NAME_2)
 
-$(NAME_1): $(LIBFT) $(OBJECTS_1)
+$(NAME_1): $(LIBFT) $(OBJECTS_1) $(HEADERS)
 	@$(CC) $(FLAGS) $(LIBFT) $(INC) $(OBJECTS_1) -o $(NAME_1)
 
-$(NAME_2): $(LIBFT) $(OBJECTS_2)
+$(NAME_2): $(LIBFT) $(OBJECTS_2) $(HEADERS)
 	@$(CC) $(FLAGS) $(LIBFT) $(INC) $(OBJECTS_2) -o $(NAME_2)
 
 $(LIBFT):
