@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:10:43 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/18 11:46:35 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/14 15:20:17 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,8 @@ void					ft_lstdelone_1(t_lst_p_s **alst,
 						void (*del)(int, int, int));
 void					ft_del_1(int num, int ind, int res);
 void					ft_del(void *content, size_t content_size);
-int						ft_error(void);
-int						ft_error_1(void);
+void					ft_error(void);
+void					ft_error_1(void);
 void					ft_free(t_list *stck_a, t_list *stck_b);
 void					ft_prnt_rr_n(int nb, int na);
 void					ft_prnt_rrr_n(int nb, int na);

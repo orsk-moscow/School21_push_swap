@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+        */
+/*   By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:09:46 by klekisha          #+#    #+#             */
-/*   Updated: 2020/03/18 10:57:22 by u18188899        ###   ########.fr       */
+/*   Updated: 2020/03/14 15:07:35 by klekisha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@ void					ft_del(void *content, size_t content_size)
 	return ;
 }
 
-int						ft_error(void)
+void					ft_error(void)
 {
 	ft_putstr_fd("Error\n", (int)STDERR_FILENO);
 	exit(-1);
-	return (1);
 }
 
 int						ft_is_dplcts(int ac, char **av)
@@ -56,9 +55,8 @@ int						ft_is_dplcts(int ac, char **av)
 	return (0);
 }
 
-int						ft_error_1(void)
+void					ft_error_1(void)
 {
 	ft_putstr_fd("Error\n", (int)STDERR_FILENO);
 	exit(-1);
-	return (1);
 }

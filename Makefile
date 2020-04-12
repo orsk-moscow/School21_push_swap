@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: u18188899 <u18188899@student.42.fr>        +#+  +:+       +#+         #
+#    By: klekisha <klekisha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/05 20:42:36 by u18188899         #+#    #+#              #
-#    Updated: 2020/03/18 12:00:04 by u18188899        ###   ########.fr        #
+#    Updated: 2020/03/14 15:19:57 by klekisha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,7 +97,3 @@ fclean: clean
 re:
 	@$(MAKE) fclean
 	@$(MAKE) all
-
-test_c:
-	@$(CC) -g ./libft/*.c $(addprefix $(SRCDIR), $(SOURCES_1)) \
-		-o $(NAME_1)
